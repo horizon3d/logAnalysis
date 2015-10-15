@@ -14,6 +14,9 @@ class event(object):
    def __del__(self):
       pass
 
+   def get(self):
+      return self.data
+
    def convert(self, log):
 
       if __parser is None:
@@ -35,3 +38,7 @@ class event(object):
       self.data['fileHeader'] = __parser.fileHeader
 
       __debug('event: %s', str(self.data))
+      return self.data
+
+   def go(self, log):
+      pass

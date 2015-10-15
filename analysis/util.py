@@ -1,10 +1,11 @@
 #! /usr/bin/python
 
-from analysis.parser import (parser, tsuParser)
-from analysis.rule import (tsuRule, uuRule)
+from parser import parser
+from tsu import tsu
 import json
-from analysis.event import event
-from analysis.task import task
+from event import event
+from task import task
+import re
 
 def __debug(fmt, *args):
    """print log when debug
@@ -14,8 +15,17 @@ def __debug(fmt, *args):
 
 def text_to_json(log):
 
-   e = new event()
-   e.convert(log)
+   cmd_pattern = re.compile(r'>([a-zA-Z]+) ', re.I)
+   obj = cmd_pattern.search(log)
+   if obj:
+      cmd = obj.group(1)
+
+   if cmd == 'tsu':
+      e = new tsu(None, log)
+   if cmd == 'detr':
+      e = new detr(log)
+   if cmd == 'rt':
+      e = new rt(log)
 
    return e
 
@@ -32,13 +42,13 @@ __dbInited  = False
 
 def insert_to_db(log):
 
-   if !__dbInited and __dbAdapter is None:
-      __dbAdapter = new adapter()
-      __dbInited  = True
+   #if !__dbInited and __dbAdapter is None:
+   #   __dbAdapter = new adapter()
+   #   __dbInited  = True
 
    event = text_to_json(log)
 
-   self.__dbAdapter.insert('log', event)
+   self.__dbAdapter.insert('log', event.data)
 """
    if event.data['cmd'].contains('tsu'):
       tsuRule = tsuParser()

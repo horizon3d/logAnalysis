@@ -1,6 +1,6 @@
 #! /usr/bin/python
 
-from analysis.tsuRule import tsuRule
+from analysis.tsu import tsu
 from analysis.db import adapter
 from analysis.util import *
 
