@@ -4,6 +4,7 @@
 import json
 from event import (event, tsu, detr, rt)
 import re
+from helper import *
 
 def __debug(fmt, *args):
    """print log when debug

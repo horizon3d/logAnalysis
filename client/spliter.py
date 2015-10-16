@@ -1,6 +1,9 @@
 #! /usr/bin/python
 # -*- coding:utf-8 -*-
 
+import re
+from helper import *
+
 class spilter(object):
    def __init__(self):
       pass

@@ -1,6 +1,10 @@
 #! /usr/bin/python
 # -*- coding:utf-8 -*-
 
+import time
+import re
+from helper import *
+
 month = { 'January':'01', 'February':'02', 'March':'03', 'April':'04', 
           'May':'05', 'June':'06', 'July':'07', 'August':'08',
           'September':'09', 'October':'10', 'November':'11', 'December':'12' }
@@ -66,7 +70,7 @@ class event(object):
       return flag
 
    def append(self, k, v):
-      if self.__ctx[key] not None:
+      if self.__ctx[key] is not None:
          __debug('key[%s] exist, value: %s, it will be replaced by new value: %s', key, self.__ctx[key], value)
 
       self.__ctx[key] = value

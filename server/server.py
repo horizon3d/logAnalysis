@@ -2,13 +2,14 @@
 
 import socket
 import thread
+from util import *
 
 class server(object):
    def __init__(self, port):
       self.__sock = None
 
    def __del__(self):
-      if self.__sock not None:
+      if self.__sock is not None:
          self.close()
 
    def close(self):

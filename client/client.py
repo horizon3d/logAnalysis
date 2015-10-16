@@ -4,7 +4,7 @@
 import re
 from connection import connection
 from spliter import spliter
-from util import text_to_json
+from helper import *
 
 class client(object):
    def __init__(self, host, port):

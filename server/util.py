@@ -3,9 +3,11 @@
 
 import json
 from event import (event, tsu, detr, rt)
+from tsuTask import tsuTask
+from db import adpter
 import re
 
-__dbAdapter = None
+__dbAdapter = new adpter()
 __dbInited  = False
 
 
@@ -42,7 +44,7 @@ def assign_rule(data):
    if cr is None:
       cr = __dbAdapter.query('user', {'userName':'default'}})
 
-   if cr not None:
+   if cr is not None:
       rec = cr.next()
       usrGroups = rec['ruleGroup']
 """
@@ -76,12 +78,14 @@ def thread_entry(connName, conn):
          __debug('socket error occurs when receiving packet: %r', e)
          break
       
-      if data not None:
+      if data is not None:
          __dbAdapter.insert('log', data)
 
          assign_rule(task)
-         if task not None:
-            task.go()
+         if task is not None:
+            result = task.go()
+            if not result['outputResult']:
+               __dbAdapter.insert('alarm', ret)
 
    __debug('end thread, from [%s]', connName)
 

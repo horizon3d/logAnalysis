@@ -3,7 +3,7 @@
 
 import socket
 import json
-from helper import *
+from util import *
 
 class connection(object):
    def __init__(self, sock = None):

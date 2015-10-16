@@ -1,9 +1,9 @@
 #! /usr/bin/python
 
 import re
-import copy
 from task import baseTask
 from error import (analyError, dbError)
+from util import *
 
 funcMap = {
             'CheckValid':'checkValid',
@@ -119,7 +119,7 @@ class tsuTask(baseTask):
                                          }
                                  )
       
-      if cr not None:
+      if cr is not None:
          detr = cr.next()
          self.append('detr', detr)
       else:
@@ -130,12 +130,12 @@ class tsuTask(baseTask):
                                            'cmdTime':{'$lt':self.data['cmdTime']}
                                          }
                                  )
-      if cr not None:
+      if cr is not None:
          rt = cr.next()
          self.append('rt', rt)
 
    def append(self, key, value):
-      if self.__store[key] not None:
+      if self.__store[key] is not None:
          __debug('key[%s] exist, value: %s, it will be replaced by new value: %s', key, self.__store[key], value)
 
       self.__store[key] = value
@@ -154,7 +154,7 @@ class tsuTask(baseTask):
          raise analyError('hit forbbiden element', self.data)
 
    def check_detr_exist(self):      
-      if self.__store['detr'] not None:
+      if self.__store['detr'] is not None:
          pass
       else:
          raise analyError('detr option is not done before!')
@@ -175,14 +175,14 @@ class tsuTask(baseTask):
    def check_detr_date(self):
       if self.__store['detr']['time'] < self.data['cmdTime']:
          raise analyError('ticket is expired!')
-
+"""
    def __check_rt(self):
       cr = self.__dbAdapter.query('log', { 'user':self.data['user'], 'pnr':self.__detr_pnr
                                            'cmd':{'$regex':'rt', '$options':'I'},
                                            'cmdTime':{'$lt':self.data['cmdTime']}
                                          }
                                  )
-      if cr not None:
+      if cr is not None:
          rt = cr.next()
          legal_pattern = re.compile('NO PNR'|'THIS PNR WAS ENTIRELY CANCELLED')
          obj = legal_pattern.search(rt['message'])
@@ -198,10 +198,10 @@ class tsuTask(baseTask):
                raise analyError('ticket is still valid', rt)
       else:
          raise analyError('cannot find rt log before tsu', self.data)
-
+"""
    def check_rt_exist(self):
       rt = self.__store['rt']
-      if rt not None:
+      if rt is not None:
          pass
       else:
          raise analyError('rt option is not done before!')
@@ -240,7 +240,7 @@ tsuRule = {
    'ruleName':'TSU test',
    'stage':{
       '1':{
-         'function':[ {'entry':'CheckValid', 'return':{'illegal':'ticket contais forbbiden flag!'}}},
+         'function':[ {'entry':'CheckValid', 'return':{'illegal':'ticket contais forbbiden flag!'}},
                       {'entry':'CheckDETRExist', 'return':{'illegal':'detr option is not exist!'}},
                       {'entry':'CheckTicketState', 'return':{'illegal':'ticket is used!'}},
                       {'entry':'CheckTicketDate', 'return':{'illegal':'ticket is expired!'}} ],
@@ -255,6 +255,8 @@ tsuRule = {
       }
    }
 }
+
+userName:'default','ruleGroup':['1']
 """
       
       result = {}
