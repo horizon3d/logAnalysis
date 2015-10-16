@@ -92,8 +92,22 @@ class tsu(event):
    def __del__(self):
       pass
 
+   def __append_ticket_index(self, log):
+      pattern = re.compile(r'>[\s]*tsu ((\w{1})[.*/:\w]+)', re.I)
+      match = pattern.findall(log)
+      if match:
+         tid = match[0][1]
+         __debug('ticket id is: %s', tid)
+         self.append('index', tid)
+         state = match[0][0]
+         __debug('state is: %s', state)
+         self.append('state', state)
+
+   def __deep_parse(self):
+
+
    def to_json(self, log):
-      pass
+      self.__deep_parse()
 
 class detr(event):
    def __init__(self):

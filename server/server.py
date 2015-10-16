@@ -3,6 +3,7 @@
 import socket
 import thread
 from util import *
+import connecti
 
 class server(object):
    def __init__(self, port):

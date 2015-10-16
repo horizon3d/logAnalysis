@@ -1,0 +1,56 @@
+---------------------------User: chengchen   SID: 55---------------------------
+2015 September 22, Tuesday, 16:52:38
+>detr tn 9999627710262 
+ DETR:TN 9999627710262                                                         
+ISSUED BY: AIR CHINA                 ORG/DST: BJS/SHA                 BSP-D     
+E/R: Ç©×ª¸ÄÆÚÍËÆ±ÊÕ·Ñ                                                           
+TOUR CODE: CA/Z00                                                               
+PASSENGER: ·ëÖÇ·æ                                                               
+EXCH:                               CONJ TKT:                                   
+O FM:1PEK CA    1831  A 25SEP 0730 OK A/CA1T1514 25SEP5/25SEP5 40K OPEN FOR USE 
+     T3T2 RL:PF386J  /JWLD381E                                                  
+  TO: SHA                                                                       
+FC: 25SEP15PEK CA SHA2230.00CNY2230.00END                                       
+FARE:           CNY 2230.00|FOP:CASH                                            
+TAX:            CNY 50.00CN|OI:                                                +
+                                                                                
+
+2015 September 22, Tuesday, 16:52:33
+>RT PF386J
+ 1.·ëÖÇ·æ PF386J                                                                
+ 2.  CA1831 A   FR25SEP  PEKSHA RR1   0730 0940      E T3T2                     
+ 3.T SHA/SHA/T-021-34064880-454360/SHA HUA CHENG SOUTHWEST TRA                  
+ 4.T SHA/VEL/SHAO/JI HONG                                                       
+ 5.SSR FOID CA HK1 NI440181198803088133/P1                                      
+ 7.SSR FQTV CA HK1 PEKSHA 1831 A25SEP CA003237953586*S/S/P1                     
+ 8.OSI CA CTC 021-51069999X454360                                               
+ 9.OSI CA CTCT18321561370                                                       
+10.OSI CA TKNA TICTKED  
+
+2015 September 22, Tuesday, 16:52:40
+>TSU 1/OPEN
+ACCEPTED
+
+
+2015 September 22, Tuesday, 16:47:30
+>DA
+A*      22150   19SEP   1622    9   PEK112                                      
+B       AVAIL                                                                   
+C       AVAIL                                                                   
+D       AVAIL                                                                   
+E       AVAIL                                                                   
+PID   = 15792   HARDCOPY  = 1112                                                
+TIME =  1649    DATE =  19SEP     HOST = CAAC                                   
+AIRLINE = CA    SYSTEM =  TST_D1  APPLICATION =  1  
+
+
+2015 September 22, Tuesday, 16:47:30
+>DA
+A*      22150   19SEP   1622    9   PEK112                                      
+B       AVAIL                                                                   
+C       AVAIL                                                                   
+D       AVAIL                                                                   
+E       AVAIL                                                                   
+PID   = 15792   HARDCOPY  = 1112                                                
+TIME =  1649    DATE =  19SEP     HOST = CAAC                                   
+AIRLINE = CA    SYSTEM =  TST_D1  APPLICATION =  1           

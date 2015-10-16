@@ -125,7 +125,10 @@ class tsuTask(baseTask):
       else:
          return
 
-      cr = self.__dbAdapter.query('log', { 'user':self.data['user'], 'pnr':detr['pnr']
+      index = int(self.__data['index'])
+      ticket = detr['ticket'][index - 1]
+
+      cr = self.__dbAdapter.query('log', { 'user':self.data['user'], 'pnr':ticket['pnr']
                                            'cmd':{'$regex':'rt', '$options':'I'},
                                            'cmdTime':{'$lt':self.data['cmdTime']}
                                          }
@@ -144,13 +147,10 @@ class tsuTask(baseTask):
       return self.__store[key];
 
    def check_forbbiden(self):
-      cmd_pattern = re.compile(r'>[\s]*tsu (\d{1})([/\S]*/open)', re.I)
-      obj = cmd_pattern.search(self.data['message'])
-      if obj:
-         self.append('tidx', int(obj.group(1)))
-         self.__ticket_addition = obj.group(2)
+      if not self.__data['index'].isdigit():
+         raise analyError('hit forbbiden element', self.data)
 
-      if re.match(r'/([OFECVR]|NM)', self.__ticket_addition, re.I):
+      if re.match(r'(\d{1}/[OFECVR]/)|NM', self.__data['state'], re.I):
          raise analyError('hit forbbiden element', self.data)
 
    def check_detr_exist(self):      
@@ -163,7 +163,8 @@ class tsuTask(baseTask):
       detr = self.__store['detr']
       tickets = detr['ticket']
       if len(tickets) > 0:
-         ticket = tickets[self.__store['tid'] - 1];
+         index = int(self.__data['index'])
+         ticket = tickets[index - 1];
          state = ticket['state']
          if state.find('OPEN FOR USE'):
             pass
