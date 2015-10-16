@@ -5,83 +5,143 @@ import copy
 from task import baseTask
 from error import (analyError, dbError)
 
-funcMap = { 'CheckValid':'checkValid',
+funcMap = {
+            'CheckValid':'checkValid',
             'CheckDETRExist':'checkDETRExist',
             'CheckTicketState':'checkTicketState',
-            'CheckTicketDate':'checkTicketDate'
+            'CheckTicketDate':'checkTicketDate',
+            'CheckRTExist':'checkRTExist',
+            'CheckRTMatch':'checkRTMatch'
           }
+
 def checkValid(task, result):
    try:
-      res = task.check_forbbiden()
-   except e:
-      result['errmsg'] = 'hit forbbiden element'
-      result['msg'] = task.get()['message']
+      task.check_forbbiden()
+   except analyError, e:
+      result['cmdReturn'] = 'illegal'
+      result['outputReturn'] = e.detail
+      result['user'] = task.get('user')
+      result['sid']  = task.get('sid')
+      result['cmdTime'] = task.get('cmdTime')
+      result['message'] = task.get('message')
+      result['relatedlog'] = []
+      result['cmdInput'] = task.get('cmdInput')
       raise
-
-   if res not None:
-      # 
-
 
 def checkDETRExist(task, result):
    try:
       task.check_detr_exist()
    except analyError, e:
+      result['cmdReturn'] = 'illegal'
+      result['outputReturn'] = e.detail
+      result['user'] = task.get('user')
+      result['sid']  = task.get('sid')
+      result['cmdTime'] = task.get('cmdTime')
+      result['message'] = task.get('message')
+      result['relatedlog'] = []
+      result['cmdInput'] = task.get('cmdInput')
       raise
-
-   if res not None:
-      # 
 
 def checkTicketState(task, result):
    try:
       task.check_detr_state()
    except analyError, e:
+      result['cmdReturn'] = 'illegal'
+      result['outputReturn'] = e.detail
+      result['user'] = task.get('user')
+      result['sid']  = task.get('sid')
+      result['cmdTime'] = task.get('cmdTime')
+      result['message'] = task.get('message')
+      result['relatedlog'] = [task.get_related_log('detr')]
+      result['cmdInput'] = task.get('cmdInput')
       raise
-
-   if res not None:
-      # 
 
 def checkTicketDate(task, result):
    try:
       task.check_detr_date()
    except analyError, e:
+      result['cmdReturn'] = 'illegal'
+      result['outputReturn'] = e.detail
+      result['user'] = task.get('user')
+      result['sid']  = task.get('sid')
+      result['cmdTime'] = task.get('cmdTime')
+      result['message'] = task.get('message')
+      result['relatedlog'] = [task.get_related_log('detr')]
+      result['cmdInput'] = task.get('cmdInput')
       raise
-
-   if res not None:
-      # 
 
 def checkRTExist(task, result):
    try:
       task.check_rt_exit()
    except analyError, e:
+      result['cmdReturn'] = 'illegal'
+      result['outputReturn'] = e.detail
+      result['user'] = task.get('user')
+      result['sid']  = task.get('sid')
+      result['cmdTime'] = task.get('cmdTime')
+      result['message'] = task.get('message')
+      result['relatedlog'] = [task.get_related_log('detr')]
+      result['cmdInput'] = task.get('cmdInput')
       raise
-
-   if res not None:
-      # 
 
 def checkRTMatch(task, result):
    try:
       task.check_rt_match()
    except analyError, e:
+      result['cmdReturn'] = 'illegal'
+      result['outputReturn'] = e.detail
+      result['user'] = task.get('user')
+      result['sid']  = task.get('sid')
+      result['cmdTime'] = task.get('cmdTime')
+      result['message'] = task.get('message')
+      result['relatedlog'] = [task.get_related_log('detr'), task.get_related_log('rt')]
+      result['cmdInput'] = task.get('cmdInput')
       raise
 
-class tsu(baseTask):
+def endAnalysis(result):
 
-   def __init__(self, adapter, log):
-      super(baseTask, self).__init__()
-      self.convert(log)
+
+class tsuTask(baseTask):
+
+   def __init__(self, adapter, data):
+      super(baseTask, self).__init__(data)
 
       self.__dbAdapter = adapter
-      self.__time = self.data['cmdTime']
       self.__store = {}
 
    def __del__(self):
       pass
+
+   def __prepare(self):
+      cr = self.__dbAdapter.query('log', { 'user':self.data['user'],
+                                           'cmd':{'$regex':'detr', '$options':'I'}, # cmdName --> 'detr'
+                                           'cmdTime':{'$lt':self.data['cmdTime']}
+                                         }
+                                 )
+      
+      if cr not None:
+         detr = cr.next()
+         self.append('detr', detr)
+      else:
+         return
+
+      cr = self.__dbAdapter.query('log', { 'user':self.data['user'], 'pnr':detr['pnr']
+                                           'cmd':{'$regex':'rt', '$options':'I'},
+                                           'cmdTime':{'$lt':self.data['cmdTime']}
+                                         }
+                                 )
+      if cr not None:
+         rt = cr.next()
+         self.append('rt', rt)
 
    def append(self, key, value):
       if self.__store[key] not None:
          __debug('key[%s] exist, value: %s, it will be replaced by new value: %s', key, self.__store[key], value)
 
       self.__store[key] = value
+
+   def get_related_log(self, key):
+      return self.__store[key];
 
    def check_forbbiden(self):
       cmd_pattern = re.compile(r'>[\s]*tsu (\d{1})([/\S]*/open)', re.I)
@@ -93,54 +153,24 @@ class tsu(baseTask):
       if re.match(r'/([OFECVR]|NM)', self.__ticket_addition, re.I):
          raise analyError('hit forbbiden element', self.data)
 
-   """def __check_detr(self):
-
-      #funcDict = {'strMatch':get_str, 'dateCmp':get_date}
-      cr = self.__dbAdapter.query('log', { 'user':self.data['user'],
-                                           'cmd':{'$regex':'detr', '$options':'I'}, # cmdName --> 'detr'
-                                           'cmdTime':{'$lt':self.data['cmdTime']}
-                                         }
-                                 )
-      
-      if cr not None:
-         detr = cr.next()
-         tickets = detr['ticket']
-         ticket = tickets[self.__store['tid'] - 1];
-         state = ticket['state']
-         if state.find('USED'):
-            raise analyError('ticket has been already used', detr)
-         elif state.find('OPEN FOR USED'):
-            # OK, ticket is legal
-            self.append('detr', detr)
-      else:
-         raise analyError('DETR option was not executed before tsu option', detr)
-
-      if self.__detr['time'] < self.__time:
-         raise analyError('ticket is over time', detr)
-   """
-
-   def check_detr_exist(self):
-      cr = self.__dbAdapter.query('log', { 'user':self.data['user'],
-                                           'cmd':{'$regex':'detr', '$options':'I'}, # cmdName --> 'detr'
-                                           'cmdTime':{'$lt':self.data['cmdTime']}
-                                         }
-                                 )
-      
-      if cr not None:
-         detr = cr.next()
-         self.append('detr', detr)
+   def check_detr_exist(self):      
+      if self.__store['detr'] not None:
+         pass
       else:
          raise analyError('detr option is not done before!')
 
    def check_detr_state(self):
-
       detr = self.__store['detr']
       tickets = detr['ticket']
       if len(tickets) > 0:
          ticket = tickets[self.__store['tid'] - 1];
          state = ticket['state']
-         if state.find('USED'):
+         if state.find('OPEN FOR USE'):
+            pass
+         elif state.find('USED')
             raise analyError('ticket is used!')
+         else:
+            __debug('cannot find \"OPEN FOR USE\" from ticket :%s', str(ticket))
 
    def check_detr_date(self):
       if self.__store['detr']['time'] < self.data['cmdTime']:
@@ -170,32 +200,31 @@ class tsu(baseTask):
          raise analyError('cannot find rt log before tsu', self.data)
 
    def check_rt_exist(self):
-      detr = self.__store['detr']
-      tickets = detr['ticket']
-      if len(tickets) > 0:
-         ticket = tickets[self.__store['tid'] - 1];
-
-      cr = self.__dbAdapter.query('log', { 'user':self.data['user'], 'pnr': ticket['pnr']
-                                           'cmd':{'$regex':'rt', '$options':'I'},
-                                           'cmdTime':{'$lt':self.data['cmdTime']}
-                                         }
-                                 )
-      
-      if cr not None:
-         rt = cr.next()
-         self.append('rt', rt)
+      rt = self.__store['rt']
+      if rt not None:
+         pass
       else:
          raise analyError('rt option is not done before!')
 
    def check_rt_match(self):
       detr = self.__store['detr']
-      tickets = detr['ticket']
-      if len(tickets) > 0:
-         ticket = tickets[self.__store['tid'] - 1];
+      ticket = tickets[self.__store['tid'] - 1];
 
-         ssrs = self.__store['']
+      rt = self.__store['rt']
+      ssrs = rt['ssrtkne']
+      if len(tickets) > 0:
+         for ssr in ssrs:
+            if ticket['tn'] == ssr['tn'] and
+               ticket['comp'] == ssr['comp'] and ticket['plane'] == ssr['plane'] and
+               ticket['magic'] == ssr['magic'] and ticket['date'] == ssr['date'] and
+               ticket['idx'] == ssr['idx'] :
+               raise analyError('ticket is still valid', rt)
+      else:
+         pass
+
 
    def go(self):
+      self.__prepare()
       self.__map()
 
 """
@@ -228,7 +257,6 @@ tsuRule = {
 }
 """
       
-
       result = {}
       for stageName in self.__stage_dict:
          stage = self.__rule['stage'][stageName]
@@ -245,5 +273,4 @@ tsuRule = {
             __debug('catch an exception: %s', r.detail)
             break
 
-      endAnalysis(result)
-      __debug('final result: %s', res)
+   return result

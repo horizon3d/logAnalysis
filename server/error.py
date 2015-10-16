@@ -21,7 +21,7 @@ class analyError(Exception):
 
    @property
    def detail(self):
-      retrn __repr__()
+      retrn self.__error
 
 class dbError(exception):
    def __init__(self, code, err):

@@ -16,15 +16,6 @@ class spilter(object):
 
       return usr, sid
 
-   def __match_date(self, line):
-      match = False
-      pattern = re.compile(r'(20\d{2}) ([a-zA-Z]+) (\d+), ([a-zA-Z]+), (\d+):(\d+):(\d+) (>[\s\w=-:/]+)', re.I)
-      obj = pattern.search(line)
-      if obj :
-         match = True
-
-      return match
-
    def spilt(self, filename):
       try:
          fd = open(filename, 'r')
@@ -39,7 +30,7 @@ class spilter(object):
             if len(line) and match:
                logs.append(log)
                log = ''
-            log = log + line
+            log += line
 
       finally:
          fd.close()

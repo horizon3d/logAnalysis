@@ -39,6 +39,24 @@ class event(object):
          __debug('return: %s', rtn)
       return rtn
 
+   def __get_input(self, log):
+      pattern = re.compile(r'>([\w /,:]+[\w])[\s]*\n([\w /,:]+[\w])', re.I)
+      match = pattern.search(log):
+      if match:
+         cmd1 = match.group(1)
+         cmd2 = match.group(2)
+         self.cmdInput = cmd1
+
+         cmp1 = re.split('[:/, ]', cmd1)[0].upper()
+         cmp2 = re.split('[:/, ]', cmd2[0:])[0].upper()
+
+         if cmp1 == cmp2:
+            cmd = cmd2[1:]
+         else:
+            cmd = cmd1.upper()
+         __debug('input: %s', cmd)
+      return cmd
+
    def __get_flag(self, log):
       flag = True
       pattern = re.compile(r'\+[\s]*&', re.I)
@@ -55,6 +73,7 @@ class event(object):
 
    def parse(self, log):
       self.append('cmdTime', self.__get_time(log))
+      self.append('cmdInput', self.__get_input(log))
       self.append('cmdReturn', self.__get_return(log))
       self.append('flag', self.__get_flag(log))
       self.append('message', log)
@@ -166,7 +185,7 @@ class rt(event):
          tnke['idx']   = item[5]
          tknes.append(tnke)
 
-      self.append('ssktkne', tknes)
+      self.append('ssrtkne', tknes)
 
    def __deep_parse(self, log):
       self.__append_tkne(log)
