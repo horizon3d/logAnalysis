@@ -2,14 +2,11 @@
 # -*- coding:utf-8 -*-
 
 import json
-from event import (event, tsu, detr, rt)
 from tsuTask import tsuTask
-from db import adpter
+#from db import adpter
 import re
 
-__dbAdapter = new adpter()
-__dbInited  = False
-
+#__dbAdapter = new adpter()
 
 userDict = {}
 def load():
@@ -30,24 +27,24 @@ def trag(rule, cmdName):
 
 def createTask(cmd, rule, data):
    if cmd == 'TSU':
-      task = new tsuTask(rule, data)
+      task = tsuTask(rule, data)
 
-def assign_rule(data):
+#def assign_rule(data):
 
-   if __dbAdapter is None:
-      __debug('Error: db connector is not initialized')
-      abort()
-      return
+   #if __dbAdapter is None:
+   #   __debug('Error: db connector is not initialized')
+   #   abort()
+   #   return
 
-   cond = {'userName':data['user']}
-   cr = __dbAdapter.query('user', cond)
-   if cr is None:
-      cr = __dbAdapter.query('user', {'userName':'default'}})
+   #cond = {'userName':data['user']}
+   #cr = __dbAdapter.query('user', cond)
+   #if cr is None:
+   #   cr = __dbAdapter.query('user', {'userName':'default'}})
 
-   if cr is not None:
-      rec = cr.next()
-      usrGroups = rec['ruleGroup']
-"""
+   #if cr is not None:
+   #   rec = cr.next()
+   #   usrGroups = rec['ruleGroup']
+   """
    tasks = []
    for userGroup in usrGroups:
       rules = __dbAdapter.query('rule', {'ruleGroup':userGroup})
@@ -56,18 +53,18 @@ def assign_rule(data):
             task = createTask(data['cmd'], rule, data)
             tasks.append(task)
    return tasks
-"""
-      for userGroup in usrGroups:
-      rules = __dbAdapter.query('rule', {'ruleGroup':userGroup})
-      for rule in rules:
-         if trag(rule, data['cmd'])
-            task = createTask(data['cmd'], rule, data)
-            return task
+   """
+#      for userGroup in usrGroups:
+#      rules = __dbAdapter.query('rule', {'ruleGroup':userGroup})
+#      for rule in rules:
+#         if trag(rule, data['cmd'])
+#            task = createTask(data['cmd'], rule, data)
+#            return task
 
-def execTask(task):
-   ret = task.go()
-   if !ret['result']:
-      __dbAdapter.insert('alarm', ret)
+#def execTask(task):
+#   ret = task.go()
+#   if !ret['result']:
+#      __dbAdapter.insert('alarm', ret)
 
 def thread_entry(connName, conn):
    __debug('start new thread, from [%s]', connName)
@@ -79,13 +76,14 @@ def thread_entry(connName, conn):
          break
       
       if data is not None:
-         __dbAdapter.insert('log', data)
+         print(data)
+         #__dbAdapter.insert('log', data)
 
-         assign_rule(task)
-         if task is not None:
-            result = task.go()
-            if not result['outputResult']:
-               __dbAdapter.insert('alarm', ret)
+         #assign_rule(task)
+         #if task is not None:
+         #   result = task.go()
+         #   if not result['outputResult']:
+         #      __dbAdapter.insert('alarm', ret)
 
    __debug('end thread, from [%s]', connName)
 

@@ -25,8 +25,8 @@ class connection(object):
       try:
          self.__sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
          self.__sock.connect(addr)
-      except:
-         __debug('Failed to connect to %s:%d', host, port)
+      except socket.error, e:
+         pass
 
    def send(self, data):
       if not data:
@@ -40,11 +40,14 @@ class connection(object):
       while sent < length:
          sendlen = self.__sock.send(toSend[sent:])
          sent += sendlen
+      __debug('send %d bytes: %s', str(data))
 
    def recv(self):
       size = int(self.__sock.recv(4))
-      data = self.__sock.recv(size - 4)
-      return json.loads(data)
+      jdata = self.__sock.recv(size - 4)
+      data = json.loads(jdate)
+      __debug('received %d bytes: %s', str(data))
+      return data
 
    def close(self):
       self.__sock.close()

@@ -17,7 +17,6 @@ class event(object):
    def __init__(self, cmdName):
       self.__ctx = {}
       self.__ctx['cmd'] = cmdName
-      self.parse()
 
    def __del__(self):
       pass
@@ -33,11 +32,11 @@ class event(object):
          ymd = otime[0]
          for (k, v) in month.items():
             ymd = ymd.replace(k,v)
-      return time.mktime(time.strptime((ymd + otime[2]), '%Y %m %d %H %M %S'))
+      return time.mktime(time.strptime((ymd + otime[2]), '%Y %m %d %H:%M:%S'))
 
    def __get_return(self, log):
       pattern = re.compile(r'[\w /,:]+[\w][\s]*\n(.*)', re.I)
-      match = pattern.search(log):
+      match = pattern.search(log)
       if match:
          rtn = match.group(1)
          __debug('return: %s', rtn)
@@ -45,7 +44,7 @@ class event(object):
 
    def __get_input(self, log):
       pattern = re.compile(r'>([\w /,:]+[\w])[\s]*\n([\w /,:]+[\w])', re.I)
-      match = pattern.search(log):
+      match = pattern.search(log)
       if match:
          cmd1 = match.group(1)
          cmd2 = match.group(2)
@@ -58,7 +57,7 @@ class event(object):
             cmd = cmd2[1:]
          else:
             cmd = cmd1.upper()
-         __debug('input: %s', cmd)
+      #__debug('input: %s', cmd)
       return cmd
 
    def __get_flag(self, log):
@@ -70,10 +69,10 @@ class event(object):
       return flag
 
    def append(self, k, v):
-      if self.__ctx[key] is not None:
-         __debug('key[%s] exist, value: %s, it will be replaced by new value: %s', key, self.__ctx[key], value)
+      if self.__ctx.get(k) is not None:
+         __debug('key[%s] exist, value: %s, it will be replaced by new value: %s', k, self.__ctx[k], v)
 
-      self.__ctx[key] = value
+      self.__ctx[k] = v
 
    def parse(self, log):
       self.append('cmdTime', self.__get_time(log))
@@ -85,9 +84,12 @@ class event(object):
    def get_match(self, pattern, log):
       return pattern.search(log)
 
+   def to_json(self, log):
+      self.parse(log)
+
 class tsu(event):
    def __init__(self):
-      super(event, self).__init__('TSU')
+      event.__init__(self, 'TSU')
 
    def __del__(self):
       pass
@@ -103,15 +105,17 @@ class tsu(event):
          __debug('state is: %s', state)
          self.append('state', state)
 
-   def __deep_parse(self):
+   def __deep_parse(self, log):
+      self.__append_ticket_index(log)
 
 
    def to_json(self, log):
-      self.__deep_parse()
+      self.parse(log)
+      self.__deep_parse(log)
 
 class detr(event):
    def __init__(self):
-      super(event, self).__init__('DETR')
+      event.__init__(self, 'DETR')
 
    def __del__(self):
       pass
@@ -173,12 +177,13 @@ class detr(event):
       self.__append_ticket()
 
    def to_json(self, log):
+      self.parse(log)
       self.__deep_parse(log)
 
 
 class rt(event):
    def __init__(self):
-      super(event, self).__init__('RT')
+      event.__init__(self, 'RT')
 
    def __del__(self):
       pass
@@ -209,4 +214,5 @@ class rt(event):
       self.__append_tkne(log)
 
    def to_json(self, log):
+      self.parse(log)
       self.__deep_parse(log)

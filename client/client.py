@@ -8,8 +8,8 @@ from helper import *
 
 class client(object):
    def __init__(self, host, port):
-      self.__conn = new connection()
-      self.__spilter = new spliter()
+      self.__conn = connection()
+      self.__spilter = spliter()
       self.__connect(host, port)
 
    def __del__(self):
@@ -18,14 +18,15 @@ class client(object):
    def __connect(self, host, port):
       try:
          self.__conn.connect(host, port)
-      except e:
-         pass
+      except Exception, e:
+         __debug('Failed to connect to %s:%d', host, port)
 
-   def parse(filename):
+   def parse(self, filename):
       user, sid, logs = self.__spilter.split(filename)
       for log in logs:
          event = text_to_json(log)
-         event.append('user', user)
-         event.append('sid', sid)
-         
-         self.__conn.send(event.get())
+         if event is not None:
+            event.append('user', user)
+            event.append('sid', sid)
+
+            self.__conn.send(event.get())

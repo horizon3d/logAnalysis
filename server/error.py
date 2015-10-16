@@ -21,9 +21,9 @@ class analyError(Exception):
 
    @property
    def detail(self):
-      retrn self.__error
+      return self.__error
 
-class dbError(exception):
+class dbError(Exception):
    def __init__(self, code, err):
       self.__type = 'db error'
       self.__code = code

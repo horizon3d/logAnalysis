@@ -7,7 +7,7 @@ from util import *
 import connection
 
 class server(object):
-   def __init__(self, port):
+   def __init__(self):
       self.__sock = None
 
    def __del__(self):
@@ -18,10 +18,10 @@ class server(object):
       self.__sock.close()
       self.__sock = None
 
-   def run(self, port, maxconn):
+   def run(self, port, maxconn = 5):
       addr = ('', port)
       try:
-         self.__sock = socket.socket(socket.AF_INET, socket.STREAM)
+         self.__sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
          self.__sock.bind(addr)
          self.__sock.listen(maxconn)
       except socket.error, e:
@@ -33,7 +33,7 @@ class server(object):
             remote = self.__sock.accept()
          except socket.error,e:
             __debug('Failed to accept remote connection, error: %r', remote)
-         conn = new connection(remote)
+         conn = connection(remote)
          thread.start_new_thread(thread_entry, conn.name())
 
    def stop(self):

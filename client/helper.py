@@ -4,7 +4,6 @@
 import json
 from event import (event, tsu, detr, rt)
 import re
-from helper import *
 
 def __debug(fmt, *args):
    """print log when debug
@@ -14,7 +13,7 @@ def __debug(fmt, *args):
 
 def get_command(log):
    cmd = None
-   pattern = re.compile(r'>[, /:]*([\w]+)[:/ ,]', re.I)
+   pattern = re.compile(r'>[, /:]*([\w]+)[\s:/,]', re.I)
    match = pattern.search(log)
    if match:
       cmd = match.group(1).upper()
@@ -23,11 +22,16 @@ def get_command(log):
 
 def text_to_json(log):
    cmd = get_command(log)
+   e = None
    if cmd == 'TSU':
-      e = new tsu(log)
-   if cmd == 'DETR':
-      e = new detr(log)
-   if cmd == 'RT':
-      e = new rt(log)
+      e = tsu()
+   elif cmd == 'DETR':
+      e = detr()
+   elif cmd == 'RT':
+      e = rt()
+   else:
+      e = event(cmd)
+   if e is not None:
+      e.to_json(log)
 
    return e
