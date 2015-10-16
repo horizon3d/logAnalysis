@@ -1,9 +1,10 @@
 #! /usr/bin/python
+# -*- coding:utf-8 -*-
 
 import socket
 import thread
 from util import *
-import connecti
+import connection
 
 class server(object):
    def __init__(self, port):
