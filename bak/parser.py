@@ -13,11 +13,11 @@ class parser(object):
       pass
 
    def __set_default(self):
-      self.__reg_usr_sid = re.compile(r'[-]+User: ([0-9a-zA-Z]+)[ ]+SID: (\d+)[-]+')
-      self.__reg_time   = re.compile(r'(20\d{2}) ([a-zA-Z]+) (\d+), ([a-zA-Z]+), (\d+):(\d+):(\d+)')
-      self.__reg_cmd    = re.compile(r'>([\w /,;]+[\w])[\s]*\n([\w /,;]+[\w])')
-      self.__reg_cmdrtn = re.compile(r'>[\w /,;]+[\w][\s]*\n(.*)')
-      self.__reg_flag   = re.compile(r'\+[\s]*&')
+      self.__reg_usr_sid = re.compile(r'[-]+User: ([0-9a-zA-Z]+)[ ]+SID: ([0-9]+)[-]+', re.I)
+      self.__reg_time    = re.compile(r'(20\d{2}) ([a-zA-Z]+) (\d+), ([a-zA-Z]+), (\d+):(\d+):(\d+)', re.I)
+      self.__reg_cmd     = re.compile(r'>([\w /,:]+[\w])[\s]*\n([\w /,:]+[\w])', re.I)
+      self.__reg_cmdrtn  = re.compile(r'[\w /,:]+[\w][\s]*\n(.*)', re.I)
+      self.__reg_flag    = re.compile(r'\+[\s]*&', re.I)
 
    def members(self):
       return ['user', 'time', 'cmd', 'cmdReturn', 'flag']
@@ -67,9 +67,9 @@ class parser(object):
          self.cmdInput = cmd1
 
          cmp1 = re.split('[:/, ]', cmd1)[0].upper()
-         cmp2 = re.split('[:/, ]', cmd2[1:])[0].upper()
+         cmp2 = re.split('[:/, ]', cmd2[0:])[0].upper()
 
-         if cmd1 == cmd2:
+         if cmp1 == cmp2:
             cmd = cmd2[1:]
          else:
             cmd = cmd1.upper()
@@ -80,7 +80,7 @@ class parser(object):
          match = self.__reg_usr_sid.search(self.__log_content)
          if match:
             user = match.group(1)
-            sid = match.group(2)
+            sid = int(match.group(2))
             file_header = True
          else:
             db = client()
@@ -95,7 +95,7 @@ class parser(object):
          return user, sid, file_header
 
       def __get_return(self):
-         if self.__reg_time.match(self.__log_content):
+         if self.__reg_cmdrtn.match(self.__log_content):
             match = self.__reg_cmdrtn.search(self.__log_content)
             if match:
                rtn = match.group(1)

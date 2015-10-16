@@ -1,33 +1,90 @@
 #! /usr/bin/python
+# -*- coding:utf-8 -*-
 
-from parser import parser
-from tsu import tsu
 import json
-from event import event
-from task import task
+from event import (event, tsu, detr, rt)
 import re
+
+__dbAdapter = None
+__dbInited  = False
 
 def __debug(fmt, *args):
    """print log when debug
    """
    detail = fmt % (args)
-   print detail
+   print(detail)
+
+def get_command(log):
+   cmd = None
+   pattern = re.compile(r'>[, /:]*([\w]+)[:/ ,]', re.I)
+   match = pattern.search(log)
+   if match:
+      cmd = match.group(1).upper()
+
+   return cmd
 
 def text_to_json(log):
-
-   cmd_pattern = re.compile(r'>([a-zA-Z]+) ', re.I)
-   obj = cmd_pattern.search(log)
-   if obj:
-      cmd = obj.group(1)
-
-   if cmd == 'tsu':
-      e = new tsu(None, log)
-   if cmd == 'detr':
+   cmd = get_command(log)
+   if cmd == 'TSU':
+      e = new tsu(log)
+   if cmd == 'DETR':
       e = new detr(log)
-   if cmd == 'rt':
+   if cmd == 'RT':
       e = new rt(log)
 
    return e
+
+def flat(ctx):
+   self.__dbAdapter.insert('log', task.data)
+
+   return task;
+
+def assign_rule(task):
+
+   if __dbAdapter is None:
+      __debug('Error: db connector is not initialized')
+      abort()
+      return
+
+   cond = {'userName':ev['user']}
+   cr = __dbAdapter.query('user', cond)
+   if cr is None:
+      cr = __dbAdapter.query('user', {'userName':'default'}})
+
+   if cr not None:
+      rec = cr.next()
+      usrGroups = rec['ruleGroups']
+
+   for userGroup in usrGroups:
+      rules = __dbAdapter.query('rule', {'ruleGroup':userGroup})
+      for rule in rules:
+         if task.trag(rule['tragger']['cmd'])
+            task.set_rule(rule)
+
+def execTask(task):
+   ret = task.go()
+   if !ret['result']:
+      __dbAdapter.insert('alarm', ret)
+
+def thread_entry(connName, conn):
+   __debug('start new thread, from [%s]', connName)
+   while !conn.disconnect():
+      try:
+         data = conn.recv()
+      except socket.error, e:
+         __debug('socket error occurs when receiving packet: %r', e)
+         break
+      
+      if data not None:
+         __dbAdapter.insert('log', data)
+         task = assign_rule(data)
+         if task not None:
+            task.go()
+
+   __debug('end thread, from [%s]', connName)
+
+
+# useless function by origin developers
 
 userDict = {}
 def load():
@@ -36,37 +93,6 @@ def load():
       cell = line.split(',')
       if not cell[7] == '':
          userDict[cell[7]] = cell[3]
-
-__dbAdapter = None
-__dbInited  = False
-
-def insert_to_db(log):
-
-   #if !__dbInited and __dbAdapter is None:
-   #   __dbAdapter = new adapter()
-   #   __dbInited  = True
-
-   event = text_to_json(log)
-
-   self.__dbAdapter.insert('log', event.data)
-"""
-   if event.data['cmd'].contains('tsu'):
-      tsuRule = tsuParser()
-      tsuRule.setBase(__parser)
-      tsuRule.go(log)
-   elif event.data['cmd'].contains('uu'):
-      pass
-   elif event.data['cmd'].contains('rt'):
-      # TODO:
-      pass
-   elif event.data['cmd'].contains('da'):
-      # TODO:
-      pass
-   elif event.data['cmd'].contains('rt'):
-      # TODO:
-      pass
-"""
-   return event;
 
 def assign_rules(ev):
 
@@ -94,16 +120,6 @@ def assign_rules(ev):
             tasks.append(ruleTask)
 
    return tasks
-
-def exec_rule(task):
-
-   if __dbAdapter is None:
-      __debug('Error: db connector is not initialized')
-      return
-
-   ret = task.go()
-   if !ret['result']:
-      __dbAdapter.insert('alarm', ret)
 
 def get_str(ev, matcher):
    ctx = ev['message']

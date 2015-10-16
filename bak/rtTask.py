@@ -1,15 +1,15 @@
 #! /usr/bin/python
+# -*- coding:utf-8 -*-
 
 import re
-from analysis.event import event
+from task import baseTask
 
-class rt(event):
+class rtTask(baseTask):
 
    def __init__(self, log):
-      super(event, self).__init__()
+      super(baseTask, self).__init__()
       self.convert(log)
 
-      self.__cmd_pattern = re.compile(r'>rt ([\w]+)', re.I)
       self.data['cmd'] = 'rt'
       self.__flat(log)
 
@@ -21,7 +21,7 @@ class rt(event):
       obj = pnr_pattern.search(log)
       if obj:
          self.data['pnr'] = obj.group(1)
-      ssr_pattern = re.compile(r'SSR TKNE ([\w]+) [\w]+ ([\d]+) ([A-Z]])([\d{2}\w{3}]+) ([\d]+)/(\d{1})/[\w]+', re.I)
+      ssr_pattern = re.compile(r'SSR TKNE ([\w]+) [\w\d]+ [\w\d]+ (\d+) ([A-Z])(\d{2}\w{3}) (\d+)/(\d)/', re.I)
       obj = ssr_pattern.findall(log)
       self.data['ssktkne'] = []
       ssr = {}

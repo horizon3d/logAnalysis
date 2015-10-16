@@ -1,4 +1,5 @@
 #! /usr/bin/python
+# -*- coding:utf-8 -*-
 
 class analyError(Exception):
    def __init__(self, err, ev):

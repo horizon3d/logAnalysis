@@ -1,8 +1,9 @@
 #! /usr/bin/python
+# -*- coding:utf-8 -*-
 
-from analysis.tsu import tsu
-from analysis.db import adapter
-from analysis.util import *
+from tsu import tsu
+from db import adapter
+from util import *
 
 __dbAdapter = None
 __dbInited  = False
@@ -11,11 +12,9 @@ class task(object):
    """get rulers from table, generate rule and state-machine
    """
 
-   def __init__(self, rule, ev):
+   def __init__(self, rule, data):
       self.__rule = rule
-      self.__event = ev
-      self.__stage_dict = {}
-      self.__call_dict = { 'prevCmdReturnSearch':'prevCmdReturnSearch', 'ulinkSearch':'ulinkSearch', 'outputResult':'outputResult'}
+      self.__data = data
 
    def __del__(self):
       pass
@@ -24,16 +23,10 @@ class task(object):
 
       stage = self.__rule['stage']
       for key in stage:
-         if key != 'Final':
-            self.__stage_dict[key] = [ self.__call_dict[stage[key]['stageType']], stage[key]['returnCondition'] ]
-         else:
-            self.__stage_dict['Final'] = self.__call_dict['Final']
+         self.__stage_dict.append(key)
 
-   def trag(self):
-      pattern = re.compile(self.__rule['tragger']['cmd'], re.I)
-      match = pattern.search(self.__event['cmd'])
-
-      return match ? True : False
+   def trag(self, cmdName):
+      return self.__data['cmd'] == self.__rule['tragger']['cmd']
 
    def go(self):
       self.__map()

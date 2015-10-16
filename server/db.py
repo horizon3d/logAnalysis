@@ -1,6 +1,7 @@
 #! /usr/bin/python
+# -*- coding:utf-8 -*-
 
-from analysis.util import *
+from util import *
 from pysequoiadb import client
 
 class adapter(object):
@@ -10,7 +11,7 @@ class adapter(object):
       self.__cls = {}
 
    def __del__(self):
-      pass
+      self.__cc.disconnect
 
    def __initialize(self, csname, host, port, user, password):
       try:
@@ -21,7 +22,6 @@ class adapter(object):
          debug('exit')
          exit(1)
 
-
    def insert(self, clname, record):
 
       if self.__cls[clname] is None:
@@ -29,8 +29,9 @@ class adapter(object):
 
       try:
          self.__cls[clname].upsert(log, condition = {'cmdTime':record['cmdTime'], 'user':record['user'], 'sid':record['sid'], 'cmd':record['cmd']})
-      except:
+      except e:
          __debug('Error: Failed to insert event to collection: %s, event: %s', clname, str(record))
+         __debug('%s', e.detail)
          return
 
       __debug('insert a record into collection: %s, record: %s', clname, str(record))
