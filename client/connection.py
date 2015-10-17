@@ -25,32 +25,35 @@ class connection(object):
       try:
          self.__sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
          self.__sock.connect(addr)
-      except socket.error, e:
-         pass
+      except:
+         debug('Failed to connect to %s:%d', host, port)
 
    def send(self, data):
       if not data:
-         __debug('try to send 0 byte(s)')
+         debug('try to send 0 byte(s)')
          return
 
       jdata   = json.dumps(data)
-      length = len(data) + 4
+      length = len(jdata) + 4
 
-      toSend = '%4d' % length + jdata
+      toSend = ('%4d' % length) + jdata
+      sent = 0
       while sent < length:
          sendlen = self.__sock.send(toSend[sent:])
          sent += sendlen
-      __debug('send %d bytes: %s', str(data))
 
    def recv(self):
-      size = int(self.__sock.recv(4))
-      jdata = self.__sock.recv(size - 4)
-      data = json.loads(jdate)
-      __debug('received %d bytes: %s', str(data))
-      return data
+      size = 0
+      while True:
+         data = self.__sock.recv(4)
+         if not data:
+            debug('received none, remote session broken')
+            raise socket.error('session broken')
+         else:
+            size = int(data, 10)
+            data = self.__sock.recv(size - 4)
+            return json.loads(data)
 
    def close(self):
       self.__sock.close()
       self.__sock = None
-
-

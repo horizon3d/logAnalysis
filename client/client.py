@@ -2,9 +2,10 @@
 # -*- coding:utf-8 -*-
 
 import re
-from connection import connection
 from spliter import spliter
 from helper import *
+from connection import connection
+from event import text_to_json
 
 class client(object):
    def __init__(self, host, port):
@@ -19,7 +20,7 @@ class client(object):
       try:
          self.__conn.connect(host, port)
       except Exception, e:
-         __debug('Failed to connect to %s:%d', host, port)
+         raise
 
    def parse(self, filename):
       user, sid, logs = self.__spilter.split(filename)

@@ -5,6 +5,7 @@ import json
 from tsuTask import tsuTask
 #from db import adpter
 import re
+import socket
 
 #__dbAdapter = new adpter()
 
@@ -16,7 +17,7 @@ def load():
       if not cell[7] == '':
          userDict[cell[7]] = cell[3]
 
-def __debug(fmt, *args):
+def debug(fmt, *args):
    """print log when debug
    """
    detail = fmt % (args)
@@ -32,7 +33,7 @@ def createTask(cmd, rule, data):
 #def assign_rule(data):
 
    #if __dbAdapter is None:
-   #   __debug('Error: db connector is not initialized')
+   #   debug('Error: db connector is not initialized')
    #   abort()
    #   return
 
@@ -67,12 +68,12 @@ def createTask(cmd, rule, data):
 #      __dbAdapter.insert('alarm', ret)
 
 def thread_entry(connName, conn):
-   __debug('start new thread, from [%s]', connName)
+   debug('start new thread, from [%s]', connName)
    while True:
       try:
          data = conn.recv()
       except socket.error, e:
-         __debug('socket error occurs when receiving packet: %r', e)
+         debug('socket error occurs when receiving packet: %r', e)
          break
       
       if data is not None:
@@ -85,7 +86,7 @@ def thread_entry(connName, conn):
          #   if not result['outputResult']:
          #      __dbAdapter.insert('alarm', ret)
 
-   __debug('end thread, from [%s]', connName)
+   debug('end thread, from [%s]', connName)
 
 """
 def ulinkSearch(lastStage, lastStageRet, stageName, ev, rule):

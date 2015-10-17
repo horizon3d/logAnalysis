@@ -1,4 +1,5 @@
 #! /usr/bin/python
+# -*- coding:utf-8 -*-
 
 import re
 from task import baseTask
@@ -136,7 +137,7 @@ class tsuTask(baseTask):
 
    def append(self, key, value):
       if self.__store[key] is not None:
-         __debug('key[%s] exist, value: %s, it will be replaced by new value: %s', key, self.__store[key], value)
+         debug('key[%s] exist, value: %s, it will be replaced by new value: %s', key, self.__store[key], value)
 
       self.__store[key] = value
 
@@ -168,7 +169,7 @@ class tsuTask(baseTask):
          elif state.find('USED'):
             raise analyError('ticket is used!')
          else:
-            __debug('cannot find \"OPEN FOR USE\" from ticket :%s', str(ticket))
+            debug('cannot find \"OPEN FOR USE\" from ticket :%s', str(ticket))
 
    def check_detr_date(self):
       if self.__store['detr']['time'] < self.data['cmdTime']:
@@ -257,7 +258,7 @@ class tsuTask(baseTask):
       result = {}
       for stageName in self.__stage_dict:
          stage = self.__rule['stage'][stageName]
-         __debug('>>> current stage: %s', stageName)
+         debug('>>> current stage: %s', stageName)
 
          steps = stage['function']
          try:
@@ -267,7 +268,7 @@ class tsuTask(baseTask):
                   # result contains all info of error
                   break
          except analyError,e:
-            __debug('catch an exception: %s', r.detail)
+            debug('catch an exception: %s', r.detail)
             break
 
       return result

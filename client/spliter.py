@@ -28,6 +28,9 @@ class spliter(object):
 
    def split(self, filename):
       fd = open(filename, 'r')
+      user = ''
+      sid = 0
+      logs = []
       try:
          text = fd.readline()
 
@@ -35,11 +38,10 @@ class spliter(object):
 
          lines = fd.readlines()
       except Exception, e:
-         __debug('Failed to read file: %s', filename)
+         debug('Failed to read file: %s', filename)
       finally:
          fd.close()
 
-         logs = []
          log = ''
          first = True
          for line in lines:

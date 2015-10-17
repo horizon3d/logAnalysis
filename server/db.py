@@ -30,11 +30,11 @@ class adapter(object):
       try:
          self.__cls[clname].upsert(log, condition = {'cmdTime':record['cmdTime'], 'user':record['user'], 'sid':record['sid'], 'cmd':record['cmd']})
       except e:
-         __debug('Error: Failed to insert event to collection: %s, event: %s', clname, str(record))
-         __debug('%s', e.detail)
+         debug('Error: Failed to insert event to collection: %s, event: %s', clname, str(record))
+         debug('%s', e.detail)
          return
 
-      __debug('insert a record into collection: %s, record: %s', clname, str(record))
+      debug('insert a record into collection: %s, record: %s', clname, str(record))
 
    def query(self, clname, cond = None, selector = None, sort = None, hint = None):
 

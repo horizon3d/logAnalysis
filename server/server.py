@@ -4,7 +4,7 @@
 import socket
 import thread
 from util import *
-import connection
+from connection import connection
 
 class server(object):
    def __init__(self):
@@ -25,16 +25,18 @@ class server(object):
          self.__sock.bind(addr)
          self.__sock.listen(maxconn)
       except socket.error, e:
-         __debug('error occurs on socket when listen, errno: %r', e)
+         debug('error occurs on socket when listen, errno: %r', e)
 
       self.__run = True
+      addr = ('none', 0)
       while self.__run:
          try:
-            remote = self.__sock.accept()
+            remote, addr = self.__sock.accept()
          except socket.error,e:
-            __debug('Failed to accept remote connection, error: %r', remote)
+            debug('Failed to accept remote connection, error: %s', e)
+         debug('received a connection from %s:%d', addr[0], addr[1])
          conn = connection(remote)
-         thread.start_new_thread(thread_entry, conn.name())
+         thread.start_new_thread(thread_entry, (conn.name(), conn))
 
    def stop(self):
       self.__run = False

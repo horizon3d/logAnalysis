@@ -24,7 +24,8 @@ class event(object):
    def get(self):
       return self.__ctx
 
-   def __get_time(self, log):
+   def __append_time(self, log):
+      cmd_time = None
       pattern = re.compile(r'(20\d{2}) ([a-zA-Z]+) (\d+), ([a-zA-Z]+), (\d+):(\d+):(\d+)', re.I)
       match = pattern.search(log)
       if match:
@@ -32,17 +33,23 @@ class event(object):
          ymd = otime[0]
          for (k, v) in month.items():
             ymd = ymd.replace(k,v)
-      return time.mktime(time.strptime((ymd + otime[2]), '%Y %m %d %H:%M:%S'))
+         cmd_time = time.mktime(time.strptime((ymd + otime[2]), '%Y %m %d %H:%M:%S'))
 
-   def __get_return(self, log):
+      debug('cmd time is: %s', str(cmd_time))
+      self.append('cmdTime', cmd_time)
+
+   def __append_return(self, log):
+      rtn = ''
       pattern = re.compile(r'[\w /,:]+[\w][\s]*\n(.*)', re.I)
       match = pattern.search(log)
       if match:
          rtn = match.group(1)
-         __debug('return: %s', rtn)
-      return rtn
 
-   def __get_input(self, log):
+      debug('return: %s', rtn)
+      self.append('cmdReturn', rtn)
+
+   def __append_input(self, log):
+      cmd = ''
       pattern = re.compile(r'>([\w /,:]+[\w])[\s]*\n([\w /,:]+[\w])', re.I)
       match = pattern.search(log)
       if match:
@@ -57,28 +64,29 @@ class event(object):
             cmd = cmd2[1:]
          else:
             cmd = cmd1.upper()
-      #__debug('input: %s', cmd)
-      return cmd
 
-   def __get_flag(self, log):
+      debug('input： %s', cmd)
+      self.append('cmdInput', cmd)
+
+   def __append_flag(self, log):
       flag = True
       pattern = re.compile(r'\+[\s]*&', re.I)
       match = pattern.search(log)
       if match:
          flag = False
-      return flag
+      self.append('flag', flag)
 
    def append(self, k, v):
       if self.__ctx.get(k) is not None:
-         __debug('key[%s] exist, value: %s, it will be replaced by new value: %s', k, self.__ctx[k], v)
+         debug('key[%s] exist, value: %s, it will be replaced by new value: %s', k, self.__ctx[k], v)
 
       self.__ctx[k] = v
 
    def parse(self, log):
-      self.append('cmdTime', self.__get_time(log))
-      self.append('cmdInput', self.__get_input(log))
-      self.append('cmdReturn', self.__get_return(log))
-      self.append('flag', self.__get_flag(log))
+      self.__append_time(log)
+      self.__append_input(log)
+      self.__append_return(log)
+      self.__append_flag(log)
       self.append('message', log)
 
    def get_match(self, pattern, log):
@@ -99,10 +107,10 @@ class tsu(event):
       match = pattern.findall(log)
       if match:
          tid = match[0][1]
-         __debug('ticket id is: %s', tid)
+         debug('ticket id is: %s', tid)
          self.append('index', tid)
          state = match[0][0]
-         __debug('state is: %s', state)
+         debug('state is: %s', state)
          self.append('state', state)
 
    def __deep_parse(self, log):
@@ -125,8 +133,9 @@ class detr(event):
       match = pattern.search(log)
       if match:
          self.append('tn', match.group(1))
+         debug('tn: %s', match.group(1))
       else:
-         __debug('find no match tn in detr context')
+         debug('find no match tn in detr context')
          return None
 
    def __append_passenger(self, log):
@@ -134,17 +143,18 @@ class detr(event):
       match = pattern.search(log)
       if match:
          self.append('passenger', match.group(1))
+         debug('passenger: %s', match.group(1))
       else:
-         __debug('find no match passenger in detr context')
+         debug('find no match passenger in detr context')
 
    def __append_ticket(self, log):
-      pattern = r':(\d{1})\w+ ([\w]+)[ ]+([\d]+)[ ]+([a-zA-Z]) (\d{2}[\w]{3} \d{4}) OK ([\s\w/-]+):(\w+)'
+      tickets = []
+      pattern = r':(\d{1})\w+ ([\w]+)[ ]+([\d]+)[ ]+([a-zA-Z]) (\d{2}[\w]{3} \d{4}) OK ([\s\w/-]+):([\w ]+) \w+'
       match = re.findall(pattern, log, re.I)
       if len(match):
-         tickets = []
-         self.data['ticket'] = []
+         pass
       else:
-         __debug('find no match ticket in detr context')
+         debug('find no match ticket in detr context')
          return None
 
       for obj in match:
@@ -158,23 +168,23 @@ class detr(event):
          match = pattern.search(obj[4])
          mon = shortMon[match.group(2)]
          day = match.group(1)
-         time = match.group(3)
-         year = strftime('%Y', gmtime())
-         ts = mktime(strptime(year+ ' ' + mon + ' ' + day + time[0:2] + ':' + time[2:4] + ':' + ':00', '%Y %m %d %H:%M:%S'))
+         dtime = match.group(3)
+         year = time.strftime('%Y', time.gmtime())
+         ts = time.mktime(time.strptime(year+ ' ' + mon + ' ' + day + ' ' + dtime[0:2] + ':' + dtime[2:4] + ':00', '%Y %m %d %H:%M:%S'))
 
          ticket['time'] = ts
          ticket['state'] = obj[5]
          ticket['pnr'] = obj[6]
          ticket['date'] = '' + match.group(1) + match.group(2)
-         __debug('ticket: %s', str(tickets))
+         debug('ticket: %s', str(ticket))
          tickets.append(ticket)
 
       self.append('ticket', tickets)
 
    def __deep_parse(self, log):
-      self.__append_tn()
-      self.__append_passenger()
-      self.__append_ticket()
+      self.__append_tn(log)
+      self.__append_passenger(log)
+      self.__append_ticket(log)
 
    def to_json(self, log):
       self.parse(log)
@@ -193,20 +203,22 @@ class rt(event):
       match = pattern.search(log)
       if match:
          self.append('pnr', match.group(1))
+         debug('pnr: %s', match.group(1))
 
       pattern = re.compile(r'SSR TKNE ([\w]+) [\w\d]+ [\w\d]+ (\d+) ([A-Z])(\d{2}\w{3}) (\d+)/(\d)/', re.I)
       obj = pattern.findall(log)
 
       tknes = []
       for item in obj:
-         tnke = {}
-         tnke['comp']  = item[0]
-         tnke['plane'] = item[1]
-         tnke['magic'] = item[2]
-         tnke['date']  = item[3]
-         tnke['tn']    = item[4]
-         tnke['idx']   = item[5]
-         tknes.append(tnke)
+         tkne = {}
+         tkne['comp']  = item[0]
+         tkne['plane'] = item[1]
+         tkne['magic'] = item[2]
+         tkne['date']  = item[3]
+         tkne['tn']    = item[4]
+         tkne['idx']   = item[5]
+         debug('SSR TKNE: %s', str(tkne))
+         tknes.append(tkne)
 
       self.append('ssrtkne', tknes)
 
@@ -216,3 +228,21 @@ class rt(event):
    def to_json(self, log):
       self.parse(log)
       self.__deep_parse(log)
+
+
+def text_to_json(log):
+   cmd = get_command(log)
+   e = None
+   if cmd == 'TSU':
+      e = tsu()
+   elif cmd == 'DETR':
+      e = detr()
+   elif cmd == 'RT':
+      e = rt()
+   else:
+      e = event(cmd)
+
+   if e is not None:
+      e.to_json(log)
+   return e
+
