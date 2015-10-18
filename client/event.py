@@ -65,6 +65,9 @@ class event(object):
          else:
             cmd = cmd1.upper()
 
+      if cmd == '':
+         cmd = self.__ctx.get('cmd')
+
       debug('input： %s', cmd)
       self.append('cmdInput', cmd)
 

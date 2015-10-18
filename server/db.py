@@ -3,6 +3,7 @@
 
 from util import *
 from pysequoiadb import client
+from pysequoiadb.error import SDBBaseError
 
 class adapter(object):
 
@@ -17,7 +18,7 @@ class adapter(object):
       try:
          self.__cc = client(host, port, user, password)
          self.__cs = self.__cc[csname]
-      except e:
+      except SDBBaseError, e:
          debug('Error: %s', e.detail)
          debug('exit')
          exit(1)
@@ -25,12 +26,12 @@ class adapter(object):
    def insert(self, clname, record):
 
       if self.__cls[clname] is None:
-         self.__cls[clname] = self.__cs[clname]
+         self.__cls[clname] = self.__cls[clname]
 
       try:
-         self.__cls[clname].upsert(log, condition = {'cmdTime':record['cmdTime'], 'user':record['user'], 'sid':record['sid'], 'cmd':record['cmd']})
-      except e:
-         debug('Error: Failed to insert event to collection: %s, event: %s', clname, str(record))
+         self.__cls[clname].upsert(record, condition = {'cmdTime':record['cmdTime'], 'user':record['user'], 'sid':record['sid'], 'cmd':record['cmd']})
+      except SDBBaseError, e:
+         debug('Error: Failed to insert record to collection: %s, event: %s', clname, str(record))
          debug('%s', e.detail)
          return
 
