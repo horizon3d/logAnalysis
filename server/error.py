@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 
 class analyError(Exception):
-   def __init__(self, err, ev):
+   def __init__(self, err, ev = {}):
       self.__type = 'analysis error'
       self.__event = ev
       self.__error = err

@@ -26,7 +26,7 @@ class adapter(object):
          debug('exit')
          exit(1)
 
-   def insert(self, clname, record):
+   def upsert(self, clname, record):
 
       if self.__cls.get(clname) is None:
          self.__cls[clname] = self.__cs[clname]
@@ -52,3 +52,14 @@ class adapter(object):
       if cl is None:
          debug('%s.%s not exist', self.__cs.get_collection_space_name(), clname)
       return cl.query(condition = cond, selector = selector, order_by = sort, hint = hint)
+
+   def insert(self, clname, record):
+
+      if self.__cls.get(clname) is None:
+         self.__cls[clname] = self.__cs[clname]
+         debug('access to %s', self.__cls.get(clname))
+
+      cl = self.__cls.get(clname)
+      if cl is None:
+         debug('%s.%s not exist', self.__cs.get_collection_space_name(), clname)
+      return cl.insert(record)

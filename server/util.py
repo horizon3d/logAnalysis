@@ -21,10 +21,10 @@ def debug(fmt, *args):
 def trag(rule, cmdName):
    return cmdName == rule['tragger']['cmd']
 
-def createTask(cmd, dbAapter, rule, data):
+def createTask(cmd, dbAdapter, rule, data):
    task = None
    if cmd == 'TSU':
-      task = tsuTask(dbAapter, rule, data)
+      task = tsuTask(dbAdapter, rule, data)
    return task
 
 """

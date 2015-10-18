@@ -20,31 +20,31 @@ def thread_entry(connName, conn, dbAdapter):
       if data is not None:
          print(data)
          debug('\r\n\r\n')
-         dbAdapter.insert('log', data)
+         dbAdapter.upsert('log', data)
 
          task = assign_rule(dbAdapter, data)
          if task is not None:
             result = task.go()
-            if not result['outputResult']:
-               dbAdapter.insert('alarm', ret)
+            if not result:
+               dbAdapter.insert('alarm', result)
 
    debug('end thread, from [%s]', connName)
 
-def assign_rule(dbAapter, data):
+def assign_rule(dbAdapter, data):
 
-   if dbAapter is None:
+   if dbAdapter is None:
       debug('Error: db connector is not initialized')
       abort()
       return
 
    cond = {'userName':data['user']}
-   cr = dbAapter.query('user', cond)
+   cr = dbAdapter.query('user', cond)
    record = None
 
    try:
       record = cr.next()
    except SDBEndOfCursor, e:
-      cr = dbAapter.query('user', {'userName':'default'})
+      cr = dbAdapter.query('user', {'userName':'default'})
 
    try:
       record = cr.next()
@@ -65,7 +65,7 @@ def assign_rule(dbAapter, data):
       return tasks
       """
       for userGroup in usrGroups:
-         cr = dbAapter.query('rule', {'ruleGroup':userGroup})
+         cr = dbAdapter.query('rule', {'ruleGroup':userGroup})
          rules = []
          while True:
             try:
@@ -76,13 +76,13 @@ def assign_rule(dbAapter, data):
 
          for rule in rules:
             if trag(rule, data['cmd']):
-               task = createTask(data['cmd'], adapter, rule, data)
+               task = createTask(data['cmd'], dbAdapter, rule, data)
                return task
 
-def execTask(dbAapter, task):
+def execTask(dbAdapter, task):
    ret = task.go()
-   if not ret['result']:
-      dbAapter.insert('alarm', ret)
+   if not ret:
+      dbAdapter.insert('alarm', ret)
 
 class server(object):
    def __init__(self):

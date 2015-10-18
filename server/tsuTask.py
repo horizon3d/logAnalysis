@@ -73,7 +73,7 @@ def checkTicketDate(task, result):
 
 def checkRTExist(task, result):
    try:
-      task.check_rt_exit()
+      task.check_rt_exist()
    except analyError, e:
       result['cmdReturn'] = 'illegal'
       result['outputReturn'] = e.detail
@@ -101,43 +101,41 @@ def checkRTMatch(task, result):
 
 class tsuTask(baseTask):
 
-   def __init__(self, dbAapter, rule, data):
-      baseTask.__init__(self, rule, data)
-
-      self.__dbAdapter = dbAapter
+   def __init__(self, dbAdapter, rule, data):
+      baseTask.__init__(self, dbAdapter, rule, data)
       self.__store = {}
-      self.__rule = rule
 
    def __del__(self):
       pass
 
    def __prepare(self):
-      cr = self.__dbAdapter.query('log', { 'user':self.data['user'],
-                                           'cmd':'DETR'
-                                           'cmdTime':{'$lt':self.get('cmdTime')}
-                                         }
-                                 )
-
-      if cr is not None:
+      cr = self.dbAdapter.query('log', { 'user':self.get('user'), 'cmd':'DETR', 'cmdTime':{'$lt':self.get('cmdTime')} })
+      detr = None
+      try:
          detr = cr.next()
-         self.append('detr', detr)
+      except SDBEndOfCursor:
+         return
+
+      self.append('detr', detr)
+
+      index = 0
+      ticket = {}
+      if self.get('index').isdigit():
+         index = int(self.get('index'))
+         ticket = detr['ticket'][index - 1]
       else:
          return
 
-      index = int(self.get('index'))
-      ticket = detr['ticket'][index - 1]
-
-      cr = self.__dbAdapter.query('log', {'user':self.get('user'), 'pnr':ticket['pnr'],
-                                          'cmd':'RT',
-                                          'cmdTime':{'$lt':self.get('cmdTime')}
-                                         }
-                                 )
-      if cr is not None:
+      cr = self.dbAdapter.query('log', {'user':self.get('user'), 'pnr':ticket['pnr'], 'cmd':'RT', 'cmdTime':{'$lt':self.get('cmdTime')} } )
+      rt = None
+      try:
          rt = cr.next()
-         self.append('rt', rt)
+      except SDBEndOfCursor:
+         return
+      self.append('rt', rt)
 
    def append(self, key, value):
-      if self.__store[key] is not None:
+      if self.__store.get(key) is not None:
          debug('key[%s] exist, value: %s, it will be replaced by new value: %s', key, self.__store[key], value)
 
       self.__store[key] = value
@@ -147,10 +145,10 @@ class tsuTask(baseTask):
 
    def check_forbbiden(self):
       if not self.get('index').isdigit():
-         raise analyError('hit forbbiden element', self.__data)
+         raise analyError('hit forbbiden element', self.data)
 
       if re.match(r'(\d{1}/[OFECVR]/)|NM', self.get('state'), re.I):
-         raise analyError('hit forbbiden element', self.__data)
+         raise analyError('hit forbbiden element', self.data)
 
    def check_detr_exist(self):
       if self.__store['detr'] is not None:
@@ -173,13 +171,18 @@ class tsuTask(baseTask):
             debug('cannot find \"OPEN FOR USE\" from ticket :%s', str(ticket))
 
    def check_detr_date(self):
-      if self.__store['detr']['time'] < self.get('cmdTime'):
-         raise analyError('ticket is expired!')
+      detr = self.__store['detr']
+      tickets = detr['ticket']
+      if len(tickets) > 0:
+         index = int(self.get('index'))
+         ticket = tickets[index - 1];
+         if ticket['time'] < self.get('cmdTime'):
+            raise analyError('ticket is expired!')
    """
    def __check_rt(self):
-      cr = self.__dbAdapter.query('log', { 'user':self.data['user'], 'pnr':self.__detr_pnr
+      cr = self.dbAdapter.query('log', { 'user':self.get('user'), 'pnr':self.__detr_pnr
                                            'cmd':{'$regex':'rt', '$options':'I'},
-                                           'cmdTime':{'$lt':self.data['cmdTime']}
+                                           'cmdTime':{'$lt':self.get('cmdTime')}
                                          }
                                  )
       if cr is not None:
@@ -225,7 +228,7 @@ class tsuTask(baseTask):
 
    def go(self):
       self.__prepare()
-      self.__map()
+      self.map_stage()
 
       """
       tsuRule = {
@@ -257,19 +260,19 @@ class tsuTask(baseTask):
       """
 
       result = {}
-      for stageName in self.__stage_dict:
-         stage = self.__rule['stage'][stageName]
-         debug('>>> current stage: %s', stageName)
+      for stageName in self.stage_dict:
+         stage = self.rule['stage'][stageName]
+         #debug('>>> current stage: %s', stageName)
 
          steps = stage['function']
          try:
             for step in steps:
-               res = eval(funcMap[step['entry']][0])(self, result)
+               res = eval(funcMap[step['entry']])(self, result)
                if res == 'illegal':
                   # result contains all info of error
                   break
          except analyError,e:
-            debug('catch an exception: %s', r.detail)
+            #debug('catch an exception: %s', r.detail)
             break
 
       return result
