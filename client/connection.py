@@ -47,8 +47,8 @@ class connection(object):
       while True:
          data = self.__sock.recv(4)
          if not data:
-            debug('received none, remote session broken')
-            raise socket.error('session broken')
+            debug('received none, remote closed')
+            raise socket.error('session closed')
          else:
             size = int(data, 16)
             data = self.__sock.recv(size - 4)

@@ -177,11 +177,7 @@ class detr(event):
 
          ticket['time'] = ts
          ticket['state'] = obj[5]
-         #ticket['pnr'] = obj[6]
-         pattern = re.compile(r'RL:(\w+) ')
-         state pattern.search(obj[5])
-         if match:
-            ticket['pnr'] = state.group(1)
+         ticket['pnr'] = obj[6]
          ticket['date'] = '' + match.group(1) + match.group(2)
          debug('ticket: %s', str(ticket))
          tickets.append(ticket)

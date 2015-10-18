@@ -101,19 +101,20 @@ def checkRTMatch(task, result):
 
 class tsuTask(baseTask):
 
-   def __init__(self, adapter, data):
-      super(baseTask, self).__init__(data)
+   def __init__(self, dbAapter, rule, data):
+      baseTask.__init__(self, rule, data)
 
-      self.__dbAdapter = adapter
+      self.__dbAdapter = dbAapter
       self.__store = {}
+      self.__rule = rule
 
    def __del__(self):
       pass
 
    def __prepare(self):
       cr = self.__dbAdapter.query('log', { 'user':self.data['user'],
-                                           'cmd':{'$regex':'detr', '$options':'I'}, # cmdName --> 'detr'
-                                           'cmdTime':{'$lt':self.data['cmdTime']}
+                                           'cmd':'DETR'
+                                           'cmdTime':{'$lt':self.get('cmdTime')}
                                          }
                                  )
 
@@ -123,12 +124,12 @@ class tsuTask(baseTask):
       else:
          return
 
-      index = int(self.__data['index'])
+      index = int(self.get('index'))
       ticket = detr['ticket'][index - 1]
 
-      cr = self.__dbAdapter.query('log', {'user':self.data['user'], 'pnr':ticket['pnr'],
-                                          'cmd':{'$regex':'rt', '$options':'I'},
-                                          'cmdTime':{'$lt':self.data['cmdTime']}
+      cr = self.__dbAdapter.query('log', {'user':self.get('user'), 'pnr':ticket['pnr'],
+                                          'cmd':'RT',
+                                          'cmdTime':{'$lt':self.get('cmdTime')}
                                          }
                                  )
       if cr is not None:
@@ -145,11 +146,11 @@ class tsuTask(baseTask):
       return self.__store[key];
 
    def check_forbbiden(self):
-      if not self.__data['index'].isdigit():
-         raise analyError('hit forbbiden element', self.data)
+      if not self.get('index').isdigit():
+         raise analyError('hit forbbiden element', self.__data)
 
-      if re.match(r'(\d{1}/[OFECVR]/)|NM', self.__data['state'], re.I):
-         raise analyError('hit forbbiden element', self.data)
+      if re.match(r'(\d{1}/[OFECVR]/)|NM', self.get('state'), re.I):
+         raise analyError('hit forbbiden element', self.__data)
 
    def check_detr_exist(self):
       if self.__store['detr'] is not None:
@@ -161,7 +162,7 @@ class tsuTask(baseTask):
       detr = self.__store['detr']
       tickets = detr['ticket']
       if len(tickets) > 0:
-         index = int(self.__data['index'])
+         index = int(self.get('index'))
          ticket = tickets[index - 1];
          state = ticket['state']
          if state.find('OPEN FOR USE'):
@@ -172,7 +173,7 @@ class tsuTask(baseTask):
             debug('cannot find \"OPEN FOR USE\" from ticket :%s', str(ticket))
 
    def check_detr_date(self):
-      if self.__store['detr']['time'] < self.data['cmdTime']:
+      if self.__store['detr']['time'] < self.get('cmdTime'):
          raise analyError('ticket is expired!')
    """
    def __check_rt(self):

@@ -14,7 +14,7 @@ class baseTask(object):
       pass
 
    def get(self, key):
-      return self.__data['key']
+      return self.__data(key)
       
    def __map(self):
       stage = self.__rule['stage']

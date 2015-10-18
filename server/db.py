@@ -7,12 +7,15 @@ from pysequoiadb.error import SDBBaseError
 
 class adapter(object):
 
-   def __init__(self, csname = 'zhx', host, port, user, password):
+   def __init__(self, csname = 'zhx', host = 'localhost', port = 11810, user = '', password = ''):
       self.__initialize(csname, host, port, user, password)
       self.__cls = {}
 
    def __del__(self):
-      self.__cc.disconnect
+      self.__cc.disconnect()
+
+   def __repr__(self):
+      return '%s, %s' % (self.__cc, self.__cs)
 
    def __initialize(self, csname, host, port, user, password):
       try:
@@ -25,11 +28,13 @@ class adapter(object):
 
    def insert(self, clname, record):
 
-      if self.__cls[clname] is None:
-         self.__cls[clname] = self.__cls[clname]
+      if self.__cls.get(clname) is None:
+         self.__cls[clname] = self.__cs[clname]
+         debug('access to %s', self.__cls.get(clname))
 
       try:
-         self.__cls[clname].upsert(record, condition = {'cmdTime':record['cmdTime'], 'user':record['user'], 'sid':record['sid'], 'cmd':record['cmd']})
+         cl = self.__cls.get(clname)
+         cl.upsert({'$set':record}, condition = {'cmdTime':record['cmdTime'], 'user':record['user'], 'sid':record['sid'], 'cmd':record['cmd']})
       except SDBBaseError, e:
          debug('Error: Failed to insert record to collection: %s, event: %s', clname, str(record))
          debug('%s', e.detail)
@@ -37,6 +42,13 @@ class adapter(object):
 
       debug('insert a record into collection: %s, record: %s', clname, str(record))
 
-   def query(self, clname, cond = None, selector = None, sort = None, hint = None):
+   def query(self, clname, cond = {}, selector = {}, sort = {}, hint = {}):
 
-      self.__cls[clname].query(cond, selector, sort, hint)
+      if self.__cls.get(clname) is None:
+         self.__cls[clname] = self.__cs[clname]
+         debug('access to %s', self.__cls.get(clname))
+
+      cl = self.__cls.get(clname)
+      if cl is None:
+         debug('%s.%s not exist', self.__cs.get_collection_space_name(), clname)
+      return cl.query(condition = cond, selector = selector, order_by = sort, hint = hint)

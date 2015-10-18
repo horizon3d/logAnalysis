@@ -3,11 +3,6 @@
 
 import json
 from tsuTask import tsuTask
-from db import adapter
-import re
-import socket
-
-__dbAdapter = adapter()
 
 userDict = {}
 def load():
@@ -26,68 +21,11 @@ def debug(fmt, *args):
 def trag(rule, cmdName):
    return cmdName == rule['tragger']['cmd']
 
-def createTask(cmd, rule, data):
+def createTask(cmd, dbAapter, rule, data):
+   task = None
    if cmd == 'TSU':
-      task = tsuTask(rule, data)
-
-def assign_rule(data):
-
-   if __dbAdapter is None:
-      debug('Error: db connector is not initialized')
-      abort()
-      return
-
-   cond = {'userName':data['user']}
-   cr = __dbAdapter.query('user', cond)
-   if cr is None:
-      cr = __dbAdapter.query('user', {'userName':'default'}})
-
-   if cr is not None:
-      rec = cr.next()
-      usrGroups = rec['ruleGroup']
-      """
-      tasks = []
-      for userGroup in usrGroups:
-         rules = __dbAdapter.query('rule', {'ruleGroup':userGroup})
-         for rule in rules:
-            if trag(rule, data['cmd'])
-               task = createTask(data['cmd'], rule, data)
-               tasks.append(task)
-      return tasks
-      """
-      for userGroup in usrGroups:
-         rules = __dbAdapter.query('rule', {'ruleGroup':userGroup})
-         for rule in rules:
-            if trag(rule, data['cmd']):
-               task = createTask(data['cmd'], rule, data)
-               return task
-
-def execTask(task):
-   ret = task.go()
-   if not ret['result']:
-      __dbAdapter.insert('alarm', ret)
-
-def thread_entry(connName, conn):
-   debug('start new thread, from [%s]', connName)
-   while True:
-      try:
-         data = conn.recv()
-      except socket.error, e:
-         #debug('socket error occurs when receiving packet: %r', e)
-         break
-      
-      if data is not None:
-         print(data)
-         debug('\r\n\r\n')
-         __dbAdapter.insert('log', data)
-
-         assign_rule(task)
-         if task is not None:
-            result = task.go()
-            if not result['outputResult']:
-               __dbAdapter.insert('alarm', ret)
-
-   debug('end thread, from [%s]', connName)
+      task = tsuTask(dbAapter, rule, data)
+   return task
 
 """
 def ulinkSearch(lastStage, lastStageRet, stageName, ev, rule):
