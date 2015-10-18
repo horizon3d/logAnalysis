@@ -53,5 +53,8 @@ class spliter(object):
                   log = ''
             log += line
 
+         if log != '':
+            logs.append(log)
+
       return user, sid, logs
 

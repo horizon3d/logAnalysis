@@ -36,7 +36,7 @@ class connection(object):
       jdata   = json.dumps(data)
       length = len(jdata) + 4
 
-      toSend = ('%4d' % length) + jdata
+      toSend = ('%4x' % length) + jdata
       sent = 0
       while sent < length:
          sendlen = self.__sock.send(toSend[sent:])
@@ -50,7 +50,7 @@ class connection(object):
             debug('received none, remote session broken')
             raise socket.error('session broken')
          else:
-            size = int(data, 10)
+            size = int(data, 16)
             data = self.__sock.recv(size - 4)
             return json.loads(data)
 

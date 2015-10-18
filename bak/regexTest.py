@@ -84,7 +84,11 @@ if __name__ == '__main__':
             day = match.group(1)
             time = match.group(3)
             ticket['state'] = obj[5]
-            ticket['pnr'] = obj[6]
+            #ticket['pnr'] = obj[6]
+            pattern = re.compile(r'RL:(\w+) ')
+            match = pattern.search(obj[5])
+            if match:
+                ticket['pnr'] = match.group(1)
             ticket['date'] = '' + match.group(1) + match.group(2)
             __debug('ticket %d: %s', ticket['idx'], str(ticket))
             alltickets.append(ticket)

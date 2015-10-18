@@ -40,7 +40,7 @@ class event(object):
 
    def __append_return(self, log):
       rtn = ''
-      pattern = re.compile(r'[\w /,:]+[\w][\s]*\n(.*)', re.I)
+      pattern = re.compile(r'>[\w /,:]+[\w][\s]*\n(.*)', re.I)
       match = pattern.search(log)
       if match:
          rtn = match.group(1)
@@ -58,7 +58,7 @@ class event(object):
          self.cmdInput = cmd1
 
          cmp1 = re.split('[:/, ]', cmd1)[0].upper()
-         cmp2 = re.split('[:/, ]', cmd2[0:])[0].upper()
+         cmp2 = re.split('[:/, ]', cmd2[1:])[0].upper()
 
          if cmp1 == cmp2:
             cmd = cmd2[1:]
@@ -139,7 +139,7 @@ class detr(event):
          return None
 
    def __append_passenger(self, log):
-      pattern = re.compile(r'PASSENGER: ([A-Za-z]+/[a-zA-Z]+)', re.I)
+      pattern = re.compile(r'PASSENGER:(.*)', re.I)
       match = pattern.search(log)
       if match:
          self.append('passenger', match.group(1))
@@ -149,7 +149,7 @@ class detr(event):
 
    def __append_ticket(self, log):
       tickets = []
-      pattern = r':(\d{1})\w+ ([\w]+)[ ]+([\d]+)[ ]+([a-zA-Z]) (\d{2}[\w]{3} \d{4}) OK ([\s\w/-]+):([\w ]+) \w+'
+      pattern = r':(\d{1})\w+ ([\w]+)[ ]+([\d]+)[ ]+([a-zA-Z]) (\d{2}[\w]{3} \d{4}) OK ([\s\w/-]+)RL:([\w ]+)'
       match = re.findall(pattern, log, re.I)
       if len(match):
          pass
@@ -174,7 +174,11 @@ class detr(event):
 
          ticket['time'] = ts
          ticket['state'] = obj[5]
-         ticket['pnr'] = obj[6]
+         #ticket['pnr'] = obj[6]
+         pattern = re.compile(r'RL:(\w+) ')
+         state pattern.search(obj[5])
+         if match:
+            ticket['pnr'] = state.group(1)
          ticket['date'] = '' + match.group(1) + match.group(2)
          debug('ticket: %s', str(ticket))
          tickets.append(ticket)
@@ -232,6 +236,9 @@ class rt(event):
 
 def text_to_json(log):
    cmd = get_command(log)
+   if cmd is None:
+      return None
+
    e = None
    if cmd == 'TSU':
       e = tsu()

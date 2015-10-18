@@ -40,6 +40,9 @@ class spilter(object):
                logs.append(log)
                log = ''
             log = log + line
+            
+         if log != '':
+            logs.append(log)
 
       finally:
          fd.close()

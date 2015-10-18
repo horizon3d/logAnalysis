@@ -31,3 +31,4 @@ class client(object):
             event.append('sid', sid)
 
             self.__conn.send(event.get())
+            debug('\r\n\r\n')
