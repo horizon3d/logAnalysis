@@ -25,6 +25,7 @@ def makeResult(task, result):
    result['cmdTime'] = task.get('cmdTime')
    result['message'] = task.get('message')
    result['cmdInput'] = task.get('cmdInput')
+   result['cmdReturn'] = task.get('cmdReturn')
    result['relatedlog'] = []
 
 def checkValid(task, result):
@@ -40,7 +41,6 @@ def checkDETRExist(task, result):
       task.check_detr_exist()
    except analyError, e:
       makeResult(task, result)
-      result['errmsg'] = e.detail
       result['errmsg'] = e.detail
       raise
 
