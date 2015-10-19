@@ -1,0 +1,56 @@
+---------------------------User: chengchen   SID: 55---------------------------
+2015 September 22, Tuesday, 16:39:57
+>da
+A*      22150   19SEP   1622    9   PEK099                                      
+B       AVAIL                                                                   
+C       AVAIL                                                                   
+D       AVAIL                                                                   
+E       AVAIL                                                                   
+PID   = 15792   HARDCOPY  = 1112                                                
+TIME =  1641    DATE =  19SEP     HOST = CAAC                                   
+AIRLINE = CA    SYSTEM =  TST_D1  APPLICATION =  1        
+
+
+
+2015 September 22, Tuesday, 16:43:23
+>detr tn 9992379354359
+ DETR:TN 9992379354359                                                         
+ISSUED BY: AIR CHINA                 ORG/DST: PEK/SHA                 ARL-D     
+E/R: 改期退票收费                                                               
+TOUR CODE:                                                                      
+PASSENGER: 黄静静                                                               
+EXCH:                               CONJ TKT:                                   
+O FM:1PEK CA    1831  P 18SEP 0730 OK F          18SEP5/18SEP5 40K USED/FLOWN   
+     T3T2 RL:                  BN:159                  INVOL ENDO               
+  TO: SHA                                                                       
+FC:M 18SEP15PEK CA SHA3840.00CNY3840.00END                                    
+FARE:           CNY 3840.00|FOP:CC/ H1                                          
+TAX:            CNY 50.00CN|OI:                                                +
+                                                                                
+
+2015 September 22, Tuesday, 16:43:27
+>tsu 1/open
+ACCEPTED                 
+
+
+2015 September 22, Tuesday, 16:47:30
+>DA
+A*      22150   19SEP   1622    9   PEK112                                      
+B       AVAIL                                                                   
+C       AVAIL                                                                   
+D       AVAIL                                                                   
+E       AVAIL                                                                   
+PID   = 15792   HARDCOPY  = 1112                                                
+TIME =  1649    DATE =  19SEP     HOST = CAAC                                   
+AIRLINE = CA    SYSTEM =  TST_D1  APPLICATION =  1    
+
+2015 September 22, Tuesday, 16:47:30
+>DA
+A*      22150   19SEP   1622    9   PEK112                                      
+B       AVAIL                                                                   
+C       AVAIL                                                                   
+D       AVAIL                                                                   
+E       AVAIL                                                                   
+PID   = 15792   HARDCOPY  = 1112                                                
+TIME =  1649    DATE =  19SEP     HOST = CAAC                                   
+AIRLINE = CA    SYSTEM =  TST_D1  APPLICATION =  1                             
