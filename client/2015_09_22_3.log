@@ -1,0 +1,60 @@
+---------------------------User: chengchen   SID: 55---------------------------
+2015 September 22, Tuesday, 16:39:28
+>detr tn 9997639699732
+ DETR:TN 9997639699732                                                         
+ISSUED BY: WORLDSPAN                 ORG/DST: IAH/IAH                 ARL-I     
+E/R: Q/NONEND.CHNG.CNL.PNLTY.APLY                                               
+TOUR CODE: US5A89                                                               
+PASSENGER: MUI/WAIFAI                                                           
+EXCH:                               CONJ TKT:                                   
+O FM:1IAH CA     996  U 09NOV 0005 OK UTPSEA                       OPEN FOR USE 
+     --T3 RL:MKC41Y  /2IV8IH1P                                                  
+X TO:2PEK CA    1831  U 10NOV 0730 OK UTPSEA                       OPEN FOR USE 
+     T3T2 RL:MKC41Y  /2IV8IH1P                                                  
+O TO:3SHA CA    1590  U 26NOV 0855 OK UTPSEA           /02MAY6     OPEN FOR USE 
+     T2T3 RL:MKC41Y  /2IV8IH1P                                                 +
+                                                                                
+
+2015 September 22, Tuesday, 16:39:35
+>tsu 1/v/ca
+ACCEPTED     
+
+2015 September 22, Tuesday, 16:39:40
+>detr tn 9997639699732
+ DETR:TN 9997639699732                                                         
+ISSUED BY: WORLDSPAN                 ORG/DST: IAH/IAH                 ARL-I     
+E/R: Q/NONEND.CHNG.CNL.PNLTY.APLY                                               
+TOUR CODE: US5A89                                                               
+PASSENGER: MUI/WAIFAI                                                           
+EXCH:                               CONJ TKT:                                   
+O FM:1IAH CA     996  U 09NOV 0005 OK UTPSEA                           VOID
+     --T3 RL:MKC41Y  /2IV8IH1P                                                  
+X TO:2PEK CA    1831  U 10NOV 0730 OK UTPSEA                       OPEN FOR USE 
+     T3T2 RL:MKC41Y  /2IV8IH1P                                                  
+O TO:3SHA CA    1590  U 26NOV 0855 OK UTPSEA           /02MAY6     OPEN FOR USE 
+     T2T3 RL:MKC41Y  /2IV8IH1P             
+
+
+2015 September 22, Tuesday, 16:47:30
+>DA
+A*      22150   19SEP   1622    9   PEK112                                      
+B       AVAIL                                                                   
+C       AVAIL                                                                   
+D       AVAIL                                                                   
+E       AVAIL                                                                   
+PID   = 15792   HARDCOPY  = 1112                                                
+TIME =  1649    DATE =  19SEP     HOST = CAAC                                   
+AIRLINE = CA    SYSTEM =  TST_D1  APPLICATION =  1                                   
+
+
+
+2015 September 22, Tuesday, 16:47:30
+>DA
+A*      22150   19SEP   1622    9   PEK112                                      
+B       AVAIL                                                                   
+C       AVAIL                                                                   
+D       AVAIL                                                                   
+E       AVAIL                                                                   
+PID   = 15792   HARDCOPY  = 1112                                                
+TIME =  1649    DATE =  19SEP     HOST = CAAC                                   
+AIRLINE = CA    SYSTEM =  TST_D1  APPLICATION =  1           

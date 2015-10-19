@@ -1,0 +1,86 @@
+---------------------------User: chengchen   SID: 55---------------------------
+2015 September 22, Tuesday, 16:54:57
+>detr tn  9999686012042 
+ DETR:TN  9999686012042                                                        
+ISSUED BY: AIR CHINA                 ORG/DST: BJS/SHA                 BSP-I     
+E/R: 9BJ10G0C/NONEND                                                            
+TOUR CODE: X9BJ10G0C                                         RECEIPT PRINTED  
+PASSENGER: DONG/XUEMIN                                                          
+EXCH:                               CONJ TKT:                                   
+O FM:1PEK CA     995  Z 08SEP 1500 OK ZXAP7H/NA  08SEP5/08SEP5 2PC USED/FLOWN   
+     T3-- RL:NB416S  /HS3N8R1E BG:2/43K BN:149                                  
+O TO:2IAH CA     996  Z 25SEP 0100 OK ZWAP7H/NA  25SEP5/25SEP5 2PC OPEN FOR USE 
+     --T3 RL:NB416S  /HS3N8R1E                                                  
+X TO:3PEK CA    1831  F 26SEP 0730 OK F/NA       26SEP5/26SEP5 2PC OPEN FOR USE 
+     T3T2 RL:NB416S  /HS3N8R1E                                                 +
+                                                                                
+
+2015 September 22, Tuesday, 16:54:58
+>PG1
+ DETR:TN  9999686012042                                                        
+ISSUED BY: AIR CHINA                 ORG/DST: BJS/SHA                 BSP-I     
+E/R: 9BJ10G0C/NONEND                                                            
+TOUR CODE: X9BJ10G0C                                         RECEIPT PRINTED  
+PASSENGER: DONG/XUEMIN                                                          
+EXCH:                               CONJ TKT:                                   
+O FM:1PEK CA     995  Z 08SEP 1500 OK ZXAP7H/NA  08SEP5/08SEP5 2PC USED/FLOWN   
+     T3-- RL:NB416S  /HS3N8R1E BG:2/43K BN:149                                  
+O TO:2IAH CA     996  Z 25SEP 0100 OK ZWAP7H/NA  25SEP5/25SEP5 2PC OPEN FOR USE 
+     --T3 RL:NB416S  /HS3N8R1E                                                  
+X TO:3PEK CA    1831  F 26SEP 0730 OK F/NA       26SEP5/26SEP5 2PC OPEN FOR USE 
+     T3T2 RL:NB416S  /HS3N8R1E                                                  
+  TO: SHA                                                                       
+FC:A 08SEP15BJS CA(PA)HOU2947.15CA(PA)X/BJS3301.74CA SHA602.80NUC6851.69E     
+ND ROE6.204290 XT 228.00US33.00XA45.00XY36.00YC52.00YQ2640.00YR29.00XFIAH4.5    
+FARE:           CNY42510.00|FOP:CA3                                             
+TAX:            CNY140.00CN|OI:                                                 
+TAX:            CNY 36.00AY|                                                    
+TAX:            CNY228.00US|FOR ALL TAXES:  DETR:X                              
+TOTAL:          CNY45749.00|TKTN: 999-9686012042                                
+                                                                                
+
+                                         
+                                                                                
+
+2015 September 22, Tuesday, 16:55:11
+>RT NB416S
+  **ELECTRONIC TICKET PNR**                                                     
+ 1.DONG/XUEMIN 2.JIE/LINPING NB416S                                             
+ 3.  CA996  Z1  FR25SEP  IAHPEK RR2   0100 0450+1    E --T3                     
+ 4.  CA1831 F1  SA26SEP  PEKSHA RR2   0730 0940      E T3T2                     
+ 5.T BJS/PEK/T 010-85227818/CHINA INTERNATIONAL TRAVEL SERVICE                  
+ 6.T BJS//YE CHANGJIANG                                                         
+ 7.SSR TKNE CA HK1 PEKIAH 995 Z08SEP 9999686012042/1/P1                         
+ 8.SSR TKNE CA HK1 PEKIAH 995 Z08SEP 9999686012043/1/P2                         
+ 9.SSR TKNE CA HK1 IAHPEK 996 Z25SEP 9999686012043/2/P2                         
+10.SSR TKNE CA HK1 PEKSHA 1831 F26SEP 9999686012043/3/P2                        
+11.SSR TKNE CA HK1 IAHPEK 996 Z25SEP 9999686012042/2/P1                         
+12.SSR TKNE CA HK1 PEKSHA 1831 F26SEP 9999686012042/3/P1                       +
+
+
+2015 September 22, Tuesday, 16:55:18
+>TSU 2/OPEN
+ACCEPTED
+
+
+2015 September 22, Tuesday, 16:47:30
+>DA
+A*      22150   19SEP   1622    9   PEK112                                      
+B       AVAIL                                                                   
+C       AVAIL                                                                   
+D       AVAIL                                                                   
+E       AVAIL                                                                   
+PID   = 15792   HARDCOPY  = 1112                                                
+TIME =  1649    DATE =  19SEP     HOST = CAAC                                   
+AIRLINE = CA    SYSTEM =  TST_D1  APPLICATION =  1  
+
+2015 September 22, Tuesday, 16:47:30
+>DA
+A*      22150   19SEP   1622    9   PEK112                                      
+B       AVAIL                                                                   
+C       AVAIL                                                                   
+D       AVAIL                                                                   
+E       AVAIL                                                                   
+PID   = 15792   HARDCOPY  = 1112                                                
+TIME =  1649    DATE =  19SEP     HOST = CAAC                                   
+AIRLINE = CA    SYSTEM =  TST_D1  APPLICATION =  1           
