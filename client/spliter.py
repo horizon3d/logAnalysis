@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 
 import re
+import codecs
 from helper import *
 
 class spliter(object):
@@ -30,7 +31,7 @@ class spliter(object):
       return False
 
    def split(self, filename):
-      fd = open(filename, 'r')
+      fd = codecs.open(filename, 'r', 'gbk')
       user = ''
       sid = 0
       logs = []
