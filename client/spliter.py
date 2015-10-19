@@ -11,6 +11,9 @@ class spliter(object):
    def __del__(self):
       pass
 
+   def __convert(self, text):
+      return text.encode('UTF-8')
+
    def get_user_sid(self, text):
       pattern = re.compile(r'[-]+User: ([0-9a-zA-Z]+)[ ]+SID: ([0-9]+)[-]+', re.I)
       match = pattern.match(text)
@@ -31,12 +34,14 @@ class spliter(object):
       user = ''
       sid = 0
       logs = []
+      lines = []
       try:
-         text = fd.readline()
-
+         text = self.__convert(fd.readline())
          user, sid = self.get_user_sid(text)
 
-         lines = fd.readlines()
+         tmp = fd.readlines()
+         for one in tmp:
+            lines.append(self.__convert(one))
       except Exception, e:
          debug('Failed to read file: %s', filename)
       finally:
