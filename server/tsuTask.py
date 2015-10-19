@@ -5,6 +5,7 @@ import re
 from task import baseTask
 from error import (analyError, dbError)
 from util import *
+from pysequoiadb.error import SDBEndOfCursor
 
 funcMap = {
             'CheckValid':'checkValid',
@@ -19,6 +20,7 @@ def checkValid(task, result):
    try:
       task.check_forbbiden()
    except analyError, e:
+      result['cmd'] = task.get('cmd')
       result['cmdReturn'] = 'illegal'
       result['outputReturn'] = e.detail
       result['user'] = task.get('user')
@@ -33,6 +35,7 @@ def checkDETRExist(task, result):
    try:
       task.check_detr_exist()
    except analyError, e:
+      result['cmd'] = task.get('cmd')
       result['cmdReturn'] = 'illegal'
       result['outputReturn'] = e.detail
       result['user'] = task.get('user')
@@ -47,6 +50,7 @@ def checkTicketState(task, result):
    try:
       task.check_detr_state()
    except analyError, e:
+      result['cmd'] = task.get('cmd')
       result['cmdReturn'] = 'illegal'
       result['outputReturn'] = e.detail
       result['user'] = task.get('user')
@@ -61,6 +65,7 @@ def checkTicketDate(task, result):
    try:
       task.check_detr_date()
    except analyError, e:
+      result['cmd'] = task.get('cmd')
       result['cmdReturn'] = 'illegal'
       result['outputReturn'] = e.detail
       result['user'] = task.get('user')
@@ -75,6 +80,7 @@ def checkRTExist(task, result):
    try:
       task.check_rt_exist()
    except analyError, e:
+      result['cmd'] = task.get('cmd')
       result['cmdReturn'] = 'illegal'
       result['outputReturn'] = e.detail
       result['user'] = task.get('user')
@@ -89,6 +95,7 @@ def checkRTMatch(task, result):
    try:
       task.check_rt_match()
    except analyError, e:
+      result['cmd'] = task.get('cmd')
       result['cmdReturn'] = 'illegal'
       result['outputReturn'] = e.detail
       result['user'] = task.get('user')
@@ -109,7 +116,7 @@ class tsuTask(baseTask):
       pass
 
    def __prepare(self):
-      cr = self.dbAdapter.query('log', { 'user':self.get('user'), 'cmd':'DETR', 'cmdTime':{'$lt':self.get('cmdTime')} })
+      cr = self.dbAdapter.query('log', { 'user':self.get('user'), 'cmd':'DETR', 'cmdTime':{'$lt':self.get('cmdTime')} }, {}, {'cmdTime':-1}, {})
       detr = None
       try:
          detr = cr.next()
@@ -126,7 +133,7 @@ class tsuTask(baseTask):
       else:
          return
 
-      cr = self.dbAdapter.query('log', {'user':self.get('user'), 'pnr':ticket['pnr'], 'cmd':'RT', 'cmdTime':{'$lt':self.get('cmdTime')} } )
+      cr = self.dbAdapter.query('log', {'user':self.get('user'), 'pnr':ticket['pnr'], 'cmd':'RT', 'cmdTime':{'$lt':self.get('cmdTime')} }, {}, {'cmdTime':-1}, {} )
       rt = None
       try:
          rt = cr.next()
@@ -141,7 +148,7 @@ class tsuTask(baseTask):
       self.__store[key] = value
 
    def get_related_log(self, key):
-      return self.__store[key];
+      return self.__store.get(key);
 
    def check_forbbiden(self):
       if not self.get('index').isdigit():
@@ -157,7 +164,7 @@ class tsuTask(baseTask):
          raise analyError('detr option is not done before!')
 
    def check_detr_state(self):
-      detr = self.__store['detr']
+      detr = self.__store.get('detr')
       tickets = detr['ticket']
       if len(tickets) > 0:
          index = int(self.get('index'))
@@ -169,9 +176,11 @@ class tsuTask(baseTask):
             raise analyError('ticket is used!')
          else:
             debug('cannot find \"OPEN FOR USE\" from ticket :%s', str(ticket))
+      else:
+         raise analyError('no ticket in detr', detr)
 
    def check_detr_date(self):
-      detr = self.__store['detr']
+      detr = self.__store.get('detr')
       tickets = detr['ticket']
       if len(tickets) > 0:
          index = int(self.get('index'))
@@ -203,21 +212,25 @@ class tsuTask(baseTask):
          raise analyError('cannot find rt log before tsu', self.data)
    """
    def check_rt_exist(self):
-      rt = self.__store['rt']
+      rt = self.__store.get('rt')
       if rt is not None:
          pass
       else:
          raise analyError('rt option is not done before!')
 
    def check_rt_match(self):
-      detr = self.__store['detr']
-      ticket = tickets[self.__store['tid'] - 1];
+      detr = self.__store.get('detr')
+      tickets = detr['ticket']
+      ticket = {}
+      if len(tickets) > 0:
+         index = int(self.get('index'))
+         ticket = tickets[index - 1];
 
-      rt = self.__store['rt']
+      rt = self.__store.get('rt')
       ssrs = rt['ssrtkne']
       if len(tickets) > 0:
          for ssr in ssrs:
-            if (ticket['tn'] == ssr['tn'] and
+            if (detr['tn'] == ssr['tn'] and
                ticket['comp'] == ssr['comp'] and ticket['plane'] == ssr['plane'] and
                ticket['magic'] == ssr['magic'] and ticket['date'] == ssr['date'] and
                ticket['idx'] == ssr['idx'] ):

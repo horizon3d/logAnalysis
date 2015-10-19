@@ -25,8 +25,8 @@ def thread_entry(connName, conn, dbAdapter):
          task = assign_rule(dbAdapter, data)
          if task is not None:
             result = task.go()
-            if not result:
-               dbAdapter.insert('alarm', result)
+            if result:
+               dbAdapter.upsert('alarm', result)
 
    debug('end thread, from [%s]', connName)
 
@@ -81,8 +81,8 @@ def assign_rule(dbAdapter, data):
 
 def execTask(dbAdapter, task):
    ret = task.go()
-   if not ret:
-      dbAdapter.insert('alarm', ret)
+   if ret:
+      dbAdapter.upsert('alarm', ret)
 
 class server(object):
    def __init__(self):

@@ -177,7 +177,10 @@ class detr(event):
 
          ticket['time'] = ts
          ticket['state'] = obj[5]
-         ticket['pnr'] = obj[6]
+         ticket['pnr'] = ''
+         pnr = obj[6].strip()
+         if pnr != '':
+            ticket['pnr'] = pnr
          ticket['date'] = '' + match.group(1) + match.group(2)
          debug('ticket: %s', str(ticket))
          tickets.append(ticket)
