@@ -66,6 +66,7 @@ def checkTicketDate(task, result):
       task.check_detr_date()
    except analyError, e:
       result['cmd'] = task.get('cmd')
+      result['ruleName'] = task.rule.get('ruleName')
       result['cmdReturn'] = 'illegal'
       result['outputReturn'] = e.detail
       result['user'] = task.get('user')
@@ -170,9 +171,9 @@ class tsuTask(baseTask):
          index = int(self.get('index'))
          ticket = tickets[index - 1];
          state = ticket['state']
-         if state.find('OPEN FOR USE'):
+         if 'OPEN FOR USE' in state:
             pass
-         elif state.find('USED'):
+         elif 'USED' in state:
             raise analyError('ticket is used!')
          else:
             debug('cannot find \"OPEN FOR USE\" from ticket :%s', str(ticket))
