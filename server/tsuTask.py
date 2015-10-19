@@ -16,95 +16,68 @@ funcMap = {
             'CheckRTMatch':'checkRTMatch'
           }
 
+def makeResult(task, result):
+   result['cmd'] = task.get('cmd')
+   result['ruleName'] = task.rule.get('ruleName')
+   result['errmsg'] = ''
+   result['user'] = task.get('user')
+   result['sid']  = task.get('sid')
+   result['cmdTime'] = task.get('cmdTime')
+   result['message'] = task.get('message')
+   result['cmdInput'] = task.get('cmdInput')
+   result['relatedlog'] = []
+
 def checkValid(task, result):
    try:
       task.check_forbbiden()
    except analyError, e:
-      result['cmd'] = task.get('cmd')
-      result['cmdReturn'] = 'illegal'
-      result['outputReturn'] = e.detail
-      result['user'] = task.get('user')
-      result['sid']  = task.get('sid')
-      result['cmdTime'] = task.get('cmdTime')
-      result['message'] = task.get('message')
-      result['relatedlog'] = []
-      result['cmdInput'] = task.get('cmdInput')
+      makeResult(task, result)
+      result['errmsg'] = e.detail
       raise
 
 def checkDETRExist(task, result):
    try:
       task.check_detr_exist()
    except analyError, e:
-      result['cmd'] = task.get('cmd')
-      result['cmdReturn'] = 'illegal'
-      result['outputReturn'] = e.detail
-      result['user'] = task.get('user')
-      result['sid']  = task.get('sid')
-      result['cmdTime'] = task.get('cmdTime')
-      result['message'] = task.get('message')
-      result['relatedlog'] = []
-      result['cmdInput'] = task.get('cmdInput')
+      makeResult(task, result)
+      result['errmsg'] = e.detail
+      result['errmsg'] = e.detail
       raise
 
 def checkTicketState(task, result):
    try:
       task.check_detr_state()
    except analyError, e:
-      result['cmd'] = task.get('cmd')
-      result['cmdReturn'] = 'illegal'
-      result['outputReturn'] = e.detail
-      result['user'] = task.get('user')
-      result['sid']  = task.get('sid')
-      result['cmdTime'] = task.get('cmdTime')
-      result['message'] = task.get('message')
+      makeResult(task, result)
+      result['errmsg'] = e.detail
       result['relatedlog'] = [task.get_related_log('detr')]
-      result['cmdInput'] = task.get('cmdInput')
       raise
 
 def checkTicketDate(task, result):
    try:
       task.check_detr_date()
    except analyError, e:
-      result['cmd'] = task.get('cmd')
-      result['ruleName'] = task.rule.get('ruleName')
-      result['cmdReturn'] = 'illegal'
-      result['outputReturn'] = e.detail
-      result['user'] = task.get('user')
-      result['sid']  = task.get('sid')
-      result['cmdTime'] = task.get('cmdTime')
-      result['message'] = task.get('message')
+      makeResult(task, result)
+      result['errmsg'] = e.detail
       result['relatedlog'] = [task.get_related_log('detr')]
-      result['cmdInput'] = task.get('cmdInput')
       raise
 
 def checkRTExist(task, result):
    try:
       task.check_rt_exist()
    except analyError, e:
-      result['cmd'] = task.get('cmd')
-      result['cmdReturn'] = 'illegal'
-      result['outputReturn'] = e.detail
-      result['user'] = task.get('user')
-      result['sid']  = task.get('sid')
-      result['cmdTime'] = task.get('cmdTime')
-      result['message'] = task.get('message')
+      makeResult(task, result)
+      result['errmsg'] = e.detail
       result['relatedlog'] = [task.get_related_log('detr')]
-      result['cmdInput'] = task.get('cmdInput')
       raise
 
 def checkRTMatch(task, result):
    try:
       task.check_rt_match()
    except analyError, e:
-      result['cmd'] = task.get('cmd')
-      result['cmdReturn'] = 'illegal'
-      result['outputReturn'] = e.detail
-      result['user'] = task.get('user')
-      result['sid']  = task.get('sid')
-      result['cmdTime'] = task.get('cmdTime')
-      result['message'] = task.get('message')
+      makeResult(task, result)
+      result['errmsg'] = e.detail
       result['relatedlog'] = [task.get_related_log('detr'), task.get_related_log('rt')]
-      result['cmdInput'] = task.get('cmdInput')
       raise
 
 class tsuTask(baseTask):

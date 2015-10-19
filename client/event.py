@@ -189,7 +189,7 @@ class detr(event):
 
    def __deep_parse(self, log):
       self.__append_tn(log)
-      self.__append_passenger(log)
+      #self.__append_passenger(log)
       self.__append_ticket(log)
 
    def to_json(self, log):
