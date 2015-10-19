@@ -251,7 +251,7 @@ class tsuTask(baseTask):
             'cmdReturn':'ACCEPTED',
             'cmd':'TSU',
             'traggerType':'cmd'
-         }
+         },
          'ruleGroup':'1',
          'ruleName':'TSU test',
          'stage':{
@@ -262,11 +262,11 @@ class tsuTask(baseTask):
                             {'entry':'CheckTicketDate', 'return':{'illegal':'ticket is expired!'}} ],
                'return':{'legal':'2'},
                'cmdName':'DETR'
-            }
+            },
             '2':{
                'function':[ {'entry':'CheckRTExist', 'return':{'illegal':'rt option is not exist!'}},
-                            {'entry':'CheckRTMatch', 'return':{'illegal':'match a ticket that not used'}}} ],
-               'return':{'legal':'final'}
+                            {'entry':'CheckRTMatch', 'return':{'illegal':'match a ticket that not used'}} ],
+               'return':{'legal':'final'},
                'cmdName':'RT'
             }
          }
