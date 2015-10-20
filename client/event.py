@@ -21,7 +21,7 @@ class event(object):
    def __del__(self):
       pass
 
-   def get(self):
+   def data(self):
       return self.__ctx
 
    def __append_time(self, log):

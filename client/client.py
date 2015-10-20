@@ -30,5 +30,5 @@ class client(object):
             event.append('user', user)
             event.append('sid', sid)
 
-            self.__conn.send(event.get())
+            self.__conn.send(event.data())
             debug('\r\n\r\n')
