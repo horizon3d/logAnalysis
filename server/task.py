@@ -10,6 +10,7 @@ class baseTask(object):
       self.rule = rule
       self.__data = data
       self.stage_dict = []
+      self.__store = {}
 
    def __del__(self):
       pass
@@ -21,6 +22,15 @@ class baseTask(object):
    @property
    def dbAdapter(self):
       return self.__dbAdapter
+
+   def append(self, key, value):
+      if self.__store.get(key) is not None:
+         debug('key[%s] exist, value: %s, it will be replaced by new value: %s', key, self.__store[key], value)
+
+      self.__store[key] = value
+
+   def at(self, key):
+      return self.__store.get(key);
 
    def get(self, key):
       return self.__data.get(key)

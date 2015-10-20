@@ -50,7 +50,7 @@ def checkTicketState(task, result):
    except analyError, e:
       makeResult(task, result)
       result['errmsg'] = e.detail
-      result['relatedlog'] = [task.get_related_log('detr')]
+      result['relatedlog'] = [task.at('detr')]
       raise
 
 def checkTicketDate(task, result):
@@ -59,7 +59,7 @@ def checkTicketDate(task, result):
    except analyError, e:
       makeResult(task, result)
       result['errmsg'] = e.detail
-      result['relatedlog'] = [task.get_related_log('detr')]
+      result['relatedlog'] = [task.at('detr')]
       raise
 
 def checkRTExist(task, result):
@@ -68,7 +68,7 @@ def checkRTExist(task, result):
    except analyError, e:
       makeResult(task, result)
       result['errmsg'] = e.detail
-      result['relatedlog'] = [task.get_related_log('detr')]
+      result['relatedlog'] = [task.at('detr')]
       raise
 
 def checkRTMatch(task, result):
@@ -77,14 +77,14 @@ def checkRTMatch(task, result):
    except analyError, e:
       makeResult(task, result)
       result['errmsg'] = e.detail
-      result['relatedlog'] = [task.get_related_log('detr'), task.get_related_log('rt')]
+      result['relatedlog'] = [task.at('detr'), task.at('rt')]
       raise
 
 class tsuTask(baseTask):
 
    def __init__(self, dbAdapter, rule, data):
       baseTask.__init__(self, dbAdapter, rule, data)
-      self.__store = {}
+      
 
    def __del__(self):
       pass
@@ -115,15 +115,6 @@ class tsuTask(baseTask):
          return
       self.append('rt', rt)
 
-   def append(self, key, value):
-      if self.__store.get(key) is not None:
-         debug('key[%s] exist, value: %s, it will be replaced by new value: %s', key, self.__store[key], value)
-
-      self.__store[key] = value
-
-   def get_related_log(self, key):
-      return self.__store.get(key);
-
    def check_forbbiden(self):
       if not self.get('index').isdigit():
          raise analyError('hit forbbiden element', self.data)
@@ -132,13 +123,13 @@ class tsuTask(baseTask):
          raise analyError('hit forbbiden element', self.data)
 
    def check_detr_exist(self):
-      if self.__store['detr'] is not None:
+      if self.at('detr') is not None:
          pass
       else:
          raise analyError('detr option is not done before!')
 
    def check_detr_state(self):
-      detr = self.__store.get('detr')
+      detr = self.at('detr')
       tickets = detr['ticket']
       if len(tickets) > 0:
          index = int(self.get('index'))
@@ -154,7 +145,7 @@ class tsuTask(baseTask):
          raise analyError('no ticket in detr', detr)
 
    def check_detr_date(self):
-      detr = self.__store.get('detr')
+      detr = self.at('detr')
       tickets = detr['ticket']
       if len(tickets) > 0:
          index = int(self.get('index'))
@@ -186,21 +177,21 @@ class tsuTask(baseTask):
          raise analyError('cannot find rt log before tsu', self.data)
    """
    def check_rt_exist(self):
-      rt = self.__store.get('rt')
+      rt = self.at('rt')
       if rt is not None:
          pass
       else:
          raise analyError('rt option is not done before!')
 
    def check_rt_match(self):
-      detr = self.__store.get('detr')
+      detr = self.at('detr')
       tickets = detr['ticket']
       ticket = {}
       if len(tickets) > 0:
          index = int(self.get('index'))
          ticket = tickets[index - 1];
 
-      rt = self.__store.get('rt')
+      rt = self.at('rt')
       ssrs = rt['ssrtkne']
       if len(tickets) > 0:
          for ssr in ssrs:
