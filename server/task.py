@@ -39,3 +39,6 @@ class baseTask(object):
       stage = self.rule['stage']
       for key in stage:
          self.stage_dict.append(key)
+
+   def go(self):
+      debug('run in base task, do nothing')

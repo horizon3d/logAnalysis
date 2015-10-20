@@ -8,13 +8,13 @@ from util import *
 from pysequoiadb.error import SDBEndOfCursor
 
 funcMap = {
-            'CheckValid':'checkValid',
-            'CheckDETRExist':'checkDETRExist',
-            'CheckTicketState':'checkTicketState',
-            'CheckTicketDate':'checkTicketDate',
-            'CheckRTExist':'checkRTExist',
-            'CheckRTMatch':'checkRTMatch'
-          }
+   'CheckValid':'checkValid',
+   'CheckDETRExist':'checkDETRExist',
+   'CheckTicketState':'checkTicketState',
+   'CheckTicketDate':'checkTicketDate',
+   'CheckRTExist':'checkRTExist',
+   'CheckRTMatch':'checkRTMatch'
+}
 
 def makeResult(task, result):
    result['cmd'] = task.get('cmd')
@@ -84,7 +84,6 @@ class tsuTask(baseTask):
 
    def __init__(self, dbAdapter, rule, data):
       baseTask.__init__(self, dbAdapter, rule, data)
-      
 
    def __del__(self):
       pass
@@ -202,7 +201,6 @@ class tsuTask(baseTask):
                raise analyError('ticket is still valid', rt)
       else:
          pass
-
 
    def go(self):
       self.__prepare()
