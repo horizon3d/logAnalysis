@@ -79,6 +79,15 @@ class event(object):
          flag = False
       self.append('flag', flag)
 
+   def __append_cmd(self, log):
+      if self.__ctx.get('cmd'):
+         return
+
+      pattern = re.compile(r'>[\s]*(\w+) ')
+      match = pattern.search(log)
+      if match:
+         self.append('cmd', match.group(1))
+
    def append(self, k, v):
       if self.__ctx.get(k) is not None:
          debug('key[%s] exist, value: %s, it will be replaced by new value: %s', k, self.__ctx[k], v)
@@ -235,6 +244,25 @@ class rt(event):
       self.parse(log)
       self.__deep_parse(log)
 
+class uu(event):
+   def __init__(self):
+      event.__init__(self, 'UU')
+
+   def __pass__(self):
+      pass
+
+   def __append_pid(self, log):
+      pattern = re.compile(r'>[\s]*\w+ [a-zA-Z ]+ (\d+) [\w /]+')
+      match = pattern.search(log)
+      if match:
+         self.append('pid', match.group(1))
+
+   def __deep_parse(self, log):
+      self.__append_pid(log)
+
+   def to_json(self, log):
+      self.parse(log)
+      self.__deep_parse(log)
 
 def text_to_json(log):
    cmd = get_command(log)
@@ -248,6 +276,8 @@ def text_to_json(log):
       e = detr()
    elif cmd == 'RT':
       e = rt()
+   elif cmd == 'UU':
+      e = uu()
    else:
       e = event(cmd)
 
