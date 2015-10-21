@@ -198,8 +198,10 @@ class tsuTask(baseTask):
             if (detr['tn'] == ssr['tn'] and
                ticket['comp'] == ssr['comp'] and ticket['plane'] == ssr['plane'] and
                ticket['magic'] == ssr['magic'] and ticket['date'] == ssr['date'] and
-               ticket['idx'] == ssr['idx'] ):
+               ticket['idx'] == int(ssr['idx']) ):
                raise analyError('ticket is still valid', rt)
+            else:
+
       else:
          pass
 
@@ -222,13 +224,11 @@ class tsuTask(baseTask):
                             {'entry':'CheckDETRExist', 'return':{'illegal':'detr option is not exist!'}},
                             {'entry':'CheckTicketState', 'return':{'illegal':'ticket is used!'}},
                             {'entry':'CheckTicketDate', 'return':{'illegal':'ticket is expired!'}} ],
-               'return':{'legal':'2'},
                'cmdName':'DETR'
             },
             '2':{
                'function':[ {'entry':'CheckRTExist', 'return':{'illegal':'rt option is not exist!'}},
                             {'entry':'CheckRTMatch', 'return':{'illegal':'match a ticket that not used'}} ],
-               'return':{'legal':'final'},
                'cmdName':'RT'
             }
          }

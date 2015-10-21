@@ -40,7 +40,9 @@ class adapter(object):
          debug('%s', e.detail)
          return
 
-      debug('insert a record into collection: %s, record: %s', clname, str(record))
+      debug('insert a record into collection: %s', clname)
+      debug('record: %s', str(record))
+      debug('\r\n\r\n')
 
    def query(self, clname, cond = {}, selector = {}, sort = {}, hint = {}):
 
