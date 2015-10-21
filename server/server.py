@@ -18,8 +18,6 @@ def thread_entry(connName, conn, dbAdapter):
          break
       
       if data is not None:
-         print(data)
-         debug('\r\n\r\n')
          dbAdapter.upsert('log', data)
 
          task = assign_rule(dbAdapter, data)
