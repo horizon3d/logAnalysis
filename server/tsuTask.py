@@ -205,7 +205,6 @@ class tsuTask(baseTask):
    def go(self):
       self.__prepare()
       self.map_stage()
-
       """
       tsuRule = {
          'ruleType':'CMDFLOW',
