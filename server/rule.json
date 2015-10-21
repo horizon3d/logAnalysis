@@ -1,0 +1,6 @@
+{
+   "all":[ "DETR" ],
+   "TSU":  { "need":[], "support":["index"], "next":[ "DETR" ], "function":["CheckValid"]},
+   "DETR": { "need":[{"cmd":"TSU","key":["index"]}],"support":["tn", "pnr"], "next":[ "RT" ], "function": ["CheckDETRExist", "CheckTicketState", "CheckTicketDate"]},
+   "RT":   { "need":[{"cmd":"DETR", "key":["pnr"]}],"support":[], "next":[], "function": ["CheckRTExist", "CheckRTMatch"]}
+}
