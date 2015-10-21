@@ -7,7 +7,7 @@ from pysequoiadb.error import SDBBaseError
 
 class adapter(object):
 
-   def __init__(self, csname = 'zhx', host = 'localhost', port = 11810, user = '', password = ''):
+   def __init__(self, host = 'localhost', port = 11810, user = '', password = '', csname = 'zhx'):
       self.__initialize(csname, host, port, user, password)
       self.__cls = {}
 
@@ -40,9 +40,9 @@ class adapter(object):
          debug('%s', e.detail)
          return
 
-      debug('insert a record into collection: %s', clname)
-      debug('record: %s', str(record))
-      debug('\r\n\r\n')
+      #debug('insert a record into collection: %s', clname)
+      #debug('record: %s', str(record))
+      #debug('\r\n\r\n')
 
    def query(self, clname, cond = {}, selector = {}, sort = {}, hint = {}):
 

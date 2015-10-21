@@ -25,8 +25,9 @@ class connection(object):
       try:
          self.__sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
          self.__sock.connect(addr)
-      except:
+      except Exception, e:
          debug('Failed to connect to %s:%d', host, port)
+         debug('detail: %s', e)
 
    def send(self, data):
       if not data:
@@ -47,7 +48,6 @@ class connection(object):
       while True:
          data = self.__sock.recv(4)
          if not data:
-            debug('received none, remote session closed')
             raise socket.error('session closed')
          else:
             size = int(data, 16)
