@@ -103,6 +103,7 @@ class tsuTask(baseTask):
       if self.get('index').isdigit():
          index = int(self.get('index'))
          ticket = detr['ticket'][index - 1]
+         self.append('pnr', ticket['pnr'])
       else:
          return
 
