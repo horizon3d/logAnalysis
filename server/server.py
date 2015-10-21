@@ -14,7 +14,7 @@ def thread_entry(connName, conn, dbAdapter):
       try:
          data = conn.recv()
       except socket.error, e:
-         #debug('socket error occurs when receiving packet: %r', e)
+         #debug('remote session pipe closed, %r', e)
          break
       
       if data is not None:
@@ -83,9 +83,9 @@ def execTask(dbAdapter, task):
       dbAdapter.upsert('alarm', ret)
 
 class server(object):
-   def __init__(self):
+   def __init__(self, dbserver = 'localhost', svnname = 11810):
       self.__sock = None
-      self.__dbAdapter = adapter()
+      self.__dbAdapter = adapter(host = dbserver, port = svnname)
 
    def __del__(self):
       if self.__sock is not None:

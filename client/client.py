@@ -31,4 +31,4 @@ class client(object):
             event.append('sid', sid)
 
             self.__conn.send(event.data())
-            debug('\r\n\r\n')
+            #debug('\r\n\r\n')

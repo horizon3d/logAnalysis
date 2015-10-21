@@ -35,7 +35,7 @@ class event(object):
             ymd = ymd.replace(k,v)
          cmd_time = time.mktime(time.strptime((ymd + otime[2]), '%Y %m %d %H:%M:%S'))
 
-      debug('cmd time is: %s', str(cmd_time))
+      #debug('cmd time is: %s', str(cmd_time))
       self.append('cmdTime', cmd_time)
 
    def __append_return(self, log):
@@ -45,7 +45,7 @@ class event(object):
       if match:
          rtn = match.group(1)
 
-      debug('return: %s', rtn)
+      #debug('return: %s', rtn)
       self.append('cmdReturn', rtn)
 
    def __append_input(self, log):
@@ -68,7 +68,7 @@ class event(object):
       if cmd == '':
          cmd = self.__ctx.get('cmd')
 
-      debug('input： %s', cmd)
+      #debug('input： %s', cmd)
       self.append('cmdInput', cmd)
 
    def __append_flag(self, log):
@@ -119,10 +119,10 @@ class tsu(event):
       match = pattern.findall(log)
       if match:
          tid = match[0][1]
-         debug('ticket id is: %s', tid)
+         #debug('ticket id is: %s', tid)
          self.append('index', tid)
          state = match[0][0]
-         debug('state is: %s', state)
+         #debug('state is: %s', state)
          self.append('state', state)
 
    def __deep_parse(self, log):
@@ -145,17 +145,16 @@ class detr(event):
       match = pattern.search(log)
       if match:
          self.append('tn', match.group(1))
-         debug('tn: %s', match.group(1))
+         #debug('tn: %s', match.group(1))
       else:
          debug('find no match tn in detr context')
-         return None
 
    def __append_passenger(self, log):
       pattern = re.compile(r'PASSENGER:(.*)', re.I)
       match = pattern.search(log)
       if match:
          self.append('passenger', match.group(1))
-         debug('passenger: %s', match.group(1))
+         #debug('passenger: %s', match.group(1))
       else:
          debug('find no match passenger in detr context')
 
@@ -191,7 +190,7 @@ class detr(event):
          if pnr != '':
             ticket['pnr'] = pnr
          ticket['date'] = '' + match.group(1) + match.group(2)
-         debug('ticket: %s', str(ticket))
+         #debug('ticket: %s', str(ticket))
          tickets.append(ticket)
 
       self.append('ticket', tickets)
@@ -218,7 +217,7 @@ class rt(event):
       match = pattern.search(log)
       if match:
          self.append('pnr', match.group(1))
-         debug('pnr: %s', match.group(1))
+         #debug('pnr: %s', match.group(1))
 
       pattern = re.compile(r'SSR TKNE ([\w]+) [\w\d]+ [\w\d]+ (\d+) ([A-Z])(\d{2}\w{3}) (\d+)/(\d)/', re.I)
       obj = pattern.findall(log)

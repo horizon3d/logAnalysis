@@ -19,7 +19,6 @@ funcMap = {
 def makeResult(task, result):
    result['cmd'] = task.get('cmd')
    result['ruleName'] = task.rule.get('ruleName')
-   result['errmsg'] = ''
    result['user'] = task.get('user')
    result['sid']  = task.get('sid')
    result['cmdTime'] = task.get('cmdTime')
@@ -201,7 +200,7 @@ class tsuTask(baseTask):
                ticket['idx'] == int(ssr['idx']) ):
                raise analyError('ticket is still valid', rt)
             else:
-
+               pass
       else:
          pass
 
