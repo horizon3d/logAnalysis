@@ -4,3 +4,5 @@
    "DETR": { "need":[{"cmd":"TSU","key":["index"]}],"support":["tn", "pnr"], "next":[ "RT" ], "function": ["CheckDETRExist", "CheckTicketState", "CheckTicketDate"]},
    "RT":   { "need":[{"cmd":"DETR", "key":["pnr"]}],"support":[], "next":[], "function": ["CheckRTExist", "CheckRTMatch"]}
 }
+
+{ "ruleType":"CMDFLOW", "tragger":{ "cmdReturn":"ACCEPTED", "cmd":"TSU", "traggerType":"cmd" }, "ruleGroup":"1", "ruleName":"TSU test", "stage":{ "1":{ "function":[ {"entry":"CheckValid", "return":{"illegal":"ticket contais forbbiden flag!"}}, {"entry":"CheckDETRExist", "return":{"illegal":"detr option is not exist!"}}, {"entry":"CheckTicketState", "return":{"illegal":"ticket is used!"}}, {"entry":"CheckTicketDate", "return":{"illegal":"ticket is expired!"}} ], "cmdName":"DETR" }, "2":{ "function":[ {"entry":"CheckRTExist", "return":{"illegal":"rt option is not exist!"}}, {"entry":"CheckRTMatch", "return":{"illegal":"match a ticket that not used"}} ], "cmdName":"RT" } } }
