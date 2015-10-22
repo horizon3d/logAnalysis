@@ -86,7 +86,7 @@ class event(object):
       pattern = re.compile(r'>[\s]*(\w+) ')
       match = pattern.search(log)
       if match:
-         self.append('cmd', match.group(1))
+         self.append('cmd', match.group(1).upper())
 
    def append(self, k, v):
       if self.__ctx.get(k) is not None:
@@ -247,11 +247,51 @@ class uu(event):
    def __init__(self):
       event.__init__(self, 'UU')
 
-   def __pass__(self):
+   def __del__(self):
       pass
 
    def __append_pid(self, log):
       pattern = re.compile(r'>[\s]*\w+ [a-zA-Z ]+ (\d+) [\w /]+')
+      match = pattern.search(log)
+      if match:
+         self.append('pid', match.group(1))
+
+   def __deep_parse(self, log):
+      self.__append_pid(log)
+
+   def to_json(self, log):
+      self.parse(log)
+      self.__deep_parse(log)
+
+class mo(event):
+   def __init__(self):
+      event.__init__(self, 'MO')
+
+   def __del__(self):
+      pass
+
+   def __append_pid(self, log):
+      pattern = re.compile(r'>[\s]*\w+ (\d+)\w+')
+      match = pattern.search(log)
+      if match:
+         self.append('pid', match.group(1))
+
+   def __deep_parse(self, log):
+      self.__append_pid(log)
+
+   def to_json(self, log):
+      self.parse(log)
+      self.__deep_parse(log)
+
+def send(event):
+   def __init__(self):
+      event.__init__(self, 'SEND')
+
+   def __del__(self):
+      pass
+
+   def __append_pid(self, log):
+      pattern = re.compile(r'>[\s]*\w+ (\d+)\s\w+')
       match = pattern.search(log)
       if match:
          self.append('pid', match.group(1))

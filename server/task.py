@@ -42,3 +42,14 @@ class baseTask(object):
 
    def go(self):
       debug('run in base task, do nothing')
+
+def makeResult(task, result):
+   result['cmd'] = task.get('cmd')
+   result['ruleName'] = task.rule.get('ruleName')
+   result['user'] = task.get('user')
+   result['sid']  = task.get('sid')
+   result['cmdTime'] = task.get('cmdTime')
+   result['message'] = task.get('message')
+   result['cmdInput'] = task.get('cmdInput')
+   result['cmdReturn'] = task.get('cmdReturn')
+   result['relatedlog'] = []
