@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 
 import re
-from task import baseTask
+from task import (baseTask, makeResult)
 from error import (analyError, dbError)
 from util import *
 from pysequoiadb.error import SDBEndOfCursor
@@ -15,17 +15,6 @@ funcMap = {
    'CheckRTExist':'checkRTExist',
    'CheckRTMatch':'checkRTMatch'
 }
-
-def makeResult(task, result):
-   result['cmd'] = task.get('cmd')
-   result['ruleName'] = task.rule.get('ruleName')
-   result['user'] = task.get('user')
-   result['sid']  = task.get('sid')
-   result['cmdTime'] = task.get('cmdTime')
-   result['message'] = task.get('message')
-   result['cmdInput'] = task.get('cmdInput')
-   result['cmdReturn'] = task.get('cmdReturn')
-   result['relatedlog'] = []
 
 def checkValid(task, result):
    try:
