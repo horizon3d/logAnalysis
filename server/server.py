@@ -83,7 +83,7 @@ def execTask(dbAdapter, task):
       dbAdapter.upsert('alarm', ret)
 
 class server(object):
-   def __init__(self, dbserver = 'localhost', svnname = 11810):
+   def __init__(self, dbserver = 'localhost', svcname = 11810):
       self.__sock = None
       self.__dbAdapter = adapter(host = dbserver, port = svnname)
 
