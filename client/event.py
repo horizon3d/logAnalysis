@@ -283,7 +283,7 @@ class mo(event):
       self.parse(log)
       self.__deep_parse(log)
 
-def send(event):
+def usend(event):
    def __init__(self):
       event.__init__(self, 'SEND')
 
@@ -315,6 +315,10 @@ def text_to_json(log):
       e = detr()
    elif cmd == 'RT':
       e = rt()
+   elif cmd == 'SEND':
+      e = usend()
+   elif cmd == 'MO':
+      e = mo()
    elif cmd == 'UU':
       e = uu()
    else:
