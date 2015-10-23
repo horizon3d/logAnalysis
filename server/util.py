@@ -18,8 +18,8 @@ def debug(fmt, *args):
    detail = fmt % (args)
    print(detail)
 
-def trag(rule, cmdName):
-   return cmdName == rule['tragger']['cmd']
+def trig(rule, cmdName):
+   return cmdName == rule['trigger']['cmd']
 
 def createTask(cmd, dbAdapter, rule, data):
    task = None
