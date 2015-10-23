@@ -73,7 +73,7 @@ def assign_rule(dbAdapter, data):
                break
 
          for rule in rules:
-            if trag(rule, data['cmd']):
+            if trig(rule, data['cmd']):
                task = createTask(data['cmd'], dbAdapter, rule, data)
                return task
 
@@ -85,7 +85,7 @@ def execTask(dbAdapter, task):
 class server(object):
    def __init__(self, dbserver = 'localhost', svcname = 11810):
       self.__sock = None
-      self.__dbAdapter = adapter(host = dbserver, port = svnname)
+      self.__dbAdapter = adapter(host = dbserver, port = svcname)
 
    def __del__(self):
       if self.__sock is not None:
