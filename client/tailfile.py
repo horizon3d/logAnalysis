@@ -140,21 +140,29 @@ class tailfile(object):
 
       retry = True
       log = None
+      total, lines = self.__cached()
+      if self.__rline < total:
+         for line in lines[self.__rline:]:
+            text = self.__convert(line)
+         pass
+
       while True:
-         text = self.__next_line()
-         if text:
-            if self.__match_date(text):
-               if self.__oneLog is not None:
-                  log = self.__oneLog
-                  self.__oneLog = text
-                  break
-               else:
-                  self.__oneLog = text
-            else:
-               self.__oneLog += text
+         total, lines = self.__cached()
+         if self.__rline < total:
+            for line in lines[self.__rline:]:
+               text = self.__convert(line)
+               self.__inc_line()
+               if text:
+                  if self.__match_date(text):
+                     if self.__oneLog is not None:
+                        log = self.__oneLog
+                        self.__oneLog = text
+                        break
+                     else:
+                        self.__oneLog = text
+                  else:
+                     self.__oneLog += text
          else:
-            linecache.clearcache()
-            linecache.updatecache(self.filename)
             if retry:
                retry = False
                time.sleep(2)
