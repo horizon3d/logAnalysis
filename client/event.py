@@ -315,12 +315,12 @@ def text_to_json(log):
       e = detr()
    elif cmd == 'RT':
       e = rt()
-   elif cmd == 'SEND':
-      e = usend()
-   elif cmd == 'MO':
-      e = mo()
-   elif cmd == 'UU':
-      e = uu()
+   #elif cmd == 'SEND':
+      #e = usend()
+   #elif cmd == 'MO':
+      #e = mo()
+   #elif cmd == 'UU':
+      #e = uu()
    else:
       e = event(cmd)
 

@@ -1,0 +1,2513 @@
+----------------------------User: o0982271   SID: 51----------------------------
+2015 January 17, Saturday, 08:50:25
+>$$open tipb
+ SESSION PATH OPEN TO: TIPB                                                     
+                                                                                
+
+2015 January 17, Saturday, 08:50:33
+>SI
+PEK099  SIGNED IN A                                                             
+LAST SI PID10077 /PEK099 AT 0849   16JAN15                                    
+****************************************************                            
+*国际运价计算系统运价提示信息中文显示                                           
+ (发布日期:2015年01月14日)           GI:TRAVEL/TZ339                            
+****************************************************                            
+*河北航空新增石家庄=哈尔滨直飞航线       GI:NS/TZ59                             
+ (发布日期:2015年01月16日)                                                      
+*关于西部航空取消机上免费餐饮服务的提示  GI:PN/TZ84                             
+ (发布日期:2015年01月15日)                                                      
+*关于川航重庆机场航站楼公告              GI:3U/TZ212                            
+ (发布日期:2015年01月12日)                                                      
+       +                                                                        
+
+ 
+ 
+2015 January 17, Saturday, 09:34:51
+>detr tn/7816567668739
+ DETR:TN/7816567668739                                                         
+ISSUED BY: ABACUS                    ORG/DST: KHH/KHH                 ARL-I     
+E/R: NON-END,USED NONREF.OB NOT VALID AFT 30JUN15.TKT VLD 0-3M.                 
+TOUR CODE:                                                                      
+PASSENGER: HUANG/BOJYUNMR                                                       
+EXCH:                               CONJ TKT:                                   
+O FM:1KHH KA     451  Y 05JAN 0800 OK BEE3M4           /05APR5 20K USED/FLOWN   
+          RL:MJC2KN  /UAJDVM1B                                                  
+X TO:2HKG MU     722  L 05JAN 1155 OK LHXHK            /05APR5 20K USED/FLOWN   
+     --T1 RL:/UAJDVM1B         BG:1/8K BN:12                                    
+O TO:3SHA MU    OPEN  L OPEN          LHXHK            /05APR5 20K OPEN FOR USE 
+     T1-- RL:/UAJDVM1B                                                         +
+                                                                                
+
+2015 January 17, Saturday, 09:35:03
+>pg1
+ DETR:TN/7816567668739                                                         
+ISSUED BY: ABACUS                    ORG/DST: KHH/KHH                 ARL-I     
+E/R: NON-END,USED NONREF.OB NOT VALID AFT 30JUN15.TKT VLD 0-3M.                 
+TOUR CODE:                                                                      
+PASSENGER: HUANG/BOJYUNMR                                                       
+EXCH:                               CONJ TKT:                                   
+O FM:1KHH KA     451  Y 05JAN 0800 OK BEE3M4           /05APR5 20K USED/FLOWN   
+          RL:MJC2KN  /UAJDVM1B                                                  
+X TO:2HKG MU     722  L 05JAN 1155 OK LHXHK            /05APR5 20K USED/FLOWN   
+     --T1 RL:/UAJDVM1B         BG:1/8K BN:12                                    
+O TO:3SHA MU    OPEN  L OPEN          LHXHK            /05APR5 20K OPEN FOR USE 
+     T1-- RL:/UAJDVM1B                                                          
+X TO:4HKG KA     436  V 05FEB 1240 OK BEE3M4           /05APR5 20K OPEN FOR USE 
+          RL:MJC2KN  /UAJDVM1B                                                  
+  TO: KHH                                                                       
+FC: KHH KA HKG280.62MU SHA Q5.80 153.54MU HKG153.54KA KHH Q5.80 280.62NU        
+C879.92END ROE29.9423 XT1170YQ1164YR  ./CODE SHARE FLT ONLY ALLOW MU-FM         
+FARE:           TWD   26347|FOP:CK3                                             
+TAX:                  300TW|OI:                                                 
+TAX:                  462CN|                                                    
+TAX:                 2334XT|                                                    
+TOTAL:          TWD   29443|TKTN: 781-6567668739                                
+                                                                                
+
+2015 January 17, Saturday, 09:35:22
+>rt:MJC2KN
+ 1.HUANG/BOJYUNMR MJC2KN                                                        
+ 2.  MU721  L   TH05FEB  SHAHKG HK1   0840 1050      E T1--                     
+ 3.  KA436  V   TH05FEB  HKGKHH HK1                  E                          
+ 4.T KHH/COLATOUR 07 3309788 666 A                                              
+ 5.H KHH/0986805368 MR HUANG H                                                  
+ 6.P KHH/886986805368 MR HUANG BOJYUN M                                         
+ 7.SSR FQTV MU HK/ MU650265443055/C/P1                                          
+ 8.SSR FQTV MU HK1 HKGSHA 722 L05JAN MU 650265443055/C/P1                       
+ 9.SSR ADTK 1B BY KHH17JAN15/1215 OR CXL MU721 L05FEB                           
+10.HDQ1B/UAJDVM/ND6D/34302273/KHH/1B/T//TWD/KHH                                 
+                                                                                
+
+2015 January 17, Saturday, 09:35:37
+>tsu:4/open
+ACCEPTED                                                                        
+                                                                                
+
+2015 January 17, Saturday, 09:35:41
+>detr tn/7816567668739
+ DETR:TN/7816567668739                                                         
+ISSUED BY: ABACUS                    ORG/DST: KHH/KHH                 ARL-I     
+E/R: NON-END,USED NONREF.OB NOT VALID AFT 30JUN15.TKT VLD 0-3M.                 
+TOUR CODE:                                                                      
+PASSENGER: HUANG/BOJYUNMR                                                       
+EXCH:                               CONJ TKT:                                   
+O FM:1KHH KA     451  Y 05JAN 0800 OK BEE3M4           /05APR5 20K USED/FLOWN   
+          RL:MJC2KN  /UAJDVM1B                                                  
+X TO:2HKG MU     722  L 05JAN 1155 OK LHXHK            /05APR5 20K USED/FLOWN   
+     --T1 RL:/UAJDVM1B         BG:1/8K BN:12                                    
+O TO:3SHA MU    OPEN  L OPEN          LHXHK            /05APR5 20K OPEN FOR USE 
+     T1-- RL:/UAJDVM1B                                                         +
+                                                                                
+
+2015 January 17, Saturday, 09:35:43
+>pg1
+ DETR:TN/7816567668739                                                         
+ISSUED BY: ABACUS                    ORG/DST: KHH/KHH                 ARL-I     
+E/R: NON-END,USED NONREF.OB NOT VALID AFT 30JUN15.TKT VLD 0-3M.                 
+TOUR CODE:                                                                      
+PASSENGER: HUANG/BOJYUNMR                                                       
+EXCH:                               CONJ TKT:                                   
+O FM:1KHH KA     451  Y 05JAN 0800 OK BEE3M4           /05APR5 20K USED/FLOWN   
+          RL:MJC2KN  /UAJDVM1B                                                  
+X TO:2HKG MU     722  L 05JAN 1155 OK LHXHK            /05APR5 20K USED/FLOWN   
+     --T1 RL:/UAJDVM1B         BG:1/8K BN:12                                    
+O TO:3SHA MU    OPEN  L OPEN          LHXHK            /05APR5 20K OPEN FOR USE 
+     T1-- RL:/UAJDVM1B                                                          
+X TO:4HKG KA    OPEN  V OPEN          BEE3M4           /05APR5 20K OPEN FOR USE 
+          RL:                                                                   
+  TO: KHH                                                                       
+FC: KHH KA HKG280.62MU SHA Q5.80 153.54MU HKG153.54KA KHH Q5.80 280.62NU        
+C879.92END ROE29.9423 XT1170YQ1164YR  ./CODE SHARE FLT ONLY ALLOW MU-FM         
+FARE:           TWD   26347|FOP:CK3                                             
+TAX:                  300TW|OI:                                                 
+TAX:                  462CN|                                                    
+TAX:                 2334XT|                                                    
+TOTAL:          TWD   29443|TKTN: 781-6567668739                                
+                                                                                
+
+ 
+ 
+2015 January 17, Saturday, 10:53:23
+>detr tn/7815488508749
+ DETR:TN/7815488508749                                                         
+ISSUED BY: CHINA EASTERN AIRLINES    ORG/DST: BJS/HGH                 BSP-D     
+E/R: 不得签转收费更改                                                           
+TOUR CODE:                                                   RECEIPT PRINTED  
+PASSENGER: 张三                                                               
+EXCH:                               CONJ TKT:                                   
+O FM:1PEK FM    OPEN  Z OPEN          YZ35WLDH   15NOV4/15NOV4 20K SUSPENDED    
+     T2-- RL:                                                                   
+  TO: HGH                                                                       
+FC: 15NOV14PEK FM HGH340.00CNY340.00END                                         
+FARE:           CNY  340.00|FOP:CASH                                            
+TAX:            CNY 50.00CN|OI:                                                +
+                                                                                
+
+2015 January 17, Saturday, 10:53:29
+>detr tn/7815488508749,h
+ DETR:TN/7815488508749,H                                                       
+TKTN:7815488508749  NAME: 张三                                                
+IATA OFFC: 08039721 ISSUED: 11OCT14                                             
+  8    08DEC/1523/88885    TRMK RECEIPT:4665699447                              
+  7 1  08DEC/1348/29053    TKSU O/S SUSPENDED BY SHA666                         
+  6 1  15NOV/1439/9940     EOTU FLT DATE/TIME CHG FROM 15NOV14/1350/1555 TO     
+                                OPEN                                            
+  5 1  15NOV/1439/9940     EOTU CHG FLT FROM FM9152/15NOV14/Z/PEKHGH TO         
+                                FMOPEN/OPEN/Z/PEKHGH                            
+  4 1  15NOV/1439/9940     EOTU MKG RL JQL4MP1E CLEARED                         
+  3 1  15NOV/1439/9940     EOTU RES RL MJ60LD   CLEARED                         
+  2 1  11OCT/1710/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET             +
+                                                                                
+
+2015 January 17, Saturday, 10:53:33
+>pg1
+ DETR:TN/7815488508749,H                                                       
+TKTN:7815488508749  NAME: 张三                                                
+IATA OFFC: 08039721 ISSUED: 11OCT14                                             
+  8    08DEC/1523/88885    TRMK RECEIPT:4665699447                              
+  7 1  08DEC/1348/29053    TKSU O/S SUSPENDED BY SHA666                         
+  6 1  15NOV/1439/9940     EOTU FLT DATE/TIME CHG FROM 15NOV14/1350/1555 TO     
+                                OPEN                                            
+  5 1  15NOV/1439/9940     EOTU CHG FLT FROM FM9152/15NOV14/Z/PEKHGH TO         
+                                FMOPEN/OPEN/Z/PEKHGH                            
+  4 1  15NOV/1439/9940     EOTU MKG RL JQL4MP1E CLEARED                         
+  3 1  15NOV/1439/9940     EOTU RES RL MJ60LD   CLEARED                         
+  2 1  11OCT/1710/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET              
+  1    11OCT/1710/9955     TRMK YAKE+SHA666+DEV-33                              
+                                                                                
+
+2015 January 17, Saturday, 10:54:07
+>ohi r/张三/FM9152/15NOV14
+ ohi:R/SHOUHAIYAN/FM  9152 /15NOV14                                             
+--- 15NOV14: SEARCH IN TOTAL 1 FLIGHTS/SEGMENTS.                                
+FM  9152 /PEKHGH/15NOV14                                                        
+HISTORY INDEX NUMBER 57                                                         
+ 001   1SHOUHAIYAN       PGPGBF Z  HX1   PEK1E  11OCT14                         
+Total time used 1007 ms                                                         
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 10:54:13
+>rt PGPGBF
+ 1.张三 PGPGBF                                                                
+ 2.T SHA/SHA/T 021-52918766/SHA GUANG FA AIR TICKET SERVICE CO                  
+ 3.T SHA/. LTD/ZHOU JIAN                                                        
+ 4.SSR FOID FM HK1 NI111111111111111111/P1                                      
+ 5.OSI CA CTC 02123079090                                                       
+ 6.OSI YY CTCT02123079090                                                       
+ 7.OSI FM CTCT13161954450                                                       
+ 8.OSI CA TKNA TICTKED                                                          
+ 9.RMK PFS NOSHO FM9152 Z 15NOV PEKHGH                                          
+10.PEK1E/JQL4MP/SHA666                                                          
+                                                                                
+
+2015 January 17, Saturday, 10:54:19
+>rtrp
+11.PEK1E/JQL4MP/SHA666                                                         -
+                                                                                
+
+ 
+ 
+2015 January 17, Saturday, 11:38:47
+>detr tn/9992356565755
+ DETR:TN/9992356565755                                                         
+ISSUED BY: AIR CHINA                 ORG/DST: ZHA/PEK                 ARL-D     
+E/R: 改期退票收费                                                               
+TOUR CODE:                                                                      
+PASSENGER: 张三                                                               
+EXCH:                               CONJ TKT:                                   
+O FM:1ZHA CA    1878  O 17JAN 1210 OK Y                /16JAN6 20K CHECKED IN   
+     --T3 RL:PLF339  /         BN:109                                           
+  TO: PEK                                                                       
+FC: 17JAN15ZHA CA PEK2140.00CNY2140.00END                                       
+FARE:           CNY 2140.00|FOP:CC/ T1                                          
+TAX:            CNY 50.00CN|OI:                                                +
+                                                                                
+
+2015 January 17, Saturday, 11:39:00
+>detr tn/9992356565755,h
+ DETR:TN/9992356565755,H                                                       
+TKTN:9992356565755  NAME: 张三                                               
+IATA OFFC: 08622222 ISSUED: 16JAN15                                             
+  4 1  17JAN/1112/54515    CKIN CHG FLT FROM CA1878/17JAN15/Y/ZHAPEK TO         
+                                CA1878/17JAN15/O/ZHAPEK                         
+  3 1  17JAN/1112/54515    CKIN O/C CA1878/17JAN15/O/ZHAPEK                     
+  2 1  16JAN/1549/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET              
+  1    16JAN/1549/30009    TRMK CA+PEK888+DEV-35                                
+                                                                                
+
+ 
+ 
+2015 January 17, Saturday, 12:45:23
+>rt PCCEW1                                                                       
+
+ 1.张三 PCCEW1                                                                
+ 2.  MU743  Y   SA17JAN  PEKTAO RR1   1445 1640      E T2--                     
+ 3.T BJS/BJS/T010-64161515/BEIJING CTRIP INT L TRAVEL SERVICE                   
+ 4.T BJS/CO. LTD. CTRIP /LIULIJUAN                                              
+ 5.T                                                                            
+ 6.SSR FOID SC HK1 NI111111111111111111/P1                                      
+ 7.SSR OTHS 1E 1 SCAIRLINES ET PNR                                              
+ 8.SSR OTHS 1E 1 PNR RR AND PRINTED                                             
+ 9.SSR TKTL CA XX/ BJS 1200/17JAN15                                             
+10.SSR ADTK 1E BY BJS17JAN15/1245 OR CXL MU743 Y17JAN                           
+11.OSI CA CTC 021-51069999X454360                                               
+12.OSI SC CTCT18321831730                                                      +
+                                                                                
+
+2015 January 17, Saturday, 12:45:30
+>rtc
+009     PEK099 9981 0405 17JAN                                                  
+     1.张三(001) PCCEW1                                                       
+008  2.  MU743  Y   SA17JAN  PEKTAO RR1   1445 1640      E T2--                 
+       RR(008)                                                                  
+001  3.T BJS/BJS/T010-64161515/BEIJING CTRIP INT L TRAVEL SERVICE               
+001  4.T BJS/CO. LTD. CTRIP /LIULIJUAN                                          
+005  5.T                                                                        
+001  6.SSR FOID SC HK1 NI111111111111111111/P1                                  
+       HK(001)                                                                  
+007  7.SSR OTHS 1E 1 SCAIRLINES ET PNR                                          
+007  8.SSR OTHS 1E 1 PNR RR AND PRINTED                                         
+                                                                               +
+                                                                                
+
+2015 January 17, Saturday, 12:45:32
+>pg1
+009     PEK099 9981 0405 17JAN                                                  
+     1.张三(001) PCCEW1                                                       
+008  2.  MU743  Y   SA17JAN  PEKTAO RR1   1445 1640      E T2--                 
+       RR(008)                                                                  
+001  3.T BJS/BJS/T010-64161515/BEIJING CTRIP INT L TRAVEL SERVICE               
+001  4.T BJS/CO. LTD. CTRIP /LIULIJUAN                                          
+005  5.T                                                                        
+001  6.SSR FOID SC HK1 NI111111111111111111/P1                                  
+       HK(001)                                                                  
+007  7.SSR OTHS 1E 1 SCAIRLINES ET PNR                                          
+007  8.SSR OTHS 1E 1 PNR RR AND PRINTED                                         
+001  9.SSR TKTL CA XX/ BJS 1200/17JAN15                                         
+       SS(001)   XX(005)                                                        
+009 10.SSR ADTK 1E BY BJS17JAN15/1245 OR CXL MU743 Y17JAN                       
+001 11.OSI CA CTC 021-51069999X454360                                           
+001 12.OSI SC CTCT18321831730                                                   
+007 13.OSI 1E SCET TN/3242357489832                                             
+002 14.RMK B2BPLATFORM WEB IMPORT                                               
+003 15.RMK PAYMETHOD WEBPAY                                                     
+003 16.RMK PAYBANKID CHINAPNRMID                                                
+003 17.RMK PAYDATE 2015-01-17 1031                                             +
+                                                                                
+
+2015 January 17, Saturday, 12:45:42
+>pn1
+003 18.RMK PAYAMOUNT 1047.0                                                    -
+003 19.RMK PAYBILLNO 1501176197433001                                           
+002 20.FN/M/FCNY1050.00/SCNY1050.00/C6.00/XCNY60.00/TCNY50.00CN/TCNY10.00YQ/    
+        ACNY1110.00                                                             
+005 21.TN/324-2357489832/P1                                                     
+003 22.FP/CC                                                                    
+001 23.PEK1E/JR5W0L/BJS101                                                     +
+                                                                                
+
+2015 January 17, Saturday, 12:45:45
+>pn1
+001     BJS101 9983 0230 17JAN /1                                              -
+002     SDH888 16117 0231 17JAN                                                 
+003     SDH888 16117 0231 17JAN                                                 
+004     SDH888 16117 0232 17JAN I                                               
+002/005 FC/M/PEK SC TAO 1050.00Y CNY1050.00END                                  
+001/005 SSR ADTK 1E BY BJS17JAN15/1010 OR CXL SC4656 Y17JAN                     
+002/005 RMK BE/M/TAO133/08319603                                                
+002/005 RMK OT/M/0/21811/0-1SC533P1TAO                                          
+002/005 EI/改期退票收费                                                         
+005     SDH888 16117 0232 17JAN I                                               
+006     SDH888 9979 0232 17JAN                                                  
+007     SDH888 16117 0232 17JAN                                                 
+001/008   SC4656 Y   SA17JAN  PEKTAO XX1   1210 1340      E T3--                
+       DK(001)  HK(001)  RR(004)  XX(008)                                       
+006/008 SSR TKNE SC XX1 PEKTAO 4656 Y17JAN 3242357489832/1/ZHANGJINSHENG/       
+       HK(006)   XX(008)                                                        
+008/008 SSR OTHS 1E SC                                                          
+008     SDH201 44409 0405 17JAN                                                +
+                                                                                
+
+2015 January 17, Saturday, 12:47:44
+>pn1
+009/009 RMK RI/ATTL/ADTK TL1421467545515/2015-01-17/12:05:45                   -
+009     PEK099 9981 0405 17JAN                                                  
+                                                                                
+
+ 
+2015 January 17, Saturday, 13:02:06
+>da 39626
+A*      4241    17JAN   0641    41  SIA601                                      
+B       AVAIL                                                                   
+C       AVAIL                                                                   
+D       AVAIL                                                                   
+E       AVAIL                                                                   
+PID   = 39626   HARDCOPY  = 1112                                                
+TIME =  1300    DATE =  17JAN15   HOST = CAAC/B                                 
+AIRLINE = MU    SYSTEM =  D790D1  APPLICATION =  1                              
+                                                                                
+
+2015 January 17, Saturday, 13:02:16
+>$$open tipbb
+ SESSION PATH OPEN TO: TIPBB                                                    
+                                                                                
+
+2015 January 17, Saturday, 13:02:24
+>mo 39626io
+ 
+ FN rCNY 330.00/ SCNY0.00/ C0.00/ oCNY 50.00CN/ oCNY 30.00YQ/acny0.00           
+FC URC 3U KHG 330.00Y                                                           
+-  CNY 330.00 END                                                               
+FP CASH, CNY                                                                    
+
+ 1.张三 MFMV8L                                                    
+ 2.  3U8525 Y   SA17JAN  URCKHG RR1   1240 1440      E T2--                     
+ 3.95530 WEICHENGMING                                                           
+ 4.FC/M/URC 3U KHG 330.00Y CNY330.00END                                         
+ 5.SSR FOID MU HK1 NI111111111111111111/P1                                      
+ 6.SSR OTHS MU 15JAN DUANXIN MU4643 Y TH15JAN URCKHG UN2 2020 2210              
+ 7.SSR OTHS MU *FLT CZ6875/15JAN 2020 CHG TO 15JAN 2110 PLS ADV PAX             
+ 8.SSR OTHS MU *FLT CZ6875/15JAN 2110 CHG TO 15JAN 2240 PLS ADV PAX             
+ 9.OSI MU CTCT                                                                  
+10.RMK OFP/CASH(CNY)/P1                                                         
+11.RMK BOOK FROM 95530                                                          
+12.FN/M/RCNY330.00/SCNY0.00/C0.00/OCNY50.00CN/OCNY30.00YQ/ACNY0.00             +
+                                                                                
+
+ etdz 2                                                                         
+
+航段过期                                                                        
+                                                                                
+
+ etdz 2                                                                         
+
+ pb                                                                             
+
+ 1.张三 MFMV8L                                                    
+ 2.  3U8525 Y   SA17JAN  URCKHG RR1   1240 1440      E T2--                     
+ 3.95530 WEICHENGMING                                                           
+ 4.FC/M/URC 3U KHG 330.00Y CNY330.00END                                         
+ 5.SSR FOID MU HK1 NI111111111111111111/P1                                      
+ 6.SSR OTHS MU 15JAN DUANXIN MU4643 Y TH15JAN URCKHG UN2 2020 2210              
+ 7.SSR OTHS MU *FLT CZ6875/15JAN 2020 CHG TO 15JAN 2110 PLS ADV PAX             
+ 8.SSR OTHS MU *FLT CZ6875/15JAN 2110 CHG TO 15JAN 2240 PLS ADV PAX             
+ 9.OSI MU CTCT                                                                  
+10.RMK OFP/CASH(CNY)/P1                                                         
+11.RMK BOOK FROM 95530                                                          
+12.FN/M/RCNY330.00/SCNY0.00/C0.00/OCNY50.00CN/OCNY30.00YQ/ACNY0.00             +
+                                                                                
+
+ \m                                                                             
+
+CHECK TICKET                                                                    
+                                                                                
+
+ rt                                                                             
+
+ 1.张三 MFMV8L                                                    
+ 2.  3U8525 Y   SA17JAN  URCKHG RR1   1240 1440      E T2--                     
+ 3.95530 WEICHENGMING                                                           
+ 4.FC/M/URC 3U KHG 330.00Y CNY330.00END                                         
+ 5.SSR FOID MU HK1 NI111111111111111111/P1                                      
+ 6.SSR OTHS MU 15JAN DUANXIN MU4643 Y TH15JAN URCKHG UN2 2020 2210              
+ 7.SSR OTHS MU *FLT CZ6875/15JAN 2020 CHG TO 15JAN 2110 PLS ADV PAX             
+ 8.SSR OTHS MU *FLT CZ6875/15JAN 2110 CHG TO 15JAN 2240 PLS ADV PAX             
+ 9.OSI MU CTCT                                                                  
+10.RMK OFP/CASH(CNY)/P1                                                         
+11.RMK BOOK FROM 95530                                                          
+12.FN/M/RCNY330.00/SCNY0.00/C0.00/OCNY50.00CN/OCNY30.00YQ/ACNY0.00             +
+                                                                                
+
+ i                                                                              
+
+ RT:MFMV8L IGNORED                                                              
+
+ RT:MFMV8i                                                                      
+
+NO PNR.RT:X/CRS PNR RECORD LOCATOR CAN DISPLAY CRS PNR INFORMATION              
+                                                                                
+
+ i                                                                              
+
+NO PNR                                                                          
+                                                                                
+
+ i                                                                              
+
+NO PNR                                                                          
+                                                                                
+
+2015 January 17, Saturday, 13:03:23
+>mr
+                                                                                
+
+2015 January 17, Saturday, 13:03:25
+>mr
+NOT MONITORING                                                                  
+                                                                                
+
+NOT MONITORING                                                                  
+                                                                                
+
+2015 January 17, Saturday, 13:28:35
+>rt NKLQ4B 
+ 1.张三CHD NKLQ4B/MU                                                        
+ 2.  3U8847 Y   MO09FEB  KMGHRB RR1   0750 1345      E                          
+ 3.95530                                                                        
+ 4.T/7812182133711                                                              
+ 5.FC/M/KMG 3U HRB 2530.00Y CNY2530.00END                                       
+ 6.SSR FOID MU HK1 NI111111111111111111/P1                                      
+ 7.SSR CHLD MU HK1 15AUG07/P1                                                   
+ 8.OSI MU CTCT15367821038                                                       
+ 9.RMK OFP/CC/VI61150107502588/P1                                               
+10.RMK FR PD6B8T                                                                
+11.RMK 95530/PSGR RQ CHG DAT TO 8847 Y09FEB DUE TO FLT FLT CNL                  
+12.FN/M/RCNY2530.00/SCNY0.00/C0.00/OCNY50.00CN/OCNY30.00YQ/ACNY0.00            +
+                                                                                
+
+2015 January 17, Saturday, 13:28:42
+>rtc
+004     SHA808 56972 0327 17JAN                                                 
+     1.张三CHD(001) NKLQ4B/MU                                               
+001  2.  3U8847 Y   MO09FEB  KMGHRB RR1   0750 1345      E                      
+       RR(001)                                                                  
+001  3.95530                                                                    
+004  4.T/7812182133711                                                          
+001  5.FC/M/KMG 3U HRB 2530.00Y CNY2530.00END                                   
+001  6.SSR FOID MU HK1 NI111111111111111111/P1                                  
+       HK(001)                                                                  
+003  7.SSR CHLD MU HK1 15AUG07/P1                                               
+       HK(003)                                                                  
+001  8.OSI MU CTCT15367821038                                                  +
+                                                                                
+
+2015 January 17, Saturday, 13:28:44
+>pg1
+004     SHA808 56972 0327 17JAN                                                 
+     1.张三CHD(001) NKLQ4B/MU                                               
+001  2.  3U8847 Y   MO09FEB  KMGHRB RR1   0750 1345      E                      
+       RR(001)                                                                  
+001  3.95530                                                                    
+004  4.T/7812182133711                                                          
+001  5.FC/M/KMG 3U HRB 2530.00Y CNY2530.00END                                   
+001  6.SSR FOID MU HK1 NI111111111111111111/P1                                  
+       HK(001)                                                                  
+003  7.SSR CHLD MU HK1 15AUG07/P1                                               
+       HK(003)                                                                  
+001  8.OSI MU CTCT15367821038                                                   
+002  9.RMK OFP/CC/VI61150107502588/P1                                           
+001 10.RMK FR PD6B8T                                                            
+001 11.RMK 95530/PSGR RQ CHG DAT TO 8847 Y09FEB DUE TO FLT FLT CNL              
+001 12.FN/M/RCNY2530.00/SCNY0.00/C0.00/OCNY50.00CN/OCNY30.00YQ/ACNY0.00         
+002 13.OI/781-2182133711#1000SHA07JAN5 08688888                                 
+001 14.EI/非自愿                                                                
+001 15.FP/CASH,CNY                                                              
+001 16.SHA808                                                                  +
+                                                                                
+
+2015 January 17, Saturday, 13:28:58
+>pn1
+001     SHA808 56972 0310 17JAN                                                -
+002     SHA808 56972 0311 17JAN                                                 
+003     SHA808 56972 0312 17JAN                                                 
+001/004 T/7812182133711.                                                        
+004     SHA808 56972 0327 17JAN                                                 
+                                                                                
+
+2015 January 17, Saturday, 13:29:01
+>pn1
+001     SHA808 56972 0310 17JAN                                                -
+002     SHA808 56972 0311 17JAN                                                 
+003     SHA808 56972 0312 17JAN                                                 
+001/004 T/7812182133711.                                                        
+004     SHA808 56972 0327 17JAN                                                 
+                                                                                
+
+2015 January 17, Saturday, 13:29:32
+>detr tn/7812182133711
+ DETR:TN/7812182133711                                                         
+ISSUED BY: CHINA EASTERN AIRLINES    ORG/DST: KMG/HRB                 ARL-D     
+E/R: 变更退票收费                                                               
+TOUR CODE:                                                                      
+PASSENGER: 张三CHD                                                          
+EXCH:                               CONJ TKT:                                   
+O FM:1KMG MU    OPEN  Y OPEN          YCH                      20K OPEN FOR USE 
+          RL:                                                     IRR           
+  TO: HRB                                                                       
+FC: 09FEB15KMG MU HRB1270.00CNY1270.00END                                       
+FARE:           CNY 1270.00|FOP:CC/VI6115XXXXXX2588                             
+TAX:               EXEMPTCN|OI:                                                +
+                                                                                
+
+2015 January 17, Saturday, 13:29:38
+>detr tn/7812182133711,h
+ DETR:TN/7812182133711,H                                                       
+TKTN:7812182133711  NAME: 张三CHD                                           
+IATA OFFC: 08688888 ISSUED: 07JAN15                                             
+  7 1  17JAN/1110/56972    EOTU FLT DATE/TIME CHG FROM 09FEB15/1030/1720 TO     
+                                OPEN                                            
+  6 1  17JAN/1110/56972    EOTU CHG FLT FROM MU5779/09FEB15/Y/KMGHRB TO         
+                                MUOPEN/OPEN/Y/KMGHRB                            
+  5 1  17JAN/1110/56972    EOTU RES RL PD6B8T   CLEARED                         
+  4 1  14JAN/1428/4606     RVAL FLT DATE/TIME CHG FROM 09FEB15/0845/1440 TO     
+                                09FEB15/1030/1720                               
+  3 1  14JAN/1428/4606     RVAL CHG FLT FROM MU5821/09FEB15/Y/KMGHRB TO         
+                                MU5779/09FEB15/Y/KMGHRB                        +
+                                                                                
+
+2015 January 17, Saturday, 13:29:48
+>rt PD6B8T
+ 1.张三CHD PD6B8T                                                           
+ 2.  MU5779 Y   MO09FEB  KMGHRBHK1  1030 1720      E                          
+ 3.T CSX/CSX/T0731-84281636/CHANGSHA TRANSPORTATION NETWORK TE                  
+ 4.T CSX/CHNOLOGY CO. LTD/LUOXING                                               
+ 5.67089311                                                                     
+ 6.T                                                                            
+ 7.SSR FOID MU HK1 NI111111111111111111/P1                                      
+ 8.SSR OTHS 1E MU                                                               
+ 9.SSR OTHS 1E PNRETDZED                                                        
+10.SSR TKTL CA XX/ CSX 0018/08JAN15                                             
+11.SSR ADTK 1E BY CSX17JAN15/1410 OR CXL MU5779 Y09FEB                          
+12.SSR CHLD MU HK1 15AUG07/P1                                                  +
+                                                                                
+
+2015 January 17, Saturday, 13:29:51
+>pg1
+ 1.张三CHD PD6B8T                                                           
+ 2.  MU5779 Y   MO09FEB  KMGHRBHK1  1030 1720      E                          
+ 3.T CSX/CSX/T0731-84281636/CHANGSHA TRANSPORTATION NETWORK TE                  
+ 4.T CSX/CHNOLOGY CO. LTD/LUOXING                                               
+ 5.67089311                                                                     
+ 6.T                                                                            
+ 7.SSR FOID MU HK1 NI111111111111111111/P1                                      
+ 8.SSR OTHS 1E MU                                                               
+ 9.SSR OTHS 1E PNRETDZED                                                        
+10.SSR TKTL CA XX/ CSX 0018/08JAN15                                             
+11.SSR ADTK 1E BY CSX17JAN15/1410 OR CXL MU5779 Y09FEB                          
+12.SSR CHLD MU HK1 15AUG07/P1                                                   
+13.OSI MU CTCT13755105623                                                       
+14.OSI MU CTCT057156888688                                                      
+15.OSI 1E MUET TN/7812182133711                                                 
+16.OSI YY CTCT15911525701                                                       
+17.OSI YY CTCT15367821038                                                      +
+                                                                                
+
+2015 January 17, Saturday, 13:30:01
+>rtc
+013     PEK099 9981 0310 17JAN                                                  
+     1.张三CHD(001) PD6B8T                                                  
+009  2.  MU5779 Y   MO09FEB  KMGHRBHK1  1030 1720      E                      
+       TK(009)  HK(009)                                                         
+001  3.T CSX/CSX/T0731-84281636/CHANGSHA TRANSPORTATION NETWORK TE              
+001  4.T CSX/CHNOLOGY CO. LTD/LUOXING                                           
+003  5.67089311                                                                 
+006  6.T                                                                        
+001  7.SSR FOID MU HK1 NI111111111111111111/P1                                  
+       HK(001)                                                                  
+008  8.SSR OTHS 1E MU                                                           
+008  9.SSR OTHS 1E PNRETDZED                                                   +
+                                                                                
+
+2015 January 17, Saturday, 13:30:03
+>pg1
+013     PEK099 9981 0310 17JAN                                                  
+     1.张三CHD(001) PD6B8T                                                  
+009  2.  MU5779 Y   MO09FEB  KMGHRBHK1  1030 1720      E                      
+       TK(009)  HK(009)                                                         
+001  3.T CSX/CSX/T0731-84281636/CHANGSHA TRANSPORTATION NETWORK TE              
+001  4.T CSX/CHNOLOGY CO. LTD/LUOXING                                           
+003  5.67089311                                                                 
+006  6.T                                                                        
+001  7.SSR FOID MU HK1 NI111111111111111111/P1                                  
+       HK(001)                                                                  
+008  8.SSR OTHS 1E MU                                                           
+008  9.SSR OTHS 1E PNRETDZED                                                    
+001 10.SSR TKTL CA XX/ CSX 0018/08JAN15                                         
+       SS(001)   XX(006)                                                        
+013 11.SSR ADTK 1E BY CSX17JAN15/1410 OR CXL MU5779 Y09FEB                      
+001 12.SSR CHLD MU HK1 15AUG07/P1                                               
+       HK(001)                                                                  
+001 13.OSI MU CTCT13755105623                                                   
+001 14.OSI MU CTCT057156888688                                                  
+008 15.OSI 1E MUET TN/7812182133711                                             
+010 16.OSI YY CTCT15911525701                                                   
+011 17.OSI YY CTCT15367821038                                                  +
+                                                                                
+
+2015 January 17, Saturday, 13:30:09
+>pn1
+004 18.RMK ET                                                                  -
+004 19.RMK ET                                                                   
+004 20.RMK ET                                                                   
+004 21.RMK ET                                                                   
+004 22.RMK ET                                                                   
+004 23.RMK ET                                                                   
+004 24.RMK ET                                                                   
+004 25.RMK ET                                                                   
+003 26.RMK NEW B2B                                                              
+003 27.RMK AGENTPNR 2193150725833600440964131086532397950819401522117812749     
+003 28.RMK COMP 218715062583360044090104027919032010392757647376                
+003 29.RMK NEW B2B                                                              
+003 30.RMK ORDERNO 61150107502588                                               
+003 31.RMK TODBUSERID 136933719                                                 
+003 32.RMK NEW B2B                                                              
+003 33.FN/M/FCNY1270.00/SCNY1270.00/C2.00/XCNY10.00/TEXEMPTCN/TCNY10.00YQ/     +
+        ACNY1280.00/P1                                                         +
+                                                                                
+
+2015 January 17, Saturday, 13:30:12
+>pn1
+006 34.TN/781-2182133711/P1                                                    -
+003 35.FP/CC/VI61150107502588                                                   
+001 36.PEK1E/KPYNWP/CSX283                                                     +
+                                                                                
+
+ 
+2015 January 17, Saturday, 13:41:55
+>pn1
+001     CSX283 9983 1218 07JAN15 /1                                            -
+002/002 RMK RI/ATTL/ADTK TL1420633096711/2015-01-07/20:18:16                    
+001/002 SSR ADTK 1E BY CSX10JAN15/2018 OR CXL MU5821 Y09FEB                     
+002     PEK099 9981 1218 07JAN15                                                
+003     SHA666 30199 1245 07JAN15                                               
+004     SHA666 30199 1245 07JAN15                                               
+005     SHA666 30199 1245 07JAN15 I                                             
+003/006 FC/M/KMG MU HRB 1270.00YCH CNY1270.00END/SIMAQINRUCHD/                  
+002/006 SSR ADTK 1E BY CSX10JAN15/2018 OR CXL MU5821 Y09FEB                     
+003/006 EI/变更退票收费                                                         
+006     SHA666 30199 1245 07JAN15 I                                             
+007     SHA666 9979 1245 07JAN15                                                
+008     SHA666 30199 1246 07JAN15                                               
+001/009   MU5821 Y   MO09FEB  KMGHRB UN1   0845 1440      E                     
+       DK(001)  HK(001)  RR(005)  UN(009)                                       
+009     PEKMU 9996 0628 14JAN15 /SC-14JAN15-28212                               
+007/010 SSR TKNE MU XX1 KMGHRB 5821 Y09FEB 7812182133711/1/P1                  +
+       HK(007)   XX(009)                                                       +
+                                                                                
+
+2015 January 17, Saturday, 13:42:18
+>pn1
+010     CSX283 9983 0239 17JAN /10                                             -
+011     CSX283 9983 0308 17JAN /12                                              
+009/012 SSR TKNE MU XX1 KMGHRB 5779 Y09FEB 7812182133711/1/SIMAQINRU/           
+       HK(009)   XX(012)                                                        
+012     SHA808 56972 0310 17JAN                                                 
+013/013 RMK RI/ATTL/ADTK TL1421464238071/2015-01-17/11:10:38                    
+012/013 SSR ADTK 1E BY CSX17JAN15/1410 OR CXL MU5779 Y09FEB                     
+013     PEK099 9981 0310 17JAN                                                  
+                                                                                
+
+ 
+2015 January 17, Saturday, 14:02:25
+>da
+A*      74237   17JAN   0849    8   PEK099                                      
+B       AVAIL                                                                   
+C       AVAIL                                                                   
+D       AVAIL                                                                   
+E       AVAIL                                                                   
+PID   = 10077   HARDCOPY  = 1112                                                
+TIME =  1401    DATE =  17JAN     HOST = CAAC/B                                 
+AIRLINE = CZ    SYSTEM =  D790B1  APPLICATION =  1                              
+                                                                                
+
+2015 January 17, Saturday, 14:02:37
+>pdq:d 10077
+ pdq d 10077                                                                    
+PDQ STATUS  UP     TYPE CRT          HOST D                                     
+PID     HOLD    ALT     PRIORITY    NBR                                         
+10077     N                 1       21                                          
+10077     N                 2       0                                           
+10077     N                 3       0                                           
+10077     N                 4       0                                           
+                              TOTAL 21                                          
+                                                                                
+
+2015 January 17, Saturday, 14:02:56
+>qcl:10077 1 21
+                                                                                
+
+2015 January 17, Saturday, 14:03:01
+>pdq:d 10077
+ pdq d 10077                                                                    
+PDQ STATUS  UP     TYPE CRT          HOST D                                     
+PID     HOLD    ALT     PRIORITY    NBR                                         
+10077     N                 1       0                                           
+10077     N                 2       0                                           
+10077     N                 3       0                                           
+10077     N                 4       0                                           
+                              TOTAL 0                                           
+                                                                                
+
+2015 January 17, Saturday, 14:03:27
+>mw
+NO MESSAGE WAITING                                                              
+                                                                                
+
+2015 January 17, Saturday, 14:07:21
+>detr tn/7814721238245
+ DETR:TN/7814721238245                                                         
+ISSUED BY: CHINA EASTERN AIRLINES    ORG/DST: ATL/SHA                 BSP-I     
+E/R: *9701280/NON-END/RER RFD 100USD CHG 50USD                                  
+TOUR CODE:                                                                      
+PASSENGER: ZHU/HEJU MS                                                          
+EXCH:                               CONJ TKT:                                   
+O FM:1ATL AA     365  Q 09MAR 0700 OK SLSRWUS    09MAR5/09MAR5 2PC OPEN FOR USE 
+          RL:NG13WG  /JRGBVV1E                                                  
+X TO:2LAX MU    OPEN  S OPEN          SLSRWUS    09MAR5/09MAR5 2PC OPEN FOR USE 
+     --T1 RL:                                                                   
+  TO: PVG                                                                       
+FC:M 09MAR15ATL AA X/LAX MU SHA550.00NUC550.00END ROE1.000000 XT 1098.00Y    +
+                                                                                
+
+2015 January 17, Saturday, 14:07:41
+>rt:NG13WG
+ 1.ZHOU/QIHONG MR 2.ZHU/HEJU MS NG13WG                                          
+ 3.  AA1002 Q   MO09MAR  ATLLAX HK2   0720 0923                                 
+ 4.  MU586  S   MO09MAR  LAXPVG RR2   1230 1730+1    E --T1                     
+ 5.T HGH/HGH/T 0571-86988698/HGH XIN CHENG TICKET CO. LTD/XU L                  
+ 6.T HGH/I                                                                      
+ 7.SSR SEAT MU HK1 LAXPVG 586 S09MAR 36AN/P1/RS                                 
+ 8.SSR SEAT MU HK1 LAXPVG 586 S09MAR 36BN/P2/RS                                 
+ 9.SSR ADTK 1E BY HGH17JAN15/1330 OR CXL MU586 S09MAR                           
+10.SSR DOCS MU HK1 P/CHN/E31333191/CHN/03AUG52/F/23JAN23/ZHU/HEJU/P2            
+11.SSR DOCS MU HK1 P/CHN/E31333188/CHN/26JUN76/M/29SEP23/ZHOU/QIHONG/P1         
+12.SSR DOCA CA HK1 D/CHN/7208 MELROSE AVE/LOS ANGELES/ZHEJIANG/CA90046/P2       
+13.SSR DOCA CA HK1 R/CHN/QINGCHUNROAD159HAO/HANGZHOU/ZHEJIANG/310012/P2        +
+                                                                                
+
+2015 January 17, Saturday, 14:07:50
+>tsu 1/open
+ACCEPTED                                                                        
+                                                                                
+
+2015 January 17, Saturday, 14:07:53
+>detr tn/7814721238245
+ DETR:TN/7814721238245                                                         
+ISSUED BY: CHINA EASTERN AIRLINES    ORG/DST: ATL/SHA                 BSP-I     
+E/R: *9701280/NON-END/RER RFD 100USD CHG 50USD                                  
+TOUR CODE:                                                                      
+PASSENGER: ZHU/HEJU MS                                                          
+EXCH:                               CONJ TKT:                                   
+O FM:1ATL AA    OPEN  Q OPEN          SLSRWUS    09MAR5/09MAR5 2PC OPEN FOR USE 
+          RL:                                                                   
+X TO:2LAX MU    OPEN  S OPEN          SLSRWUS    09MAR5/09MAR5 2PC OPEN FOR USE 
+     --T1 RL:                                                                   
+  TO: PVG                                                                       
+FC:M 09MAR15ATL AA X/LAX MU SHA550.00NUC550.00END ROE1.000000 XT 1098.00Y    +
+                                                                                
+
+2015 January 17, Saturday, 14:21:08
+>dih:ca1532/19jan/iv
+AUTHORITY                                                                       
+
+2015 January 17, Saturday, 14:21:44
+>dih:ca1532/19jan15/iv
+AUTHORITY                                                                       
+
+2015 January 17, Saturday, 14:21:54
+>dih:ca1532/19jan15/st
+AUTHORITY                                                                       
+
+2015 January 17, Saturday, 14:22:09
+>SI
+PLEASE FINISH YOUR PNR OR IG                                                    
+                                                                                
+
+2015 January 17, Saturday, 14:22:14
+>ig
+                                                                                
+
+2015 January 17, Saturday, 14:22:16
+>ig
+NO PNR                                                                          
+                                                                                
+
+2015 January 17, Saturday, 14:22:26
+>SI
+PEK099  SIGNED IN B                                                             
+LAST SI PID10077 /PEK099 AT 0849   17JAN                                      
+****************************************************                            
+*国际运价计算系统运价提示信息中文显示                                           
+ (发布日期:2015年01月14日)           GI:TRAVEL/TZ339                            
+****************************************************                            
+*河北航空新增石家庄=哈尔滨直飞航线       GI:NS/TZ59                             
+ (发布日期:2015年01月16日)                                                      
+*关于西部航空取消机上免费餐饮服务的提示  GI:PN/TZ84                             
+ (发布日期:2015年01月15日)                                                      
+*关于川航重庆机场航站楼公告              GI:3U/TZ212                            
+ (发布日期:2015年01月12日)                                                      
+       +                                                                        
+
+2015 January 17, Saturday, 14:22:31
+>dih:ca1532/19jan15/iv
+AUTHORITY                                                                       
+
+2015 January 17, Saturday, 14:23:01
+>da
+A       74237   17JAN   0849    8   PEK099                                      
+B*      74237   17JAN   1421    11  PEK099                                      
+C       AVAIL                                                                   
+D       AVAIL                                                                   
+E       AVAIL                                                                   
+PID   = 10077   HARDCOPY  = 1112                                                
+TIME =  1422    DATE =  17JAN     HOST = CAAC/B                                 
+AIRLINE = CZ    SYSTEM =  D790B1  APPLICATION =  1                              
+                                                                                
+
+2015 January 17, Saturday, 14:24:47
+>dih:ca1532/09jan15/iv
+INVENTORY HISTORY FOR CA1532 09JAN15                                            
+                                    OLD             NEW                         
+IV PEK203  9983 1105 27JAN14 INVENTORY ACTIVATED                                
+IV PEK001  1066 1038 09DEC14 INVENTORY ACTIVATED                                
+SK PEK001  1066 1038 09DEC14***     CFG/EQP                                     
+IV PEK001  1020 1637 29DEC14 INVENTORY ACTIVATED                                
+SK PEK001  1020 1637 29DEC14***     CFG/EQP                                     
+                            SHA     GRP                                         
+IV PEK001 90134 1808 09JAN15 INVENTORY ACTIVATED                                
+SK PEK001 90134 1808 09JAN15SHA     GRP                                         
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 14:26:28
+>so
+PEK099  74237   SIGNED OUT B                                                    
+A       74237   0849    8   PEK099                                              
+                                                                                
+
+2015 January 17, Saturday, 14:26:30
+>da
+A       74237   17JAN   0849    8   PEK099                                      
+B       AVAIL                                                                   
+C       AVAIL                                                                   
+D       AVAIL                                                                   
+E       AVAIL                                                                   
+PID   = 10077   HARDCOPY  = 1112                                                
+TIME =  1425    DATE =  17JAN     HOST = CAAC/B                                 
+AIRLINE = CZ    SYSTEM =  D790B1  APPLICATION =  1                              
+                                                                                
+
+2015 January 17, Saturday, 14:26:33
+>ai a
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                    NO RECRD    
+
+2015 January 17, Saturday, 14:27:09
+>ai a 74237 8401a
+AGENT  A-IN                                                                     
+                                                                                
+
+2015 January 17, Saturday, 14:27:12
+>da
+A*      74237   17JAN   0849    8   PEK099                                      
+B       AVAIL                                                                   
+C       AVAIL                                                                   
+D       AVAIL                                                                   
+E       AVAIL                                                                   
+PID   = 10077   HARDCOPY  = 1112                                                
+TIME =  1426    DATE =  17JAN     HOST = CAAC/B                                 
+AIRLINE = CZ    SYSTEM =  D790B1  APPLICATION =  1                              
+                                                                                
+
+2015 January 17, Saturday, 14:37:16
+>dih:ca1532/19jan15
+AUTHORITY                                                                       
+
+2015 January 17, Saturday, 14:38:25
+>detr tn/9992354240684
+ DETR:TN/9992354240684                                                         
+ISSUED BY: AIR CHINA                 ORG/DST: SHA/PEK                 ARL-D     
+E/R: MILEAGE AWARD TICKET                                                       
+TOUR CODE:                                                                      
+PASSENGER: 张三                                                                 
+EXCH: 999-4037576698                CONJ TKT:                                   
+O FM:1SHA CA    1532  X 19JAN 1355 OK XCAP010200 19JAN5/19JAN5 20K OPEN FOR USE 
+     T2T3 RL:NVRRN9  /                                                          
+  TO: PEK                                                                       
+FC:M 19JAN15SHA CA PEK TOT0.00END                                             
+FARE:           CNY    0.00|FOP:CAFFP                                           
+TAX:            CNY 50.00CN|OI: 999-4037576698                                 +
+                                                                                
+
+2015 January 17, Saturday, 14:38:33
+>detr tn/9992354240684,h
+ DETR:TN/9992354240684,H                                                       
+TKTN:9992354240684  NAME: 张三                                                  
+IATA OFFC: 08623456 ISSUED: 24DEC14                                             
+  1    24DEC/1025/66817    TRMK CA+PEK222+DEV-24                                
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 14:38:57
+>rt:NVRRN9
+  **ELECTRONIC TICKET PNR**                                                     
+ 1.张三 NVRRN9                                                                  
+ 2.  CA1532 X   MO19JAN  SHAPEK RR1   1355 1615      E T2T3                     
+ 3.13910161450                                                                  
+ 4.T                                                                            
+ 5.SSR FOID CA HK1 NI111111111111111111/P1                                      
+ 6.SSR TKNE CA HK1 SHAPEK 1532 X19JAN 9992354240684/1/P1                        
+ 7.SSR FQTV CA HK1 SHAPEK 1532 X19JAN CA008371910991*S/S/P1                     
+ 8.SSR FQTR CA HK1 SHAPEK 1532 X19JAN CA008371910991/P1                         
+ 9.OSI CA CTCT13910161450                                                       
+10.RMK CA FTR/01152653/                                                         
+11.FN/M/FCNY0.00/SCNY0.00/C0.00/XCNY110.00/TCNY50.00CN/TCNY60.00YQ/ACNY110.00  +
+                                                                                
+
+2015 January 17, Saturday, 14:49:07
+>dih:ca1532/09jan15/iv  
+INVENTORY HISTORY FOR CA1532 09JAN15                                            
+                                    OLD             NEW                         
+IV PEK203  9983 1105 27JAN14 INVENTORY ACTIVATED                                
+IV PEK001  1066 1038 09DEC14 INVENTORY ACTIVATED                                
+SK PEK001  1066 1038 09DEC14***     CFG/EQP                                     
+IV PEK001  1020 1637 29DEC14 INVENTORY ACTIVATED                                
+SK PEK001  1020 1637 29DEC14***     CFG/EQP                                     
+                            SHA     GRP                                         
+IV PEK001 90134 1808 09JAN15 INVENTORY ACTIVATED                                
+SK PEK001 90134 1808 09JAN15SHA     GRP                                         
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 14:49:36
+>dih:ca1532/19jan15/iv
+AUTHORITY                                                                       
+
+2015 January 17, Saturday, 14:49:40
+>da
+A*      74237   17JAN   0849    8   PEK099                                      
+B       AVAIL                                                                   
+C       AVAIL                                                                   
+D       AVAIL                                                                   
+E       AVAIL                                                                   
+PID   = 10077   HARDCOPY  = 1112                                                
+TIME =  1448    DATE =  17JAN     HOST = CAAC/B                                 
+AIRLINE = CZ    SYSTEM =  D790B1  APPLICATION =  1                              
+                                                                                
+
+2015 January 17, Saturday, 14:49:44
+>ual ca
+                                                                                
+
+2015 January 17, Saturday, 14:49:51
+>dih:ca1532/19jan15/iv
+INVENTORY HISTORY FOR CA1532 19JAN                                              
+                                    OLD             NEW                         
+IV BOS099  9983 1016 06SEP14 INVENTORY ACTIVATED                                
+IV PEK001  1066 1038 09DEC14 INVENTORY ACTIVATED                                
+SK PEK001  1066 1038 09DEC14***     CFG/EQP                                     
+IV PEK001  1066 1704 08JAN15 INVENTORY ACTIVATED                                
+SK PEK001  1066 1704 08JAN15***     CFG/EQP                                     
+                            SHA     GRP                                         
+IV PEK001 90134 1808 09JAN15 INVENTORY ACTIVATED                                
+SK PEK001 90134 1808 09JAN15SHA     GRP                                         
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 14:49:52
+>pg1
+INVENTORY HISTORY FOR CA1532 19JAN                                              
+                                    OLD             NEW                         
+IV BOS099  9983 1016 06SEP14 INVENTORY ACTIVATED                                
+IV PEK001  1066 1038 09DEC14 INVENTORY ACTIVATED                                
+SK PEK001  1066 1038 09DEC14***     CFG/EQP                                     
+IV PEK001  1066 1704 08JAN15 INVENTORY ACTIVATED                                
+SK PEK001  1066 1704 08JAN15***     CFG/EQP                                     
+                            SHA     GRP                                         
+IV PEK001 90134 1808 09JAN15 INVENTORY ACTIVATED                                
+SK PEK001 90134 1808 09JAN15SHA     GRP                                         
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 15:02:36
+>detr tn/7812488490238
+ DETR:TN/7812488490238                                                         
+ISSUED BY: CHINA EASTERN AIRLINES    ORG/DST: DLU/PEK                 ARL-D     
+E/R: 不得签改 退票收费                                                          
+TOUR CODE:                                                   RECEIPT PRINTED  
+PASSENGER: 张三                                                               
+EXCH:                               CONJ TKT:                                   
+O FM:1DLU MU    5711  G 31DEC 1300 OK D          30DEC4/30DEC4 20K OPEN FOR USE 
+     --T2 RL:                                          INVOL ENDO               
+  TO: PEK                                                                       
+FC: 30DEC14DLU MU PEK520.00CNY520.00END                                         
+FARE:           CNY  520.00|FOP:CASH(CNY)                                       
+TAX:            CNY 50.00CN|OI:                                                +
+                                                                                
+
+2015 January 17, Saturday, 15:02:50
+>detr tn/7812488490238,h
+ DETR:TN/7812488490238,H                                                       
+TKTN:7812488490238  NAME: 张三                                                
+IATA OFFC: 08677392 ISSUED: 27DEC14                                             
+ 13    31DEC/1200/88885    TRMK RECEIPT:4671716206                              
+ 12 1  31DEC/1006/20413    DBRD C/O                                             
+ 11 1  31DEC/0751/20405    CKIU FLT DATE/TIME CHG FROM OPEN TO 31DEC14/0910     
+ 10 1  31DEC/0751/20405    CKIU CHG FLT FROM MUOPEN/OPEN/G/DLUPEK TO            
+                                MU5711/31DEC14/G/DLUPEK                         
+  9 1  31DEC/0751/20405    CKIU O/C                                             
+  8 1  30DEC/1757/9940     EOTU FLT DATE/TIME CHG FROM 30DEC14/1810/2135 TO     
+                                OPEN                                            
+  7 1  30DEC/1757/9940     EOTU CHG FLT FROM MU9748/30DEC14/G/DLUPEK TO        +
+                                                                                
+
+2015 January 17, Saturday, 15:02:53
+>pg1
+ DETR:TN/7812488490238,H                                                       
+TKTN:7812488490238  NAME: 张三                                                
+IATA OFFC: 08677392 ISSUED: 27DEC14                                             
+ 13    31DEC/1200/88885    TRMK RECEIPT:4671716206                              
+ 12 1  31DEC/1006/20413    DBRD C/O                                             
+ 11 1  31DEC/0751/20405    CKIU FLT DATE/TIME CHG FROM OPEN TO 31DEC14/0910     
+ 10 1  31DEC/0751/20405    CKIU CHG FLT FROM MUOPEN/OPEN/G/DLUPEK TO            
+                                MU5711/31DEC14/G/DLUPEK                         
+  9 1  31DEC/0751/20405    CKIU O/C                                             
+  8 1  30DEC/1757/9940     EOTU FLT DATE/TIME CHG FROM 30DEC14/1810/2135 TO     
+                                OPEN                                            
+  7 1  30DEC/1757/9940     EOTU CHG FLT FROM MU9748/30DEC14/G/DLUPEK TO         
+                                MUOPEN/OPEN/G/DLUPEK                            
+  6 1  30DEC/1757/9940     EOTU RES RL NKG2SP   CLEARED                         
+  5    30DEC/1757/9940     EOTU RES PNR CHANGE FROM MFZJTT   TO NKG2SP          
+  4 1  30DEC/1754/20403    DBRD C/O                                             
+  3 1  29DEC/2241/18317    CKIN O/C MU9748/30DEC14/G/DLUPEK                     
+  2 1  27DEC/1821/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET              
+  1    27DEC/1821/2992     TRMK MU+SHA166+DEV-07                                
+                                                                                
+
+2015 January 17, Saturday, 15:03:12
+>ohi r/张三/MU9748/30DEC14
+ 
+ ohi:R/LIXUHUA/MU  9748 /30DEC14                                                
+--- 30DEC14: SEARCH IN TOTAL 1 FLIGHTS/SEGMENTS.                                
+MU  9748 /DLUPEK/30DEC14                                                        
+HISTORY INDEX NUMBER 57                                                         
+ 001N  1LIXUHUA          PBTDC8 G  HX1   SHA166 04NOV14                         
+ 002N  0LIXUHUA          MG5RQB G  HX18  SHA166 27DEC14                         
+ 003N  0LIXUHUA          NC40KD G  HX16  SHA166 04NOV14                         
+Total time used 314 ms                                                          
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 15:03:18
+>rt NC40KD
+  **ELECTRONIC TICKET PNR**                                                     
+ 0.16GROUP NM16 NC40KD                                                          
+17.13887211313                                                                  
+18.T                                                                            
+19.SSR FOID MU HK1 NI111111111111111111/P4                                      
+20.SSR FOID MU HK1 NI111111111111111111/P8                                      
+21.SSR FOID MU HK1 NI111111111111111111/P13                                     
+22.SSR FOID MU HK1 NI111111111111111111/P16                                     
+23.SSR FOID MU HK1 NI111111111111111111/P1                                      
+24.SSR FOID MU HK1 NI111111111111111111/P6                                      
+25.SSR FOID MU HK1 NI111111111111111111/P7                                      
+26.SSR FOID MU HK1 NI111111111111111111/P14                                    +
+                                                                                
+
+2015 January 17, Saturday, 15:03:48
+>pn1
+27.SSR FOID MU HK1 NI111111111111111111/P9                                     -
+28.SSR FOID MU HK1 NI111111111111111111/P12                                     
+29.SSR FOID MU HK1 NI111111111111111111/P2                                      
+30.SSR FOID MU HK1 NI111111111111111111/P15                                     
+31.SSR FOID MU HK1 NI111111111111111111/P3                                      
+32.SSR FOID MU HK1 NI111111111111111111/P5                                      
+33.SSR FOID MU HK1 NI111111111111111111/P11                                     
+34.SSR FOID MU HK1 NI488508892/P10                                              
+35.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490239/1/P16                       
+36.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490237/1/P15                       
+37.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490236/1/P14                       
+38.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490235/1/P13                       
+39.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490234/1/P12                       
+40.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490233/1/P11                       
+41.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490232/1/P10                       
+42.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490231/1/P9                       +
+                                                                                
+
+2015 January 17, Saturday, 15:04:17
+>pn1
+43.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490230/1/P8                       -
+44.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490229/1/P7                        
+45.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490228/1/P6                        
+46.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490227/1/P5                        
+47.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490226/1/P4                        
+48.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490224/1/P3                        
+49.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490223/1/P2                        
+50.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490221/1/P1                        
+51.SSR CKIN MU                                                                  
+52.SSR CKIN MU                                                                  
+53.SSR CKIN MU                                                                  
+54.SSR CKIN MU                                                                  
+55.SSR FQTV MU HK1 DLUPEK 9748 G30DEC MU660401407689/C/P8                       
+56.SSR FQTV MU HK1 DLUPEK 9748 G30DEC MU640220399559/C/P7                       
+57.SSR FQTV MU HK1 DLUPEK 9748 G30DEC MU610700321131/C/P12                      
+58.SSR FQTV MU HK1 DLUPEK 9748 G30DEC MU640262785910/C/P2                      +
+                                                                                
+
+2015 January 17, Saturday, 15:04:35
+>pn1
+59.SSR FQTV MU HK1 DLUPEK 9748 G30DEC MU600262526115/C/P11                     -
+60.OSI MU CTCT13887211313                                                       
+61.RMK 201410312744                                                             
+62.FN/M/FCNY520.00/SCNY520.00/C2.00/XCNY110.00/TCNY50.00CN/TCNY60.00YQ/         
+    ACNY630.00                                                                  
+63.TN/781-2488490221/P1                                                         
+64.TN/781-2488490223/P2                                                         
+65.TN/781-2488490224/P3                                                         
+66.TN/781-2488490226/P4                                                         
+67.TN/781-2488490227/P5                                                         
+68.TN/781-2488490228/P6                                                         
+69.TN/781-2488490229/P7                                                         
+70.TN/781-2488490230/P8                                                         
+71.TN/781-2488490231/P9                                                         
+72.TN/781-2488490232/P10                                                        
+73.TN/781-2488490233/P11                                                        
+74.TN/781-2488490234/P12                                                       +
+                                                                                
+
+2015 January 17, Saturday, 15:04:39
+>pn1
+75.TN/781-2488490235/P13                                                       -
+76.TN/781-2488490236/P14                                                        
+77.TN/781-2488490237/P15                                                        
+78.TN/781-2488490239/P16                                                        
+79.FP/CASH,CNY                                                                  
+80.SHA166                                                                       
+                                                                                
+
+2015 January 17, Saturday, 15:04:52
+>rt PBTDC8
+ 0.1GROUP NM1 PBTDC8                                                            
+ 2.13887211313                                                                  
+ 3.T                                                                            
+ 4.SSR FOID MU HK1 NI111111111111111111/P1                                      
+ 5.SSR OTHS MU CANCELED DUE TO OFFLK AT AIRPORT                                 
+ 6.SSR CKIN MU                                                                  
+ 7.SSR FQTV MU XX1 DLUPEK 9748 G30DEC MU650283677880/C                          
+ 8.OSI MU CTCT13887211313                                                       
+ 9.RMK 201410312744                                                             
+10.RMK PFS OFFLK MU9748 G 30DEC DLUPEK                                          
+11.FN/M/FCNY520.00/SCNY520.00/C2.00/XCNY110.00/TCNY50.00CN/TCNY60.00YQ/         
+    ACNY630.00                                                                 +
+                                                                                
+
+2015 January 17, Saturday, 15:05:03
+>pn1
+12.TN/781-2488490238/P1                                                        -
+13.FP/CASH,CNY                                                                  
+14.SHA166                                                                       
+                                                                                
+
+2015 January 17, Saturday, 15:06:08
+>rt MG5RQB
+  **ELECTRONIC TICKET PNR**                                                     
+ 0.17GROUP NM17 MG5RQB/MU                                                       
+18.13887211313                                                                  
+19.T                                                                            
+20.SSR FOID MU HK1 NI111111111111111111/P11                                     
+21.SSR FOID MU HK1 NI111111111111111111/P2                                      
+22.SSR FOID MU HK1 NI111111111111111111/P17                                     
+23.SSR FOID MU HK1 NI111111111111111111/P16                                     
+24.SSR FOID MU HK1 NI111111111111111111/P6                                      
+25.SSR FOID MU HK1 NI111111111111111111/P13                                     
+26.SSR FOID MU HK1 NI111111111111111111/P3                                      
+27.SSR FOID MU HK1 NI111111111111111111/P7                                     +
+                                                                                
+
+2015 January 17, Saturday, 15:06:12
+>pg1
+  **ELECTRONIC TICKET PNR**                                                     
+ 0.17GROUP NM17 MG5RQB/MU                                                       
+18.13887211313                                                                  
+19.T                                                                            
+20.SSR FOID MU HK1 NI111111111111111111/P11                                     
+21.SSR FOID MU HK1 NI111111111111111111/P2                                      
+22.SSR FOID MU HK1 NI111111111111111111/P17                                     
+23.SSR FOID MU HK1 NI111111111111111111/P16                                     
+24.SSR FOID MU HK1 NI111111111111111111/P6                                      
+25.SSR FOID MU HK1 NI111111111111111111/P13                                     
+26.SSR FOID MU HK1 NI111111111111111111/P3                                      
+27.SSR FOID MU HK1 NI111111111111111111/P7                                      
+28.SSR FOID MU HK1 NI111111111111111111/P9                                      
+29.SSR FOID MU HK1 NI111111111111111111/P5                                      
+30.SSR FOID MU HK1 NI111111111111111111/P4                                      
+31.SSR FOID MU HK1 NI111111111111111111/P14                                     
+32.SSR FOID MU HK1 NI111111111111111111/P15                                     
+33.SSR FOID MU HK1 NI111111111111111111/P1                                     +
+                                                                                
+
+2015 January 17, Saturday, 15:06:15
+>pn1
+34.SSR FOID MU HK1 NI111111111111111111/P8                                     -
+35.SSR FOID MU HK1 NI111111111111111111/P12                                     
+36.SSR FOID MU HK1 NI111111111111111111/P10                                     
+37.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490257/1/P17                       
+38.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490256/1/P16                       
+39.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490255/1/P15                       
+40.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490254/1/P14                       
+41.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490253/1/P13                       
+42.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490252/1/P12                       
+43.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490251/1/P11                       
+44.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490250/1/P10                       
+45.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490249/1/P9                        
+46.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490248/1/P8                        
+47.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490247/1/P7                        
+48.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490246/1/P6                        
+49.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490245/1/P5                       +
+                                                                                
+
+2015 January 17, Saturday, 15:06:20
+>pn1
+50.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490243/1/P4                       -
+51.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490242/1/P3                        
+52.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490241/1/P2                        
+53.SSR TKNE MU HK1 DLUPEK 9748 G30DEC 7812488490240/1/P1                        
+54.SSR CKIN MU                                                                  
+55.SSR CKIN MU                                                                  
+56.SSR CKIN MU                                                                  
+57.SSR CKIN MU                                                                  
+58.SSR CKIN MU                                                                  
+59.SSR FQTV MU HK1 DLUPEK 9748 G30DEC CZ 580017110528.1/C/P7                    
+60.SSR FQTV MU HK1 DLUPEK 9748 G30DEC MU600287422476/C/P17                      
+61.SSR FQTV MU HK1 DLUPEK 9748 G30DEC MU640265457642.1/S/P6                     
+62.SSR FQTV MU HK1 DLUPEK 9748 G30DEC MU650604828332/C/P3                       
+63.SSR FQTV MU HK1 DLUPEK 9748 G30DEC MU620220393754/C/P9                       
+64.SSR FQTV MU HK1 DLUPEK 9748 G30DEC MU600261135852/C/P1                       
+65.SSR FQTV MU HK1 DLUPEK 9748 G30DEC MU600262906684/C/P10                     +
+                                                                                
+
+2015 January 17, Saturday, 15:06:41
+>detr tn/7812488490238,h
+ DETR:TN/7812488490238,H                                                       
+TKTN:7812488490238  NAME: 张三                                                
+IATA OFFC: 08677392 ISSUED: 27DEC14                                             
+ 13    31DEC/1200/88885    TRMK RECEIPT:4671716206                              
+ 12 1  31DEC/1006/20413    DBRD C/O                                             
+ 11 1  31DEC/0751/20405    CKIU FLT DATE/TIME CHG FROM OPEN TO 31DEC14/0910     
+ 10 1  31DEC/0751/20405    CKIU CHG FLT FROM MUOPEN/OPEN/G/DLUPEK TO            
+                                MU5711/31DEC14/G/DLUPEK                         
+  9 1  31DEC/0751/20405    CKIU O/C                                             
+  8 1  30DEC/1757/9940     EOTU FLT DATE/TIME CHG FROM 30DEC14/1810/2135 TO     
+                                OPEN                                            
+  7 1  30DEC/1757/9940     EOTU CHG FLT FROM MU9748/30DEC14/G/DLUPEK TO        +
+                                                                                
+
+2015 January 17, Saturday, 15:06:43
+>pg1
+ DETR:TN/7812488490238,H                                                       
+TKTN:7812488490238  NAME: 张三                                                
+IATA OFFC: 08677392 ISSUED: 27DEC14                                             
+ 13    31DEC/1200/88885    TRMK RECEIPT:4671716206                              
+ 12 1  31DEC/1006/20413    DBRD C/O                                             
+ 11 1  31DEC/0751/20405    CKIU FLT DATE/TIME CHG FROM OPEN TO 31DEC14/0910     
+ 10 1  31DEC/0751/20405    CKIU CHG FLT FROM MUOPEN/OPEN/G/DLUPEK TO            
+                                MU5711/31DEC14/G/DLUPEK                         
+  9 1  31DEC/0751/20405    CKIU O/C                                             
+  8 1  30DEC/1757/9940     EOTU FLT DATE/TIME CHG FROM 30DEC14/1810/2135 TO     
+                                OPEN                                            
+  7 1  30DEC/1757/9940     EOTU CHG FLT FROM MU9748/30DEC14/G/DLUPEK TO         
+                                MUOPEN/OPEN/G/DLUPEK                            
+  6 1  30DEC/1757/9940     EOTU RES RL NKG2SP   CLEARED                         
+  5    30DEC/1757/9940     EOTU RES PNR CHANGE FROM MFZJTT   TO NKG2SP          
+  4 1  30DEC/1754/20403    DBRD C/O                                             
+  3 1  29DEC/2241/18317    CKIN O/C MU9748/30DEC14/G/DLUPEK                     
+  2 1  27DEC/1821/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET              
+  1    27DEC/1821/2992     TRMK MU+SHA166+DEV-07                                
+                                                                                
+
+2015 January 17, Saturday, 15:07:15
+>ohi r/张三/MU5711/31DEC14
+ ohi:R/LIXUHUA/MU  5711 /31DEC14                                                
+--- 31DEC14: SEARCH IN TOTAL 3 FLIGHTS/SEGMENTS.                                
+MU  5711 /DLUPEK/31DEC14                                                        
+HISTORY INDEX NUMBER 60                                                         
+ 001   1LIXUHUA/         PBQXCH G  HX1   PEK    31DEC14                         
+Total time used 374 ms                                                          
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 15:07:22
+>rt PBQXCH
+ 1.LIXUHUA PBQXCH                                                               
+ 2.RMK PFS GOSHN MU5711 G 31DEC DLUPEK                                          
+ 3.PEKMU                                                                        
+                                                                                
+
+2015 January 17, Saturday, 15:07:44
+>rtc
+002     PEK099 9985 0744 31DEC14                                                
+     1.LIXUHUA(001) PBQXCH                                                      
+001  2.  MU5711 G   WE31DEC14DLUPEK HX1   0910 1520                             
+       (001)  HX(001)                                                           
+001  3.RMK PFS GOSHN MU5711 G 31DEC DLUPEK                                      
+001  4.PEKMU                                                                   +
+                                                                                
+
+2015 January 17, Saturday, 15:08:09
+>rt NC40KD
+  **ELECTRONIC TICKET PNR**                                                     
+ 0.16GROUP NM16 NC40KD                                                          
+17.13887211313                                                                  
+18.T                                                                            
+19.SSR FOID MU HK1 NI111111111111111111/P4                                      
+20.SSR FOID MU HK1 NI111111111111111111/P8                                      
+21.SSR FOID MU HK1 NI111111111111111111/P13                                     
+22.SSR FOID MU HK1 NI111111111111111111/P16                                     
+23.SSR FOID MU HK1 NI111111111111111111/P1                                      
+24.SSR FOID MU HK1 NI111111111111111111/P6                                      
+25.SSR FOID MU HK1 NI111111111111111111/P7                                      
+26.SSR FOID MU HK1 NI111111111111111111/P14                                    +
+                                                                                
+
+2015 January 17, Saturday, 15:08:12
+>pg1
+  **ELECTRONIC TICKET PNR**                                                     
+ 0.16GROUP NM16 NC40KD                                                          
+17.13887211313                                                                  
+18.T                                                                            
+19.SSR FOID MU HK1 NI111111111111111111/P4                                      
+20.SSR FOID MU HK1 NI111111111111111111/P8                                      
+21.SSR FOID MU HK1 NI111111111111111111/P13                                     
+22.SSR FOID MU HK1 NI111111111111111111/P16                                     
+23.SSR FOID MU HK1 NI111111111111111111/P1                                      
+24.SSR FOID MU HK1 NI111111111111111111/P6                                      
+25.SSR FOID MU HK1 NI111111111111111111/P7                                      
+26.SSR FOID MU HK1 NI111111111111111111/P14                                     
+27.SSR FOID MU HK1 NI111111111111111111/P9                                      
+28.SSR FOID MU HK1 NI111111111111111111/P12                                     
+29.SSR FOID MU HK1 NI111111111111111111/P2                                      
+30.SSR FOID MU HK1 NI111111111111111111/P15                                     
+31.SSR FOID MU HK1 NI111111111111111111/P3                                      
+32.SSR FOID MU HK1 NI111111111111111111/P5                                     +
+                                                                                
+
+2015 January 17, Saturday, 15:08:14
+>rtc
+  **ELECTRONIC TICKET PNR**                                                     
+039     PEKMU 9985 0957 30DEC14                                                 
+001  0.16GROUP NM16 NC40KD                                                      
+001 17.  MU9748 G   TU30DEC14DLUPEK HK16  1810 2135      E --T2                 
+       NN(001)  HN(001)  KK(002)  HK(002)  HK(005)                              
+001 18.BKD 19 CNL 0 SPLIT 3                                                     
+001 19.13887211313                                                              
+009 20.T                                                                        
+006 21.SSR FOID MU HK1 NI111111111111111111/P4                                  
+       HK(006)                                                                  
+006 22.SSR FOID MU HK1 NI111111111111111111/P8                                  
+       HK(006)                                                                 +
+                                                                                
+
+2015 January 17, Saturday, 15:08:20
+>detr tn/7812488490238,h
+ DETR:TN/7812488490238,H                                                       
+TKTN:7812488490238  NAME: 张三                                                
+IATA OFFC: 08677392 ISSUED: 27DEC14                                             
+ 13    31DEC/1200/88885    TRMK RECEIPT:4671716206                              
+ 12 1  31DEC/1006/20413    DBRD C/O                                             
+ 11 1  31DEC/0751/20405    CKIU FLT DATE/TIME CHG FROM OPEN TO 31DEC14/0910     
+ 10 1  31DEC/0751/20405    CKIU CHG FLT FROM MUOPEN/OPEN/G/DLUPEK TO            
+                                MU5711/31DEC14/G/DLUPEK                         
+  9 1  31DEC/0751/20405    CKIU O/C                                             
+  8 1  30DEC/1757/9940     EOTU FLT DATE/TIME CHG FROM 30DEC14/1810/2135 TO     
+                                OPEN                                            
+  7 1  30DEC/1757/9940     EOTU CHG FLT FROM MU9748/30DEC14/G/DLUPEK TO        +
+                                                                                
+
+2015 January 17, Saturday, 15:08:22
+>pg1
+ DETR:TN/7812488490238,H                                                       
+TKTN:7812488490238  NAME: 张三                                                
+IATA OFFC: 08677392 ISSUED: 27DEC14                                             
+ 13    31DEC/1200/88885    TRMK RECEIPT:4671716206                              
+ 12 1  31DEC/1006/20413    DBRD C/O                                             
+ 11 1  31DEC/0751/20405    CKIU FLT DATE/TIME CHG FROM OPEN TO 31DEC14/0910     
+ 10 1  31DEC/0751/20405    CKIU CHG FLT FROM MUOPEN/OPEN/G/DLUPEK TO            
+                                MU5711/31DEC14/G/DLUPEK                         
+  9 1  31DEC/0751/20405    CKIU O/C                                             
+  8 1  30DEC/1757/9940     EOTU FLT DATE/TIME CHG FROM 30DEC14/1810/2135 TO     
+                                OPEN                                            
+  7 1  30DEC/1757/9940     EOTU CHG FLT FROM MU9748/30DEC14/G/DLUPEK TO         
+                                MUOPEN/OPEN/G/DLUPEK                            
+  6 1  30DEC/1757/9940     EOTU RES RL NKG2SP   CLEARED                         
+  5    30DEC/1757/9940     EOTU RES PNR CHANGE FROM MFZJTT   TO NKG2SP          
+  4 1  30DEC/1754/20403    DBRD C/O                                             
+  3 1  29DEC/2241/18317    CKIN O/C MU9748/30DEC14/G/DLUPEK                     
+  2 1  27DEC/1821/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET              
+  1    27DEC/1821/2992     TRMK MU+SHA166+DEV-07                                
+                                                                                
+
+2015 January 17, Saturday, 15:24:14
+>rt:NVRRN9 
+  **ELECTRONIC TICKET PNR**                                                     
+ 1.张三 NVRRN9                                                                  
+ 2.  CA1520 X   MO19JAN  SHAPEK HK1   1255 1520      E T2T3                     
+ 3.  CA1532 X   MO19JAN  SHAPEK RR1   1355 1615      E T2T3                     
+ 4.13910161450                                                                  
+ 5.P                                                                            
+ 6.SSR FOID CA HK1 NI111111111111111111/P1                                      
+ 7.SSR TKNE CA HK1 SHAPEK 1532 X19JAN 9992354240684/1/P1                        
+ 8.SSR FQTV CA HK1 SHAPEK 1520 X19JAN CA008371910991*S/S/P1                     
+ 9.SSR FQTV CA HK1 SHAPEK 1532 X19JAN CA008371910991*S/S/P1                     
+10.SSR FQTR CA HK1 SHAPEK 1532 X19JAN CA008371910991/P1                         
+11.OSI CA CTCT13910161450                                                      +
+                                                                                
+
+2015 January 17, Saturday, 15:24:19
+>rtc
+  **ELECTRONIC TICKET PNR**                                                     
+008     PEK106 68022 0716 17JAN I                                               
+     1.张三(001) NVRRN9                                                         
+007  2.  CA1520 X   MO19JAN  SHAPEK HK1   1255 1520      E T2T3                 
+       NN(007)  HK(007)                                                         
+001  3.  CA1532 X   MO19JAN  SHAPEK RR1   1355 1615      E T2T3                 
+       NN(001)  HK(001)  RR(004)                                                
+001  4.13910161450                                                              
+006  5.P                                                                        
+001  6.SSR FOID CA HK1 NI111111111111111111/P1                                  
+       HK(001)                                                                  
+006  7.SSR TKNE CA HK1 SHAPEK 1532 X19JAN 9992354240684/1/P1                   +
+                                                                                
+
+2015 January 17, Saturday, 15:24:21
+>pg1
+  **ELECTRONIC TICKET PNR**                                                     
+008     PEK106 68022 0716 17JAN I                                               
+     1.张三(001) NVRRN9                                                         
+007  2.  CA1520 X   MO19JAN  SHAPEK HK1   1255 1520      E T2T3                 
+       NN(007)  HK(007)                                                         
+001  3.  CA1532 X   MO19JAN  SHAPEK RR1   1355 1615      E T2T3                 
+       NN(001)  HK(001)  RR(004)                                                
+001  4.13910161450                                                              
+006  5.P                                                                        
+001  6.SSR FOID CA HK1 NI111111111111111111/P1                                  
+       HK(001)                                                                  
+006  7.SSR TKNE CA HK1 SHAPEK 1532 X19JAN 9992354240684/1/P1                    
+       HK(006)                                                                  
+007  8.SSR FQTV CA HK1 SHAPEK 1520 X19JAN CA008371910991*S/S/P1                 
+       HK(007)                                                                  
+002  9.SSR FQTV CA HK1 SHAPEK 1532 X19JAN CA008371910991*S/S/P1                 
+       HK(002)                                                                  
+005 10.SSR FQTR CA HK1 SHAPEK 1532 X19JAN CA008371910991/P1                     
+       HK(005)                                                                  
+001 11.OSI CA CTCT13910161450                                                   
+005 12.RMK CA FTR/01152653/                                                     
+008 13.RMK 因机型调整改期                                                       
+                                                                               +
+                                                                                
+
+2015 January 17, Saturday, 15:24:27
+>rtu1
+001     PEK222 66817 0220 24DEC14                                              -
+002     PEK099 9940 0220 24DEC14                                                
+003/003 RMK RI/ATTL/ADTK TL1419387881099/2014-12-24/10:24:41                    
+001/003 SSR ADTK CA BY PEK27DEC14/1020 OR CXL CA ALL SEGS                       
+003     PEK099 9981 0224 24DEC14                                                
+004     PEK222 66817 0225 24DEC14 IK                                            
+005     PEK222 66817 0225 24DEC14                                               
+001/006 TL/1325/19JAN/PEK222                                                    
+005/006 FC/M/SHA B-19JAN15 A-19JAN15 CA PEK 0.00XCAP010200 TOT0.00END           
+003/006 SSR ADTK CA BY PEK27DEC14/1020 OR CXL CA ALL SEGS                       
+005/006 RMK OFP//LINGQI/                                                        
+005/006 OI/999-4037576698/999-4037576698                                       +
+                                                                                
+
+ 
+2015 January 17, Saturday, 15:36:39
+>detr tn/9992339440501
+ DETR:TN/9992339440501                                                         
+ISSUED BY: AIR CHINA                 ORG/DST: CTU/TAO                 ARL-D     
+E/R: 签转改退收费                                                               
+TOUR CODE:                                                                      
+PASSENGER: 张三                                                               
+EXCH:                               CONJ TKT:                                   
+O FM:1CTU CA    OPEN  E OPEN          E/CA4T1435       /16DEC5 20K OPEN FOR USE 
+          RL:                                                     IRR NOSH    
+  TO: TAO                                                                       
+FC: 26DEC14CTU CA TAO300.00CNY300.00END                                         
+FARE:           CNY  300.00|FOP:CC/SC222                                        
+TAX:            CNY 50.00CN|OI:                                                +
+                                                                                
+
+2015 January 17, Saturday, 15:36:54
+>detr tn/9992339440501,h
+ DETR:TN/9992339440501,H                                                       
+TKTN:9992339440501  NAME: 张三                                                
+IATA OFFC: 08692057 ISSUED: 16DEC14                                             
+  5 1  27DEC/0704/9940     EOTU CHG FLT FROM CA4511/27DEC14/E/CTUTAO TO         
+                                CAOPEN/OPEN/E/CTUTAO                            
+  4 1  27DEC/0704/9940     EOTU RES RL NEPLPS   CLEARED                         
+  3 1  17DEC/1750/5203     RVAL CHG FLT FROM CA4511/26DEC14/E/CTUTAO TO         
+                                CA4511/27DEC14/E/CTUTAO                         
+  2 1  16DEC/0942/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET              
+  1    16DEC/0942/67631    TRMK CA+PEK112+DEV-19                                
+                                                                                
+
+2015 January 17, Saturday, 15:37:14
+>ohi r/张三/CA4511/26DEC14
+ ohi:R/ZHANGWENTAO/CA  4511 /26DEC14                                            
+--- 26DEC14: SEARCH IN TOTAL 1 FLIGHTS/SEGMENTS.                                
+CA  4511 /CTUTAO/26DEC14                                                        
+HISTORY INDEX NUMBER 77                                                         
+ 001   1ZHANGWENTAO      MZY5L6 E  HX1   PEK1E  16DEC14                         
+ 002   1ZHANGWENTAO      NGP67K E  HX1   PEK112 16DEC14                         
+Total time used 364 ms                                                          
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 15:37:20
+>rt NGP67K
+ 1.张三 NGP67K                                                                
+ 2.NC                                                                           
+ 3.T                                                                            
+ 4.SSR FOID CA HK1 NI111111111111111111/P1                                      
+ 5.OSI CA CTCT18928871678                                                       
+ 6.RMK AUTOMATIC FARE QUOTE                                                     
+ 7.RMK PFS NOSHO CA4511 E 27DEC CTUTAO                                          
+ 8.FN/A/FCNY300.00/SCNY300.00/C0.00/XCNY110.00/TCNY50.00CN/TCNY60.00YQ/         
+    ACNY410.00                                                                  
+ 9.TN/999-2339440501/P1                                                         
+10.FP/CC/SC222                                                                  
+11.PEK112                                                                       
+                                                                                
+
+2015 January 17, Saturday, 15:37:34
+>rt MZY5L6
+ 1.张三 MZY5L6                                                                
+ 2.T BJS/BJS/T010-64161515/BEIJING CTRIP INT L TRAVEL SERVICE                   
+ 3.T BJS/CO. LTD. CTRIP /LIULIJUAN                                              
+ 4.SSR FOID CA HK1 NI111111111111111111/P1                                      
+ 5.SSR OTHS 1E CA BKG CXLD DUE TO DUPLICATE WITH NEPLPS                         
+ 6.SSR TKTL CA SS/ BJS 1200/24DEC14                                             
+ 7.OSI CA CTC 021-51069999X454360                                               
+ 8.OSI CA CTCT18321831730                                                       
+ 9.PEK1E/HND04Y/BJS101                                                          
+                                                                                
+
+2015 January 17, Saturday, 15:56:45
+>detr tn/9992355208497
+ DETR:TN/9992355208497                                                         
+ISSUED BY: AIR CHINA                 ORG/DST: SZX/CKG                 ARL-D     
+E/R: 改期退票收费                                                               
+TOUR CODE:                                                                      
+PASSENGER: 张三                                                                 
+EXCH:                               CONJ TKT:                                   
+O FM:1SZX 3U    8782  Y 17FEB 1035 OK Y                /20DEC5 20K SUSPENDED    
+     T3T2 RL:MZX7Y3  /JQQ5R41E                                                  
+  TO: CKG                                                                       
+FC: 26DEC14SZX CA CKG1280.00CNY1280.00END                                       
+FARE:           CNY 1280.00|FOP:CC/ H1                                          
+TAX:            CNY 50.00CN|OI:                                                +
+                                                                                
+
+2015 January 17, Saturday, 15:56:54
+>detr tn/9992355208497,h
+ DETR:TN/9992355208497,H                                                       
+TKTN:9992355208497  NAME: 张三                                                  
+IATA OFFC: 08622222 ISSUED: 20DEC14                                             
+  9 1  01JAN/1533/30009    TKSU O/S SUSPENDED BY PEK888                         
+  8 1  24DEC/1837/68120    RVAL CHG FLT FROM CAOPEN/OPEN/Y/SZXCKG TO            
+                                3U8782/17FEB15/Y/SZXCKG                         
+  7 1  24DEC/1837/68120    RVAL MKG RL CHANGED TO JQQ5R41E                      
+  6 1  24DEC/1837/68120    RVAL RES RL CHANGED TO MZX7Y3                        
+  5 1  24DEC/1836/68120    EOTU CHG FLT FROM CA4344/17FEB15/Y/SZXCKG TO         
+                                CAOPEN/OPEN/Y/SZXCKG                            
+  4 1  24DEC/1836/68120    EOTU RES RL MZX7Y3   CLEARED                         
+  3 1  20DEC/1501/68155    RVAL CHG FLT FROM CA4344/26DEC14/Y/SZXCKG TO        +
+                                                                                
+
+2015 January 17, Saturday, 15:56:58
+>pg1
+ DETR:TN/9992355208497,H                                                       
+TKTN:9992355208497  NAME: 张三                                                  
+IATA OFFC: 08622222 ISSUED: 20DEC14                                             
+  9 1  01JAN/1533/30009    TKSU O/S SUSPENDED BY PEK888                         
+  8 1  24DEC/1837/68120    RVAL CHG FLT FROM CAOPEN/OPEN/Y/SZXCKG TO            
+                                3U8782/17FEB15/Y/SZXCKG                         
+  7 1  24DEC/1837/68120    RVAL MKG RL CHANGED TO JQQ5R41E                      
+  6 1  24DEC/1837/68120    RVAL RES RL CHANGED TO MZX7Y3                        
+  5 1  24DEC/1836/68120    EOTU CHG FLT FROM CA4344/17FEB15/Y/SZXCKG TO         
+                                CAOPEN/OPEN/Y/SZXCKG                            
+  4 1  24DEC/1836/68120    EOTU RES RL MZX7Y3   CLEARED                         
+  3 1  20DEC/1501/68155    RVAL CHG FLT FROM CA4344/26DEC14/Y/SZXCKG TO         
+                                CA4344/17FEB15/Y/SZXCKG                         
+  2 1  20DEC/1444/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET              
+  1    20DEC/1444/30009    TRMK CA+PEK888+DEV-35                                
+                                                                                
+
+ 
+2015 January 17, Saturday, 16:03:17
+>rt PLNB2W
+  **ELECTRONIC TICKET PNR**                                                     
+ 1.张三 PLNB2W/MU                                                             
+ 2.15219502130                                                                  
+ 3.T                                                                            
+ 4.SSR FOID MU HK1 NI111111111111111111/P1                                      
+ 5.SSR TKNE MU HK1 XIYPEK 2113 F19OCT 7812462807764/1/P1                        
+ 6.SSR FQTV MU HK1 XIYPEK 2113 F19OCT MU 640501865240/C/P1                      
+ 7.SSR FQTV MU HK/ MU640501865240/C/P1                                          
+ 8.OSI MU CTCT15219502130                                                       
+ 9.OSI MU CTCM15219502130/P1                                                    
+10.RMK NEW B2C                                                                  
+11.FN/M/RCNY1850.00/SCNY880.00/C0.00/OCNY50.00CN/OCNY120.00YQ/ACNY880.00/P1    +
+                                                                                
+
+2015 January 17, Saturday, 16:03:22
+>pg1
+  **ELECTRONIC TICKET PNR**                                                     
+ 1.张三 PLNB2W/MU                                                             
+ 2.15219502130                                                                  
+ 3.T                                                                            
+ 4.SSR FOID MU HK1 NI111111111111111111/P1                                      
+ 5.SSR TKNE MU HK1 XIYPEK 2113 F19OCT 7812462807764/1/P1                        
+ 6.SSR FQTV MU HK1 XIYPEK 2113 F19OCT MU 640501865240/C/P1                      
+ 7.SSR FQTV MU HK/ MU640501865240/C/P1                                          
+ 8.OSI MU CTCT15219502130                                                       
+ 9.OSI MU CTCM15219502130/P1                                                    
+10.RMK NEW B2C                                                                  
+11.FN/M/RCNY1850.00/SCNY880.00/C0.00/OCNY50.00CN/OCNY120.00YQ/ACNY880.00/P1     
+12.TN/781-2462807764/P1                                                         
+13.FP/CC/PN0920330001268356/P1                                                  
+14.SHA777                                                                       
+                                                                                
+
+2015 January 17, Saturday, 16:06:12
+>detr tn/7844311801082,p,h
+ DETR:TN/7844311801082,P,H                                                      
+TKTN:7844311801082  NAME: 张三                                                
+IATA OFFC: 08301532 ISSUED: 10OCT13                                             
+   9 1  13OCT/0309/9940     NFMT COUPON REPORTED TO CZ                          
+   8 1  13OCT/0309/9940     NFMT L/F FLOWN                                      
+   7 1  12OCT/1620/9940     ETLU BAGGAGE COUNT/WEIGHT UPDATED                   
+   6 1  12OCT/1620/9940     ETLU C/L                                            
+   5 1  12OCT/1307/8513     CKIN O/C CZ3718/12OCT13/F/PEKCSX                    
+   4    11OCT/1423/8888     TRMK RECEIPT:6313354932                             
+   3 1  10OCT/1801/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET             
+   2    10OCT/1801/9955     TRMK PLACE OF ISSUE:BJS429  16363  1E               
+   1    10OCT/1801/9955     TRMK CHINA SOUTHERN AIRLINES                       +
+                                                                                
+
+2015 January 17, Saturday, 16:06:31
+>ohi r/张三/CZ3718/12OCT13
+ ohi:R/WEIHUACHENG/CZ  3718 /12OCT13                                            
+--- 12OCT13: SEARCH IN TOTAL 1 FLIGHTS/SEGMENTS.                                
+CZ  3718 /PEKCSX/12OCT13                                                        
+HISTORY INDEX NUMBER 13                                                         
+ 001   1WEIHUACHENG      NC6SFK F  RR1   PEK1E  10OCT13                         
+Total time used 1410 ms                                                         
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 16:06:42
+>rt NC6SFK
+  **ELECTRONIC TICKET PNR**                                                     
+ 1.张三 NC6SFK                                                                
+ 2.T BJS/PEK/T 010-51203527/PEK GUO XIANG AVIATION SERVICE CO.                  
+ 3.T BJS/LTD/GAO HONG                                                           
+ 4.SSR FOID CZ HK1 NI111111111111111111/P1                                      
+ 5.SSR TKNE CZ HK1 PEKCSX 3718 F12OCT 7844311801082/1/P1                        
+ 6.SSR FQTV CZ HK/ CZ180014452892.2/C/P1                                        
+ 7.OSI CA CTC CHELI                                                             
+ 8.OSI CZ CTCT13661272684                                                       
+ 9.OSI CA TKNA TICTKED                                                          
+10.PEK1E/HGY003/BJS429                                                          
+                                                                                
+
+2015 January 17, Saturday, 16:09:33
+>detr tn/7844311801118,p,h
+ DETR:TN/7844311801118,P,H                                                      
+TKTN:7844311801118  NAME: 张三                                                
+IATA OFFC: 08301532 ISSUED: 11OCT13                                             
+   9 1  15OCT/0310/9940     NFMT COUPON REPORTED TO CZ                          
+   8 1  15OCT/0310/9940     NFMT L/F FLOWN                                      
+   7 1  14OCT/0835/9940     ETLU BAGGAGE COUNT/WEIGHT UPDATED                   
+   6 1  14OCT/0835/9940     ETLU C/L                                            
+   5 1  14OCT/0651/3794     CKIN O/C CZ3123/14OCT13/F/CSXPEK                    
+   4    11OCT/1046/8888     TRMK RECEIPT:6313354901                             
+   3 1  11OCT/1046/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET             
+   2    11OCT/1046/9955     TRMK PLACE OF ISSUE:BJS429  16363  1E               
+   1    11OCT/1046/9955     TRMK CHINA SOUTHERN AIRLINES                       +
+                                                                                
+
+2015 January 17, Saturday, 16:11:59
+>detr tn/9993949317975,p,h
+ DETR:TN/9993949317975,P,H                                                      
+TKTN:9993949317975  NAME: 张三                                                
+IATA OFFC: 08301532 ISSUED: 15OCT13                                             
+   8 1  19OCT/0300/9940     NFMT COUPON REPORTED TO ACCA                        
+   7 1  19OCT/0300/9940     NFMT L/F FLOWN                                      
+   6 1  18OCT/1546/9940     ETLU BAGGAGE COUNT/WEIGHT UPDATED                   
+   5 1  18OCT/1546/9940     ETLU C/L                                            
+   4 1  18OCT/1408/11668    CKIN O/C CA1225/18OCT13/F/PEKXIY                    
+   3 1  16OCT/1808/67565    RVAL CHG FLT FROM CA1201/18OCT13/F/PEKXIY T         
+                                 O CA1225/18OCT13/F/PEKXIY                      
+   2    15OCT/1644/8888     TRMK RECEIPT:6313355181                             
+   1    15OCT/1620/16363    TRMK BEIJING GUOXIANG+BJS429+DEV-03                +
+                                                                                
+
+2015 January 17, Saturday, 16:13:08
+>ohi r/张三/CA1225/18OCT13
+ ohi:R/WEIHUACHENG/CA  1225 /18OCT13                                            
+--- 18OCT13: SEARCH IN TOTAL 3 FLIGHTS/SEGMENTS.                                
+CA  1225 /PEKXIY/18OCT13                                                        
+HISTORY INDEX NUMBER 14                                                         
+ 001   1WEIHUACHENG      NC6V8W F  RR1   PEK1E  16OCT13                         
+Total time used 1171 ms                                                         
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 16:15:30
+>rt NC6V8W
+  **ELECTRONIC TICKET PNR**                                                     
+ 1.张三 NC6V8W                                                                
+ 2.T BJS/PEK/T 010-51203527/PEK GUO XIANG AVIATION SERVICE CO.                  
+ 3.T BJS/LTD/GAO HONG                                                           
+ 4.T/9993949317975                                                              
+ 5.SSR FOID CA HK1 NI111111111111111111/P1                                      
+ 6.SSR TKNE CA HK1 PEKXIY 1225 F18OCT 9993949317975/1/P1                        
+ 7.SSR CKIN CA HK1 SPCA/V/P1                                                  
+ 8.SSR FQTV CA HK1 PEKXIY 1225 F18OCT CA181147120*G/V/P1                        
+ 9.OSI CA CTC CEHLI                                                             
+10.OSI CA CTCT13661272684                                                       
+11.OSI CA TKNA TICTKED                                                         +
+                                                                                
+
+2015 January 17, Saturday, 16:15:35
+>pg1
+  **ELECTRONIC TICKET PNR**                                                     
+ 1.NI111111111111111111 NC6V8W                                                                
+ 2.T BJS/PEK/T 010-51203527/PEK GUO XIANG AVIATION SERVICE CO.                  
+ 3.T BJS/LTD/GAO HONG                                                           
+ 4.T/9993949317975                                                              
+ 5.SSR FOID CA HK1 NI111111111111111111/P1                                      
+ 6.SSR TKNE CA HK1 PEKXIY 1225 F18OCT 9993949317975/1/P1                        
+ 7.SSR CKIN CA HK1 SPCA/V/P1                                                  
+ 8.SSR FQTV CA HK1 PEKXIY 1225 F18OCT CA181147120*G/V/P1                        
+ 9.OSI CA CTC CEHLI                                                             
+10.OSI CA CTCT13661272684                                                       
+11.OSI CA TKNA TICTKED                                                          
+12.OSI CA CTCT01051203550                                                       
+13.OSI CA CIP CAFFP/P1                                                        
+14.OSI CA CIP CAFFP/P1                                                        
+15.PEK1E/JF96BV/BJS429                                                          
+                                                                                
+
+2015 January 17, Saturday, 16:17:50
+>detr tn/7812146427395,p,h
+ DETR:TN/7812146427395,P,H                                                      
+TKTN:7812146427395  NAME: NI111111111111111111                                                
+IATA OFFC: 08688888 ISSUED: 01NOV13                                             
+   8 1  07NOV/0306/9940     NFMT COUPON REPORTED TO ACCA                        
+   7 1  07NOV/0306/9940     NFMT L/F FLOWN                                      
+   6    06NOV/1049/88885    TRMK RECEIPT:4601563545                             
+   5 1  06NOV/0736/9940     ETLU BAGGAGE COUNT/WEIGHT UPDATED                   
+   4 1  06NOV/0736/9940     ETLU C/L                                            
+   3 1  06NOV/0612/33293    CKIN O/C MU5138/06NOV13/P/PEKSHA                    
+   2 1  01NOV/1134/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET             
+   1    01NOV/1134/9955     TRMK MU+SHA666+DEV-8                                
+                                                                               +
+                                                                                
+
+2015 January 17, Saturday, 16:18:10
+>ohi r/NI111111111111111111/MU5138/06NOV13
+ ohi:R/WEIHUACHENG/MU  5138 /06NOV13                                            
+--- 06NOV13: SEARCH IN TOTAL 1 FLIGHTS/SEGMENTS.                                
+MU  5138 /PEKSHA/06NOV13                                                        
+HISTORY INDEX NUMBER 19                                                         
+ 001   1WEIHUACHENG      MEVDD5 P  HX1   PEK1E  01NOV13                         
+ 002   0WEIHUACHENG      NXMRKC T  HX1   PEK1E  01NOV13                         
+ 003   1WEIHUACHENG      PFNFYG P  RR1   PEK1E  01NOV13                         
+Total time used 578 ms                                                          
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 16:19:13
+>rt PFNFYG
+  **ELECTRONIC TICKET PNR**                                                     
+ 1.NI111111111111111111 PFNFYG                                                                
+ 2.T BJS/BJS/T010-64161515/BEIJING CTRIP INT L TRAVEL SERVICE                   
+ 3.T BJS/CO. LTD. CTRIP /LIULIJUAN                                              
+ 4.021-62996200                                                                 
+ 5.T                                                                            
+ 6.SSR FOID MU HK1 NI111111111111111111/P1                                      
+ 7.SSR TKNE MU HK1 PEKSHA 5138 P06NOV 7812146427395/1/P1                        
+ 8.SSR OTHS 1E MU                                                               
+ 9.SSR OTHS 1E PNRETDZED                                                        
+10.SSR TKTL CA XX/ BJS 1200/04NOV13                                             
+11.OSI CA CTC 021-34064880X454360                                              +
+                                                                                
+
+2015 January 17, Saturday, 16:19:20
+>pg1
+  **ELECTRONIC TICKET PNR**                                                     
+ 1.张三 PFNFYG                                                                
+ 2.T BJS/BJS/T010-64161515/BEIJING CTRIP INT L TRAVEL SERVICE                   
+ 3.T BJS/CO. LTD. CTRIP /LIULIJUAN                                              
+ 4.021-62996200                                                                 
+ 5.T                                                                            
+ 6.SSR FOID MU HK1 NI111111111111111111/P1                                      
+ 7.SSR TKNE MU HK1 PEKSHA 5138 P06NOV 7812146427395/1/P1                        
+ 8.SSR OTHS 1E MU                                                               
+ 9.SSR OTHS 1E PNRETDZED                                                        
+10.SSR TKTL CA XX/ BJS 1200/04NOV13                                             
+11.OSI CA CTC 021-34064880X454360                                               
+12.OSI MU CTCT18717781513                                                       
+13.OSI MU CTCT18721030069                                                       
+14.OSI 1E MUET TN/7812146427395                                                 
+15.RMK ET                                                                       
+16.RMK ET                                                                       
+17.RMK ET                                                                      +
+                                                                                
+
+2015 January 17, Saturday, 16:19:24
+>pn1
+18.RMK ET                                                                      -
+19.RMK ET                                                                       
+20.RMK ET                                                                       
+21.RMK ET                                                                       
+22.RMK ET                                                                       
+23.RMK NEW B2B                                                                  
+24.FN/M/FCNY1240.00/SCNY1240.00/C3.00/XCNY170.00/TCNY50.00CN/TCNY120.00YQ/      
+    ACNY1410.00                                                                 
+25.TN/781-2146427395/P1                                                         
+26.FP/CC/VI61131101744303                                                       
+27.PEK1E/JRQ2KL/BJS101                                                          
+                                                                                
+
+2015 January 17, Saturday, 16:24:01
+>detr tn/9992120319755
+ET PASSENGER DATA NOT FOUND                                                     
+                                                                                
+
+2015 January 17, Saturday, 16:24:06
+>detr tn/9992120319755,p,h
+ DETR:TN/9992120319755,P,H                                                      
+TKTN:9992120319755  NAME: 张三                                                
+IATA OFFC: 08622222 ISSUED: 05NOV13                                             
+  12    08NOV/0821/88885    TRMK RECEIPT:6323823442                             
+  11 1  08NOV/0308/9940     NFMT COUPON REPORTED TO ACCA                        
+  10 1  08NOV/0308/9940     NFMT L/F FLOWN                                      
+   9 1  07NOV/1402/9940     EOTU RES RL MXRYH4   CLEARED                        
+   8 1  07NOV/1400/9940     ETLU BAGGAGE COUNT/WEIGHT UPDATED                   
+   7 1  07NOV/1400/9940     ETLU CHG FLT FROM CA1517/07NOV13/A/PEKSHA T         
+                                 O CA1517/07NOV13/P/PEKSHA                      
+   6 1  07NOV/1400/9940     ETLU C/L                                            
+   5 1  07NOV/1251/11987    CKIU CHG FLT FROM CA1517/07NOV13/A/PEKSHA T        +
+                                                                                
+
+2015 January 17, Saturday, 16:24:10
+>pg1
+ DETR:TN/9992120319755,P,H                                                      
+TKTN:9992120319755  NAME: 张三                                                
+IATA OFFC: 08622222 ISSUED: 05NOV13                                             
+  12    08NOV/0821/88885    TRMK RECEIPT:6323823442                             
+  11 1  08NOV/0308/9940     NFMT COUPON REPORTED TO ACCA                        
+  10 1  08NOV/0308/9940     NFMT L/F FLOWN                                      
+   9 1  07NOV/1402/9940     EOTU RES RL MXRYH4   CLEARED                        
+   8 1  07NOV/1400/9940     ETLU BAGGAGE COUNT/WEIGHT UPDATED                   
+   7 1  07NOV/1400/9940     ETLU CHG FLT FROM CA1517/07NOV13/A/PEKSHA T         
+                                 O CA1517/07NOV13/P/PEKSHA                      
+   6 1  07NOV/1400/9940     ETLU C/L                                            
+   5 1  07NOV/1251/11987    CKIU CHG FLT FROM CA1517/07NOV13/A/PEKSHA T         
+                                 O CA1517/07NOV13/P/PEKSHA                      
+   4 1  07NOV/1251/11987    CKIU INVOL UPGRADED FROM A TO P                     
+   3 1  07NOV/1238/46246    CKIN O/C CA1517/07NOV13/A/PEKSHA                    
+   2 1  05NOV/0950/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET             
+   1    05NOV/0950/9955     TRMK CA+PEK888+DEV-39                               
+                                                                                
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 16:25:59
+>ohi r/张三/CA1517/07NOV13
+ ohi:R/WEIHUACHENG/CA  1517 /07NOV13                                            
+--- 07NOV13: SEARCH IN TOTAL 1 FLIGHTS/SEGMENTS.                                
+CA  1517 /PEKSHA/07NOV13                                                        
+HISTORY INDEX NUMBER 24                                                         
+ 001   1WEIHUACHENG      NVLTTS P  HK1   PEK1E  07NOV13                         
+ 002   1WEIHUACHENG      NVLTTS A  HX1   PEK1E  05NOV13                         
+Total time used 1180 ms                                                         
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 16:26:06
+>rt NVLTTS
+ 1.张三 NVLTTS                                                                
+ 2.T BJS/BJS/T010-64161515/BEIJING CTRIP INT L TRAVEL SERVICE                   
+ 3.T BJS/CO. LTD. CTRIP /LIULIJUAN                                              
+ 4.T                                                                            
+ 5.SSR FOID CA HK1 NI111111111111111111/P1                                      
+ 6.SSR OTHS 1E 1 CAAIRLINES ET PNR                                              
+ 7.SSR OTHS 1E 1 PNR RR AND PRINTED                                             
+ 8.SSR TKTL CA XX/ BJS 1200/07NOV13                                             
+ 9.SSR CKIN CA HK1 SPCA/V/P1                                                  
+10.SSR FQTV CA XX1 PEKSHA 1517 A07NOV CA000181147120*G/V                        
+11.SSR FQTV CA HK1 PEKSHA 1517 P07NOV CA 000181147120*G/V/P1                    
+12.SSR FQTU CA HK1 PEKSHA 1517 A07NOV CA 000181147120/C/P1                     +
+                                                                                
+
+2015 January 17, Saturday, 16:26:16
+>pg1
+ 1.张三 NVLTTS                                                                
+ 2.T BJS/BJS/T010-64161515/BEIJING CTRIP INT L TRAVEL SERVICE                   
+ 3.T BJS/CO. LTD. CTRIP /LIULIJUAN                                              
+ 4.T                                                                            
+ 5.SSR FOID CA HK1 NI111111111111111111/P1                                      
+ 6.SSR OTHS 1E 1 CAAIRLINES ET PNR                                              
+ 7.SSR OTHS 1E 1 PNR RR AND PRINTED                                             
+ 8.SSR TKTL CA XX/ BJS 1200/07NOV13                                             
+ 9.SSR CKIN CA HK1 SPCA/V/P1                                                  
+10.SSR FQTV CA XX1 PEKSHA 1517 A07NOV CA000181147120*G/V                        
+11.SSR FQTV CA HK1 PEKSHA 1517 P07NOV CA 000181147120*G/V/P1                    
+12.SSR FQTU CA HK1 PEKSHA 1517 A07NOV CA 000181147120/C/P1                      
+13.OSI CA CTC 021-34064880X454360                                               
+14.OSI CA CTCT18717781513                                                       
+15.OSI 1E CAET TN/9992120319755                                                 
+16.RMK PFS INVOL CA1517 P 07NOV PEKSHA                                          
+17.FN/M/FCNY2830.00/SCNY2830.00/C9.00/XCNY170.00/TCNY50.00CN/TCNY120.00YQ/     +
+    ACNY3000.00                                                                +
+                                                                                
+
+2015 January 17, Saturday, 16:26:24
+>pn1
+18.TN/999-2120319755/P1                                                        -
+19.FP/CC/H1                                                                     
+20.PEK1E/JGLEB9/BJS101                                                          
+                                                                                
+
+2015 January 17, Saturday, 16:29:12
+>detr tn/9994198895971,p,h
+ DETR:TN/9994198895971,P,H                                                      
+TKTN:9994198895971  NAME: 张三                                                
+IATA OFFC: 08039721 ISSUED: 04NOV13                                             
+   5 1  10NOV/0308/9940     NFMT COUPON REPORTED TO ACCA                        
+   4 1  10NOV/0308/9940     NFMT C/F FLOWN                                      
+   3    09NOV/1121/88885    TRMK RECEIPT:4606491754                             
+   2 1  08NOV/2051/25953    CKIN O/C CA1886/08NOV13/F/SHAPEK                    
+   1    04NOV/1425/64105    TRMK YAKE+PEK088+DEV-07                             
+                                                                                
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 16:29:31
+>ohi r/张三/CA1886/08NOV13
+ ohi:R/WEIHUACHENG/CA  1886 /08NOV13                                            
+--- 08NOV13: SEARCH IN TOTAL 1 FLIGHTS/SEGMENTS.                                
+CA  1886 /SHAPEK/08NOV13                                                        
+HISTORY INDEX NUMBER 25                                                         
+ 001   1WEIHUACHENG      PFCZSQ F  RR1   PEK1E  04NOV13                         
+Total time used 703 ms                                                          
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 16:29:38
+>rt PFCZSQ
+  **ELECTRONIC TICKET PNR**                                                     
+ 1.张三 PFCZSQ                                                                
+ 2.T BJS/BJS/T010-64161515/BEIJING CTRIP INT L TRAVEL SERVICE                   
+ 3.T BJS/CO. LTD. CTRIP /LIULIJUAN                                              
+ 4.SSR FOID CA HK1 NI111111111111111111/P1                                      
+ 5.SSR TKNE CA HK1 SHAPEK 1886 F08NOV 9994198895971/1/P1                        
+ 6.OSI CA CTC 021-34064880X454360                                               
+ 7.OSI CA CTCT18717781513                                                       
+ 8.OSI CA TKNA TICTKED                                                          
+ 9.PEK1E/JWSWT6/BJS101                                                          
+                                                                                
+
+ 
+2015 January 17, Saturday, 16:32:12
+>detr tn/7814393247704,p,h
+ DETR:TN/7814393247704,P,H                                                      
+TKTN:7814393247704  NAME: 张三                                                
+IATA OFFC: 08301532 ISSUED: 22NOV13                                             
+   8 1  26NOV/0305/9940     NFMT COUPON REPORTED TO ACCA                        
+   7 1  26NOV/0305/9940     NFMT L/F FLOWN                                      
+   6 1  25NOV/1150/9940     ETLU BAGGAGE COUNT/WEIGHT UPDATED                   
+   5 1  25NOV/1150/9940     ETLU C/L                                            
+   4 1  24NOV/2213/33242    CKIN O/C MU5174/25NOV13/F/PEKKHN                    
+   3    22NOV/1424/8888     TRMK RECEIPT:6321011524                             
+   2 1  22NOV/1411/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET             
+   1    22NOV/1411/9955     TRMK BEIJING GUOXIANG+BJS429+DEV-03                 
+                                                                               +
+                                                                                
+
+2015 January 17, Saturday, 16:36:39
+>detr tn/8954393247735,p,h
+ DETR:TN/8954393247735,P,H                                                      
+TKTN:8954393247735  NAME: 张三                                                
+IATA OFFC: 08301532 ISSUED: 22NOV13                                             
+   8 1  27NOV/0304/9940     NFMT COUPON REPORTED TO ACCA                        
+   7 1  27NOV/0304/9940     NFMT L/F FLOWN                                      
+   6 1  26NOV/0728/9940     ETLU BAGGAGE COUNT/WEIGHT UPDATED                   
+   5 1  26NOV/0728/9940     ETLU C/L                                            
+   4 1  25NOV/0952/37639    CKIN O/C CN7194/25NOV13/Y/KHNPEK                    
+   3    22NOV/1750/8888     TRMK RECEIPT:6321011562                             
+   2 1  22NOV/1747/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET             
+   1    22NOV/1747/9955     TRMK BEIJING GUOXIANG+BJS429+DEV-03                 
+                                                                               +
+                                                                                
+
+2015 January 17, Saturday, 16:39:45
+>ohi r/张三/CN7194/25NOV13
+ ohi:R/WEIHUACHENG/CN  7194 /25NOV13                                            
+--- 25NOV13: SEARCH IN TOTAL 1 FLIGHTS/SEGMENTS.                                
+CN  7194 /KHNPEK/25NOV13                                                        
+HISTORY INDEX NUMBER 27                                                         
+ 001   1WEIHUACHENG      NWSPGP Y  RR8   PEK1E  22NOV13                         
+Total time used 637 ms                                                          
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 16:39:50
+>rt NWSPGP
+  **ELECTRONIC TICKET PNR**                                                     
+ 1.张三 2.李四 3.王五 4.元宝 5.赵六 6.徐七                          
+ 7.张五 8.王六 NWSPGP                                                         
+ 9.T BJS/PEK/T 010-51203527/PEK GUO XIANG AVIATION SERVICE CO.                  
+10.T BJS/LTD/GAO HONG                                                           
+11.SSR FOID CN HK1 NI111111111111111111/P6                                      
+12.SSR FOID CN HK1 NI111111111111111111/P5                                      
+13.SSR FOID CN HK1 NI111111111111111111/P2                                      
+14.SSR FOID CN HK1 NI111111111111111111/P7                                      
+15.SSR FOID CN HK1 NI111111111111111111/P3                                      
+16.SSR FOID CN HK1 NI111111111111111111/P1                                      
+17.SSR FOID CN HK1 NI111111111111111111/P8                                     +
+                                                                                
+
+2015 January 17, Saturday, 16:39:54
+>pn1
+18.SSR FOID CN HK1 NI111111111111111111/P4                                     -
+19.SSR TKNE CN HK1 KHNPEK 7194 Y25NOV 8954393247730/1/P1                        
+20.SSR TKNE CN HK1 KHNPEK 7194 Y25NOV 8954393247731/1/P2                        
+21.SSR TKNE CN HK1 KHNPEK 7194 Y25NOV 8954393247732/1/P3                        
+22.SSR TKNE CN HK1 KHNPEK 7194 Y25NOV 8954393247733/1/P4                        
+23.SSR TKNE CN HK1 KHNPEK 7194 Y25NOV 8954393247735/1/P5                        
+24.SSR TKNE CN HK1 KHNPEK 7194 Y25NOV 8954393247736/1/P6                        
+25.SSR TKNE CN HK1 KHNPEK 7194 Y25NOV 8954393247737/1/P7                        
+26.SSR TKNE CN HK1 KHNPEK 7194 Y25NOV 8954393247738/1/P8                        
+27.SSR CKIN CN                                                                  
+28.SSR FQTV CN HK1 KHNPEK 7194 Y25NOV HU1002313422/C/P1                         
+29.SSR FQTV CN HK1 KHNPEK 7194 Y25NOV HU9079225526/C/P2                         
+30.SSR FQTV CN HK1 KHNPEK 7194 Y25NOV HU9057268028/C/P3                         
+31.SSR FQTV CN HK1 KHNPEK 7194 Y25NOV HU7013648692/C/P5                         
+32.SSR FQTV CN HK1 KHNPEK 7194 Y25NOV HU7008670972/C/P7                         
+33.SSR FQTV CN HK1 KHNPEK 7194 Y25NOV HU9148897662/C/P8                        +
+                                                                                
+
+2015 January 17, Saturday, 16:39:57
+>pn1
+34.OSI CA CTC SWG3391                                                          -
+35.OSI CN CTCT13426429133                                                       
+36.OSI CA TKNA TICTKED                                                          
+37.PEK1E/JGXKNC/BJS429                                                          
+                                                                                
+
+2015 January 17, Saturday, 16:48:14
+>detr tn/7812143947734,p,h
+ DETR:TN/7812143947734,P,H                                                      
+TKTN:7812143947734  NAME: 王五                                                
+IATA OFFC: 08688888 ISSUED: 11DEC13                                             
+   8    16DEC/0834/8888     TRMK RECEIPT:4607029447                             
+   7 1  16DEC/0305/9940     NFMT COUPON REPORTED TO ACCA                        
+   6 1  16DEC/0305/9940     NFMT L/F FLOWN                                      
+   5 1  15DEC/1630/9940     ETLU BAGGAGE COUNT/WEIGHT UPDATED                   
+   4 1  15DEC/1630/9940     ETLU C/L                                            
+   3 1  15DEC/1513/9999     CKIN O/C MU5117/15DEC13/F/SHAPEK BY 25986           
+   2 1  11DEC/1118/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET             
+   1    11DEC/1118/9955     TRMK MU ZIXUN BU+SHA666+DEV-33                      
+                                                                               +
+                                                                                
+
+2015 January 17, Saturday, 16:48:28
+>ohi r/卫华诚/MU5117/15DEC13
+ ohi:R/WEIHUACHENG/MU  5117 /15DEC13                                            
+--- 15DEC13: SEARCH IN TOTAL 1 FLIGHTS/SEGMENTS.                                
+MU  5117 /SHAPEK/15DEC13                                                        
+HISTORY INDEX NUMBER 29                                                         
+ 001   0WEIHUACHENG      NGMHLL F  HX4   PEK1E  11DEC13                         
+ 002   1WEIHUACHENG      PGJYFD F  RR4   PEK1E  11DEC13                         
+Total time used 701 ms                                                          
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 16:48:35
+>rt PGJYFD
+  **ELECTRONIC TICKET PNR**                                                     
+ 1.张三 2.李四 3.王五 4.赵六 PGJYFD                                       
+ 5.T BJS/BJS/T010-64161515/BEIJING CTRIP INT L TRAVEL SERVICE                   
+ 6.T BJS/CO. LTD. CTRIP /LIULIJUAN                                              
+ 7.62174266                                                                     
+ 8.T                                                                            
+ 9.SSR FOID MU HK1 NI111111111111111111/P2                                      
+10.SSR FOID MU HK1 NI111111111111111111/P4                                      
+11.SSR FOID MU HK1 NI111111111111111111/P1                                      
+12.SSR FOID MU HK1 NI111111111111111111/P3                                      
+13.SSR TKNE MU HK1 SHAPEK 5117 F15DEC 7812143947734/1/P4                        
+14.SSR TKNE MU HK1 SHAPEK 5117 F15DEC 7812143947733/1/P3                       +
+                                                                                
+
+2015 January 17, Saturday, 16:48:40
+>pn1
+15.SSR TKNE MU HK1 SHAPEK 5117 F15DEC 7812143947732/1/P2                       -
+16.SSR TKNE MU HK1 SHAPEK 5117 F15DEC 7812143947731/1/P1                        
+17.SSR OTHS 1E MU                                                               
+18.SSR OTHS 1E PNRETDZED                                                        
+19.SSR TKTL CA XX/ BJS 1200/13DEC13                                             
+20.SSR FQTV MU HK1 SHAPEK 5117 F15DEC CZ 180014452892.2/C/P4                    
+21.SSR FQTV MU HK1 SHAPEK 5117 F15DEC CZ 280017663123/C/P2                      
+22.SSR FQTV MU HK1 SHAPEK 5117 F15DEC MU640261786681/C/P1                       
+23.SSR FQTV MU HK1 SHAPEK 5117 F15DEC MU610266275190/C/P3                       
+24.OSI CA CTC 021-34064880X454360                                               
+25.OSI CA CTC 021-34064880X454360                                               
+26.OSI CA CTC 021-34064880X454360                                               
+27.OSI CA CTC 021-34064880X454360                                               
+28.OSI MU CTCT18717781513                                                       
+29.OSI MU CTCT18721030069                                                       
+30.OSI MU VIP SPECIAL/P1                                                       +
+                                                                                
+
+2015 January 17, Saturday, 16:48:43
+>pn1
+31.OSI 1E MUET TN/7812143947731-7812143947734                                  -
+32.RMK ET                                                                       
+33.RMK ET                                                                       
+34.RMK ET                                                                       
+35.RMK ET                                                                       
+36.RMK ET                                                                       
+37.RMK ET                                                                       
+38.RMK ET                                                                       
+39.RMK ET                                                                       
+40.RMK NEW B2B                                                                  
+41.FN/M/FCNY3160.00/SCNY3160.00/C3.00/XCNY170.00/TCNY120.00YQ/TCNY50.00CN/      
+    ACNY3330.00                                                                 
+42.TN/781-2143947731/P1                                                         
+43.TN/781-2143947732/P2                                                         
+44.TN/781-2143947733/P3                                                         
+45.TN/781-2143947734/P4                                                         
+46.FP/CC/VI61131211130018                                                      +
+                                                                                
+
+2015 January 17, Saturday, 16:48:46
+>pn1
+47.PEK1E/JQN85T/BJS101                                                         -
+                                                                                
+
+2015 January 17, Saturday, 16:53:35
+>detr tn/8594602713002
+ET PASSENGER DATA NOT FOUND                                                     
+                                                                                
+
+2015 January 17, Saturday, 16:53:39
+>detr tn/8594602713002,p,h
+ DETR:TN/8594602713002,P,H                                                      
+TKTN:8594602713002  NAME: 张三                                                
+IATA OFFC: 08051525 ISSUED: 17DEC13                                             
+   8    26DEC/1433/88885    TRMK RECEIPT:6333553416                             
+   7 1  25DEC/0304/9940     NFMT COUPON REPORTED TO ACCA                        
+   6 1  25DEC/0304/9940     NFMT L/F FLOWN                                      
+   5 1  24DEC/0849/9940     ETLU BAGGAGE COUNT/WEIGHT UPDATED                   
+   4 1  24DEC/0849/9940     ETLU C/L                                            
+   3 1  24DEC/0648/35249    CKIN O/C 8L9840/24DEC13/F/PEKLUM                    
+   2 1  17DEC/1358/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET             
+   1    17DEC/1358/9955     TRMK KMG ZAI WEN AIR TICK+T+KMG308                  
+                                                                               +
+                                                                                
+
+2015 January 17, Saturday, 16:53:56
+>ohi r/张三/8L9840/24DEC13
+ ohi:R/WEIHUACHENG/8L  9840 /24DEC13                                            
+--- 24DEC13: SEARCH IN TOTAL 3 FLIGHTS/SEGMENTS.                                
+8L  9840 /PEKLUM/24DEC13                                                        
+HISTORY INDEX NUMBER 30                                                         
+ 001   1WEIHUACHENG      NGMJVS F  RR2   PEK1E  16DEC13                         
+Total time used 671 ms                                                          
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 16:54:02
+>rt NGMJVS
+  **ELECTRONIC TICKET PNR**                                                     
+ 1.张三 2.徐六 NGMJVS                                                       
+ 3.T BJS/PEK/T 010-65081681/HUAXIA AIR SERVICE CO.WWW.HUAXIAHA                  
+ 4.T BJS/NGKONG.COM/YUE DIAN WEI                                                
+ 5.SSR FOID 8L HK1 NI111111111111111111/P2                                      
+ 6.SSR FOID 8L HK1 NI111111111111111111/P1                                      
+ 7.SSR TKNE 8L HK1 PEKLUM 9840 F24DEC 8594602713002/1/P1                        
+ 8.SSR TKNE 8L HK1 PEKLUM 9840 F24DEC 8594602713003/1/P2                        
+ 9.SSR CKIN 8L                                                                  
+10.SSR FQTV 8L HK1 PEKLUM 9840 F24DEC 8L 9304722201/C/P2                        
+11.SSR FQTV 8L HK1 PEKLUM 9840 F24DEC HU7013648692/C/P1                         
+12.OSI 8L CTCT11                                                               +
+                                                                                
+
+2015 January 17, Saturday, 16:54:05
+>pg1
+  **ELECTRONIC TICKET PNR**                                                     
+ 1.张三 2.徐六 NGMJVS                                                       
+ 3.T BJS/PEK/T 010-65081681/HUAXIA AIR SERVICE CO.WWW.HUAXIAHA                  
+ 4.T BJS/NGKONG.COM/YUE DIAN WEI                                                
+ 5.SSR FOID 8L HK1 NI111111111111111111/P2                                      
+ 6.SSR FOID 8L HK1 NI111111111111111111/P1                                      
+ 7.SSR TKNE 8L HK1 PEKLUM 9840 F24DEC 8594602713002/1/P1                        
+ 8.SSR TKNE 8L HK1 PEKLUM 9840 F24DEC 8594602713003/1/P2                        
+ 9.SSR CKIN 8L                                                                  
+10.SSR FQTV 8L HK1 PEKLUM 9840 F24DEC 8L 9304722201/C/P2                        
+11.SSR FQTV 8L HK1 PEKLUM 9840 F24DEC HU7013648692/C/P1                         
+12.OSI 8L CTCT11                                                                
+13.OSI 8L CTCT13910318399                                                       
+14.OSI CA TKNA TICTKED                                                          
+15.PEK1E/HYDX0J/BJS182                                                          
+                                                                                
+
+2015 January 17, Saturday, 16:58:03
+>detr tn/8594602713002,p,h
+ DETR:TN/8594602713002,P,H                                                      
+TKTN:8594602713002  NAME: 张三                                                
+IATA OFFC: 08051525 ISSUED: 17DEC13                                             
+   8    26DEC/1433/88885    TRMK RECEIPT:6333553416                             
+   7 1  25DEC/0304/9940     NFMT COUPON REPORTED TO ACCA                        
+   6 1  25DEC/0304/9940     NFMT L/F FLOWN                                      
+   5 1  24DEC/0849/9940     ETLU BAGGAGE COUNT/WEIGHT UPDATED                   
+   4 1  24DEC/0849/9940     ETLU C/L                                            
+   3 1  24DEC/0648/35249    CKIN O/C 8L9840/24DEC13/F/PEKLUM                    
+   2 1  17DEC/1358/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET             
+   1    17DEC/1358/9955     TRMK KMG ZAI WEN AIR TICK+T+KMG308                  
+                                                                               +
+                                                                                
+
+2015 January 17, Saturday, 16:58:16
+>ohi r/张三/8L9840/24DEC13
+ ohi:R/WEIHUACHENG/8L  9840 /24DEC13                                            
+--- 24DEC13: SEARCH IN TOTAL 3 FLIGHTS/SEGMENTS.                                
+8L  9840 /PEKLUM/24DEC13                                                        
+HISTORY INDEX NUMBER 31                                                         
+ 001   1WEIHUACHENG      PZRR9G F  RR2   PEK1E  16DEC13                         
+Total time used 339 ms                                                          
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 16:58:23
+>rt PZRR9G
+  **ELECTRONIC TICKET PNR**                                                     
+ 1.张三 2.徐六 PZRR9G                                                       
+ 3.T BJS/PEK/T 010-65081681/HUAXIA AIR SERVICE CO.WWW.HUAXIAHA                  
+ 4.T BJS/NGKONG.COM/YUE DIAN WEI                                                
+ 5.SSR FOID 8L HK1 NI111111111111111111/P2                                      
+ 6.SSR FOID 8L HK1 NI111111111111111111/P1                                      
+ 7.SSR TKNE 8L HK1 PEKLUM 9840 F24DEC 8594602713002/1/P1                        
+ 8.SSR TKNE 8L HK1 PEKLUM 9840 F24DEC 8594602713003/1/P2                        
+ 9.SSR CKIN 8L                                                                  
+10.SSR FQTV 8L HK1 PEKLUM 9840 F24DEC 8L 9304722201/C/P2                        
+11.SSR FQTV 8L HK1 PEKLUM 9840 F24DEC HU7013648692/C/P1                         
+12.OSI 8L CTCT11                                                               +
+                                                                                
+
+2015 January 17, Saturday, 16:58:27
+>pn1
+13.OSI 8L CTCT13910318399                                                      -
+14.OSI CA TKNA TICTKED                                                          
+15.PEK1E/HYDX0J/BJS182                                                          
+                                                                                
+
+2015 January 17, Saturday, 17:01:16
+>detr tn/7812150206879,p,h
+ DETR:TN/7812150206879,P,H                                                      
+TKTN:7812150206879  NAME: 张三                                                
+IATA OFFC: 08688888 ISSUED: 25DEC13                                             
+  11 1  27DEC/0310/9940     NFMT COUPON REPORTED TO ACCA                        
+  10 1  26DEC/1504/30199    ETSU SAC      7813360150450                         
+   9 1  26DEC/1504/30199    ETSU N/R REFUNDED BY  SHA666                        
+   8 1  26DEC/1504/9955     ETSU O/N COUPON STATUS CHANGED                      
+   7    26DEC/1501/88885    TRMK CANCEL RECEIPT:6327574088                      
+   6    26DEC/1501/88885    TRMK RECEIPT:6327574088                             
+   5 1  25DEC/1623/9940     EOTU FLT DATE/TIME CHG FROM 25DEC13/1610/17         
+                                 10 TO OPEN                                     
+   4 1  25DEC/1623/9940     EOTU CHG FLT FROM MU5759/25DEC13/Y/LUMKMG T        +
+                                                                                
+
+ 
+2015 January 17, Saturday, 17:01:24
+>pg1
+ DETR:TN/7812150206879,P,H                                                      
+TKTN:7812150206879  NAME: 张三                                                
+IATA OFFC: 08688888 ISSUED: 25DEC13                                             
+  11 1  27DEC/0310/9940     NFMT COUPON REPORTED TO ACCA                        
+  10 1  26DEC/1504/30199    ETSU SAC      7813360150450                         
+   9 1  26DEC/1504/30199    ETSU N/R REFUNDED BY  SHA666                        
+   8 1  26DEC/1504/9955     ETSU O/N COUPON STATUS CHANGED                      
+   7    26DEC/1501/88885    TRMK CANCEL RECEIPT:6327574088                      
+   6    26DEC/1501/88885    TRMK RECEIPT:6327574088                             
+   5 1  25DEC/1623/9940     EOTU FLT DATE/TIME CHG FROM 25DEC13/1610/17         
+                                 10 TO OPEN                                     
+   4 1  25DEC/1623/9940     EOTU CHG FLT FROM MU5759/25DEC13/Y/LUMKMG T         
+                                 O MUOPEN/OPEN/Y/LUMKMG                         
+   3 1  25DEC/1623/9940     EOTU RES RL MK22CY   CLEARED                        
+   2 1  25DEC/1300/9955     ETSU N/O COUPON CONTROL ADDED TO TICKET             
+   1    25DEC/1300/9955     TRMK MU+SHA666+DEV-28                               
+                                                                                
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 17:02:04
+>ohi r/张三/MU5759/25DEC13
+ ohi:R/WEIHUACHENG/MU  5759 /25DEC13                                            
+--- 25DEC13: SEARCH IN TOTAL 3 FLIGHTS/SEGMENTS.                                
+MU  5759 /LUMKMG/25DEC13                                                        
+HISTORY INDEX NUMBER 32                                                         
+ 001   0WEIHUACHENG      NWV07B Y  HX1   PEK1E  25DEC13                         
+Total time used 674 ms                                                          
+                                                                                
+                                                                                
+
+2015 January 17, Saturday, 17:02:11
+>rt NWV07B
+   *THIS PNR WAS ENTIRELY CANCELLED*                                            
+012     SHA666 30199 0704 26DEC13                                               
+     X1.张三(001) NWV07B                                                      
+001 X2.  MU5759 Y   WE25DEC13LUMKMG DL1   1610 1710      E                      
+       DK(001)  HK(001)  RR(005)  HX(010)  DL(011)                              
+001 X3.T BJS/PEK/T 010-65081681/HUAXIA AIR SERVICE CO.WWW.HUAXIAHA              
+001 X4.T BJS/NGKONG.COM/YUE DIAN WEI                                            
+003 X5.5160332                                                                  
+006 X6.T                                                                        
+002 X7.SSR FOID MU XX1 NI111111111111111111/P1                                  
+       HK(002)   XX(011)                                                        
+011 X8.SSR OTHS 1E CANCEL PNR                                                  +
+                                                                                
+
+2015 January 17, Saturday, 17:02:14
+>pg1
+   *THIS PNR WAS ENTIRELY CANCELLED*                                            
+012     SHA666 30199 0704 26DEC13                                               
+     X1.张三(001) NWV07B                                                      
+001 X2.  MU5759 Y   WE25DEC13LUMKMG DL1   1610 1710      E                      
+       DK(001)  HK(001)  RR(005)  HX(010)  DL(011)                              
+001 X3.T BJS/PEK/T 010-65081681/HUAXIA AIR SERVICE CO.WWW.HUAXIAHA              
+001 X4.T BJS/NGKONG.COM/YUE DIAN WEI                                            
+003 X5.5160332                                                                  
+006 X6.T                                                                        
+002 X7.SSR FOID MU XX1 NI111111111111111111/P1                                  
+       HK(002)   XX(011)                                                        
+011 X8.SSR OTHS 1E CANCEL PNR                                                   
+008 X9.SSR OTHS 1E MU                                                           
+008X10.SSR OTHS 1E PNRETDZED                                                    
+001 11.SSR TKTL CA XX/ BJS 1600/25DEC13                                         
+       SS(001)   XX(006)                                                        
+001X12.OSI YY CTCT13810688366                                                   
+008X13.OSI 1E MUET TN/7812150206879-7812150206880                               
+004X14.RMK ET                                                                   
+004X15.RMK ET                                                                   
+004X16.RMK ET                                                                   
+004X17.RMK ET                                                                  +
+                                                                                
+
+2015 January 17, Saturday, 17:02:21
+>pn1
+004X18.RMK ET                                                                  -
+004X19.RMK ET                                                                   
+004X20.RMK ET                                                                   
+004X21.RMK ET                                                                   
+003X22.RMK NEW B2B                                                              
+010X23.RMK PFS NOSHO MU5759 Y 25DEC LUMKMG                                      
+003X24.FN/M/FCNY1150.00/SCNY1150.00/C6.00/XCNY120.00/TCNY50.00CN/TCNY70.00YQ/   
+        ACNY1270.00                                                             
+006X25.TN/781-2150206879/P1                                                     
+003X26.FP/CC/VI61131225530829                                                   
+001 27.PEK1E/HG5W0S/BJS182                                                     +
+                                                                                
+
+2015 January 17, Saturday, 17:05:18
+>co 115-99
+      = 16.0000                                                                 
+                                                                                
+
+2015 January 17, Saturday, 17:09:36
+>detr tn/9992345210129
+ DETR:TN/9992345210129                                                         
+ISSUED BY: AIR CHINA                 ORG/DST: PEK/SHA                 ARL-D     
+E/R: 改期退票收费                                                               
+TOUR CODE:                                                   RECEIPT PRINTED  
+PASSENGER: 张三                                                               
+EXCH:                               CONJ TKT:                                   
+O FM:1PEK CA    1857  W 31AUG 2000 OK W                /30AUG5 20K OPEN FOR USE 
+     T3T2 RL:NEL3CX  /                                                          
+  TO: SHA                                                                       
+FC: 31AUG14PEK CA SHA1130.00CNY1130.00END                                       
+FARE:           CNY 1130.00|FOP:CC/ H1                                          
+TAX:            CNY 50.00CN|OI:                                                +
+                                                                                
+
+2015 January 17, Saturday, 17:09:50
+>rt:NEL3CX
+ 1.张三 NEL3CX                                                                  
+ 2.  HU7246 Q   MO09FEB  URCPEK NO1   1250 1630      E T2T1                     
+ 3.T PEK/PEK/T52284366/BEIJING HENGTONG AVIATION SERVICE CO. L                  
+ 4.T PEK/TD/XUZHIWEN                                                            
+ 5.SSR FOID HU HK1 NI111111111111111111/P1                                      
+ 6.SSR OTHS 1E HU7246 /Q/09FEB/URCPEK CANCELED DUE TO ATTL EXPIRED              
+ 7.SSR TKTL CA SS/ PEK 2027/23DEC14                                             
+ 8.OSI CA CTC 0715-8128101                                                      
+ 9.OSI HU CTCT18810983674                                                       
+10.PEK1E/KWZ4B3/PEK671                                                          
+                                                                                
+
+2015 January 17, Saturday, 17:09:57
+>tsu 1/open
+ACCEPTED                                                                        
+                                                                                
+
+2015 January 17, Saturday, 17:10:01
+>detr tn/9992345210129
+ DETR:TN/9992345210129                                                         
+ISSUED BY: AIR CHINA                 ORG/DST: PEK/SHA                 ARL-D     
+E/R: 改期退票收费                                                               
+TOUR CODE:                                                   RECEIPT PRINTED  
+PASSENGER: 张三                                                               
+EXCH:                               CONJ TKT:                                   
+O FM:1PEK CA    OPEN  W OPEN          W                /30AUG5 20K OPEN FOR USE 
+     T3-- RL:                                                                   
+  TO: SHA                                                                       
+FC: 31AUG14PEK CA SHA1130.00CNY1130.00END                                       
+FARE:           CNY 1130.00|FOP:CC/ H1                                          
+TAX:            CNY 50.00CN|OI:                                                +
+                                                                                
+
+2015 January 17, Saturday, 17:29:06
+>so
+PEK099  74237   SIGNED OUT A                                                    
+                                                                                
+
+2015 January 17, Saturday, 17:29:07
+>da
+A       AVAIL                                                                   
+B       AVAIL                                                                   
+C       AVAIL                                                                   
+D       AVAIL                                                                   
+E       AVAIL                                                                   
+PID   = 10077   HARDCOPY  = 1112                                                
+TIME =  1728    DATE =  17JAN     HOST = CAAC/B                                 
+AIRLINE = CA    SYSTEM =  D790B1  APPLICATION =  1                              
+                                                                                
+
