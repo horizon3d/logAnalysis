@@ -10,7 +10,7 @@ class connection(object):
       self.__sock = sock
 
    def __del__(self):
-      pass
+      self.close()
 
    def name(self):
       if self.__sock is None:

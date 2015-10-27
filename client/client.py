@@ -2,19 +2,41 @@
 # -*- coding:utf-8 -*-
 
 import re
-from spliter import spliter
+import thread
+import time
 from helper import *
 from connection import connection
+from tailfile import tailfile
 from event import text_to_json
+
+def thread_entry(running, conn, tfile):
+   debug('start new thread, begin to parse: [%s]', tfile.filename)
+   while running:
+      log = tfile.next_log()
+      if log:
+         event = text_to_json(log)
+         if event is not None:
+            event.append('user', tfile.user)
+            event.append('sid', tfile.sid)
+            try:
+               conn.send(event.data())
+            except socket.error, e:
+               debug('send msg to server failed')
+               break
+      else:
+         time.sleep(2)
+   debug('end thread, end parsing [%s]', tfile.filename)
 
 class client(object):
    def __init__(self, host, port):
       self.__conn = connection()
-      self.__spilter = spliter()
       self.__connect(host, port)
+      self.__map = []
+      self.__run = False
 
    def __del__(self):
-      pass
+      self.stop()
+      self.__conn.close()
 
    def __connect(self, host, port):
       try:
@@ -22,13 +44,20 @@ class client(object):
       except Exception, e:
          raise
 
-   def parse(self, filename):
-      user, sid, logs = self.__spilter.split(filename)
-      for log in logs:
-         event = text_to_json(log)
-         if event is not None:
-            event.append('user', user)
-            event.append('sid', sid)
+   def __map_file(self, fArray):
+      for one in fArray:
+         tfile = tailfile(one)
+         self.__map.append(tfile)
 
-            self.__conn.send(event.data())
-            #debug('\r\n\r\n')
+   @property
+   def running(self):
+      return self.__run
+
+   def start(self, fArray):
+      self.__map_file(fArray)
+      self.__run = True
+      for t in self.__map:
+         thread.start_new_thread(thread_entry, (self.__run, self.__conn, t))
+
+   def stop(self):
+      self.__run = False

@@ -8,8 +8,8 @@ from connection import connection
 from db import adapter
 from pysequoiadb.error import SDBEndOfCursor
 
-def thread_entry(connName, conn, dbAdapter):
-   debug('start new thread, from [%s]', connName)
+def thread_entry(conn, dbAdapter):
+   debug('start new thread, from [%s]', conn.name())
    while True:
       try:
          data = conn.recv()
@@ -26,7 +26,7 @@ def thread_entry(connName, conn, dbAdapter):
             if result:
                dbAdapter.upsert('alarm', result)
 
-   debug('end thread, from [%s]', connName)
+   debug('end thread, from [%s]', conn.name())
 
 def assign_rule(dbAdapter, data):
 
@@ -113,7 +113,7 @@ class server(object):
             debug('Failed to accept remote connection, error: %s', e)
          debug('received a connection from %s:%d', addr[0], addr[1])
          conn = connection(remote)
-         thread.start_new_thread(thread_entry, (conn.name(), conn, self.__dbAdapter))
+         thread.start_new_thread(thread_entry, (conn, self.__dbAdapter))
 
    def stop(self):
       self.__run = False
