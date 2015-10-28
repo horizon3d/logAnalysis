@@ -115,7 +115,7 @@ class tsu(event):
       pass
 
    def __append_ticket_index(self, log):
-      pattern = re.compile(r'>[\s]*tsu ((\w{1})[.*/:\w]+)', re.I)
+      pattern = re.compile(r'>[\s]*tsu[\s:/]+((\w{1})[.*/:\w]+)', re.I)
       match = pattern.findall(log)
       if match:
          tid = match[0][1]
@@ -141,7 +141,7 @@ class detr(event):
       pass
 
    def __append_tn(self, log):
-      pattern = re.compile(r'>[\s]*detr[\s:]+tn[\s/:]*([\d]+)', re.I)
+      pattern = re.compile(r'>[\s]*detr[\s:/]+tn[\s/:]*([\d]+)', re.I)
       match = pattern.search(log)
       if match:
          self.append('tn', match.group(1))
@@ -209,7 +209,7 @@ class rt(event):
       pass
 
    def __append_tkne(self, log):
-      pattern = re.compile(r'>[\s]*rt[\s:]+([\w]+)', re.I)
+      pattern = re.compile(r'>[\s]*rt[\s:/]+([\w]+)', re.I)
       match = pattern.search(log)
       if match:
          self.append('pnr', match.group(1))
@@ -247,7 +247,7 @@ class uu(event):
       pass
 
    def __append_pid(self, log):
-      pattern = re.compile(r'>[\s]*\w+ [a-zA-Z ]+ (\d+) [\w /]+')
+      pattern = re.compile(r'>[\s]*\w+[\s:/]+[a-zA-Z ]+ (\d+) [\w /]+')
       match = pattern.search(log)
       if match:
          self.append('pid', match.group(1))
@@ -267,7 +267,7 @@ class mo(event):
       pass
 
    def __append_pid(self, log):
-      pattern = re.compile(r'>[\s]*\w+ (\d+)\w+')
+      pattern = re.compile(r'>[\s]*\w+[\s:/]+(\d+)\w+')
       match = pattern.search(log)
       if match:
          self.append('pid', match.group(1))
@@ -287,7 +287,7 @@ def usend(event):
       pass
 
    def __append_pid(self, log):
-      pattern = re.compile(r'>[\s]*\w+ (\d+)\s\w+')
+      pattern = re.compile(r'>[\s]*\w+[\s:/]+(\d+)\s\w+')
       match = pattern.search(log)
       if match:
          self.append('pid', match.group(1))
