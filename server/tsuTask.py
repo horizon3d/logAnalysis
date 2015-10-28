@@ -96,12 +96,13 @@ class tsuTask(baseTask):
          for t in detr['ticket']:
             if index == t.get('idx'):
                ticket = t
+               break
       else:
          return
 
-      if not ticket:
-         if ticket['pnr'] is not None or ticket['pnr'] == '':
-            debug('failed to get pnr in detr content')
+      if ticket:
+         if ticket['pnr'] is None or ticket['pnr'] == '':
+            #debug('failed to get pnr in detr content')
             return
       else:
          #debug('cannot find any valid ticket in detr')
@@ -137,13 +138,17 @@ class tsuTask(baseTask):
          for t in tickets:
             if index == t.get('idx'):
                ticket = t
-         state = ticket['state']
-         if 'OPEN FOR USE' in state:
-            pass
-         elif 'USED' in state:
-            raise analyError('ticket is used!')
+               break
+         if ticket:
+            state = ticket['state']
+            if 'OPEN FOR USE' in state:
+               pass
+            elif 'USED' in state:
+               raise analyError('ticket is used!')
+            else:
+               debug('cannot find \"OPEN FOR USE\" from ticket :%s', str(ticket))
          else:
-            debug('cannot find \"OPEN FOR USE\" from ticket :%s', str(ticket))
+            raise analyError('no match ticket in detr', detr)
       else:
          raise analyError('no ticket in detr', detr)
 
@@ -156,6 +161,7 @@ class tsuTask(baseTask):
          for t in tickets:
             if index == t.get('idx'):
                ticket = t
+               break
          if ticket['time'] < self.get('cmdTime'):
             raise analyError('ticket is expired!')
    """
@@ -195,7 +201,10 @@ class tsuTask(baseTask):
       ticket = {}
       if len(tickets) > 0:
          index = int(self.get('index'))
-         ticket = tickets[index - 1];
+         for t in tickets:
+            if index == t.get('idx'):
+               ticket = t
+               break
 
       rt = self.at('rt')
       ssrs = rt['ssrtkne']
