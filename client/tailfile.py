@@ -140,12 +140,6 @@ class tailfile(object):
 
       retry = True
       log = None
-      total, lines = self.__cached()
-      if self.__rline < total:
-         for line in lines[self.__rline:]:
-            text = self.__convert(line)
-         pass
-
       while True:
          total, lines = self.__cached()
          if self.__rline < total:

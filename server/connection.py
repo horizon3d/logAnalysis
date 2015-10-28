@@ -55,7 +55,8 @@ class connection(object):
             return json.loads(data)
 
    def close(self):
-      self.__sock.close()
-      self.__sock = None
+      if self.__sock is None:
+         self.__sock.close()
+         self.__sock = None
 
 

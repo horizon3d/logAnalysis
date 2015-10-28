@@ -19,7 +19,7 @@ class connection(object):
 
    def connect(self, host, port):
       if self.__sock is not None:
-         self.close()
+         self.__sock = None
 
       addr = (host, port)
       try:
@@ -55,5 +55,6 @@ class connection(object):
             return json.loads(data)
 
    def close(self):
-      self.__sock.close()
-      self.__sock = None
+      if self.__sock is not None:
+         self.__sock.close()
+         self.__sock = None
