@@ -209,7 +209,7 @@ class rt(event):
       pass
 
    def __append_tkne(self, log):
-      pattern = re.compile(r'>[\s]*rt ([\w]+)', re.I)
+      pattern = re.compile(r'>[\s]*rt[\s:]+([\w]+)', re.I)
       match = pattern.search(log)
       if match:
          self.append('pnr', match.group(1))
