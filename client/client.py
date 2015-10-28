@@ -2,7 +2,6 @@
 # -*- coding:utf-8 -*-
 
 import re
-import thread
 import time
 from helper import *
 from connection import connection
