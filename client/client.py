@@ -57,7 +57,8 @@ class client(object):
       self.__map_file(fArray)
       self.__run = True
       for t in self.__map:
-         thread.start_new_thread(thread_entry, (self.__run, self.__conn, t))
+         #thread.start_new_thread(thread_entry, (self.__run, self.__conn, t))
+         thread_entry(self.__run, self.__conn, t)
 
    def stop(self):
       self.__run = False
