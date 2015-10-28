@@ -141,7 +141,7 @@ class detr(event):
       pass
 
    def __append_tn(self, log):
-      pattern = re.compile(r'>[\s]*detr tn[\s/]+([\d]+)', re.I)
+      pattern = re.compile(r'>[\s]*detr[\s:]+tn[\s/:]*([\d]+)', re.I)
       match = pattern.search(log)
       if match:
          self.append('tn', match.group(1))
@@ -162,37 +162,33 @@ class detr(event):
       tickets = []
       pattern = r':(\d{1})\w+ ([\w]+)[ ]+([\d]+)[ ]+([a-zA-Z]) (\d{2}[\w]{3} \d{4}) OK ([\s\w/-]+)RL:([\w ]+)'
       match = re.findall(pattern, log, re.I)
-      if len(match):
-         pass
-      else:
+      if not len(match):
          debug('find no match ticket in detr context')
-         return None
+      else:
+         for obj in match:
+            ticket = {}
+            ticket['idx'] = int(obj[0])
+            ticket['comp'] = obj[1]
+            ticket['plane'] = obj[2]
+            ticket['magic'] = obj[3]
 
-      for obj in match:
-         ticket = {}
-         ticket['idx'] = int(obj[0])
-         ticket['comp'] = obj[1]
-         ticket['plane'] = obj[2]
-         ticket['magic'] = obj[3]
+            pattern = re.compile(r'(\d{2})([A-Z]{3}) (\d{4})')
+            match = pattern.search(obj[4])
+            mon = shortMon[match.group(2)]
+            day = match.group(1)
+            dtime = match.group(3)
+            year = time.strftime('%Y', time.gmtime())
+            ts = time.mktime(time.strptime(year+ ' ' + mon + ' ' + day + ' ' + dtime[0:2] + ':' + dtime[2:4] + ':00', '%Y %m %d %H:%M:%S'))
 
-         pattern = re.compile(r'(\d{2})([A-Z]{3}) (\d{4})')
-         match = pattern.search(obj[4])
-         mon = shortMon[match.group(2)]
-         day = match.group(1)
-         dtime = match.group(3)
-         year = time.strftime('%Y', time.gmtime())
-         ts = time.mktime(time.strptime(year+ ' ' + mon + ' ' + day + ' ' + dtime[0:2] + ':' + dtime[2:4] + ':00', '%Y %m %d %H:%M:%S'))
-
-         ticket['time'] = ts
-         ticket['state'] = obj[5]
-         ticket['pnr'] = ''
-         pnr = obj[6].strip()
-         if pnr != '':
-            ticket['pnr'] = pnr
-         ticket['date'] = '' + match.group(1) + match.group(2)
-         #debug('ticket: %s', str(ticket))
-         tickets.append(ticket)
-
+            ticket['time'] = ts
+            ticket['state'] = obj[5]
+            ticket['pnr'] = ''
+            pnr = obj[6].strip()
+            if pnr != '':
+               ticket['pnr'] = pnr
+            ticket['date'] = '' + match.group(1) + match.group(2)
+            #debug('ticket: %s', str(ticket))
+            tickets.append(ticket)
       self.append('ticket', tickets)
 
    def __deep_parse(self, log):

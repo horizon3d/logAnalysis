@@ -79,10 +79,13 @@ class tsuTask(baseTask):
    def __prepare(self):
       cr = self.dbAdapter.query('log', { 'user':self.get('user'), 'cmd':'DETR', 'cmdTime':{'$lt':self.get('cmdTime')} }, {}, {'cmdTime':-1}, {})
       detr = None
-      try:
-         detr = cr.next()
-      except SDBEndOfCursor:
-         return
+      while True:
+         try:
+            detr = cr.next()
+            if len(detr['ticket']) > 0:
+               break
+         except SDBEndOfCursor:
+            return
 
       self.append('detr', detr)
 
@@ -90,12 +93,21 @@ class tsuTask(baseTask):
       ticket = {}
       if self.get('index').isdigit():
          index = int(self.get('index'))
-         ticket = detr['ticket'][index - 1]
-         self.append('pnr', ticket['pnr'])
+         for t in detr['ticket']:
+            if index == t.get('idx'):
+               ticket = t
       else:
          return
 
-      cr = self.dbAdapter.query('log', {'user':self.get('user'), 'pnr':ticket['pnr'], 'cmd':'RT', 'cmdTime':{'$lt':self.get('cmdTime')} }, {}, {'cmdTime':-1}, {} )
+      if not ticket:
+         if ticket['pnr'] is not None or ticket['pnr'] == '':
+            debug('failed to get pnr in detr content')
+            return
+      else:
+         #debug('cannot find any valid ticket in detr')
+         return
+
+      cr = self.dbAdapter.query('log', {'user':self.get('user'), 'pnr':ticket.get('pnr'), 'cmd':'RT', 'cmdTime':{'$lt':self.get('cmdTime')} }, {}, {'cmdTime':-1}, {} )
       rt = None
       try:
          rt = cr.next()
@@ -120,8 +132,11 @@ class tsuTask(baseTask):
       detr = self.at('detr')
       tickets = detr['ticket']
       if len(tickets) > 0:
+         ticket = {}
          index = int(self.get('index'))
-         ticket = tickets[index - 1];
+         for t in tickets:
+            if index == t.get('idx'):
+               ticket = t
          state = ticket['state']
          if 'OPEN FOR USE' in state:
             pass
@@ -136,8 +151,11 @@ class tsuTask(baseTask):
       detr = self.at('detr')
       tickets = detr['ticket']
       if len(tickets) > 0:
+         ticket = {}
          index = int(self.get('index'))
-         ticket = tickets[index - 1];
+         for t in tickets:
+            if index == t.get('idx'):
+               ticket = t
          if ticket['time'] < self.get('cmdTime'):
             raise analyError('ticket is expired!')
    """

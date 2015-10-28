@@ -24,7 +24,8 @@ def trig(rule, cmdName):
 def createTask(cmd, dbAdapter, rule, data):
    task = None
    if cmd == 'TSU':
-      task = tsuTask(dbAdapter, rule, data)
+      if 'ACCEPTED' in data['cmdReturn']:
+         task = tsuTask(dbAdapter, rule, data)
    #elif cmd == 'UU':
       #task = uuTask(dbAdapter, rule, data)
    return task
