@@ -148,15 +148,13 @@ class tailfile(object):
                self.__inc_line()
                if text:
                   if self.__match_date(text):
-                     if self.__oneLog is not None:
+                     if self.__oneLog:
                         log = self.__oneLog
                         self.__oneLog = text
                         break
                      else:
                         self.__oneLog = text
                   else:
-                     if self.__oneLog is None:
-                        self.__oneLog = ''
                      self.__oneLog += text
          else:
             if retry:
@@ -164,7 +162,7 @@ class tailfile(object):
                time.sleep(2)
             else:
                log = self.__oneLog
-               self.__oneLog = None
+               self.__oneLog = ''
                break
 
       return log

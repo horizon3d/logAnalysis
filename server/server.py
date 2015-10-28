@@ -10,6 +10,7 @@ from pysequoiadb.error import SDBEndOfCursor
 
 def thread_entry(conn, dbAdapter):
    debug('start new thread, from [%s]', conn.name())
+   count = 0
    while True:
       try:
          data = conn.recv()
@@ -19,7 +20,8 @@ def thread_entry(conn, dbAdapter):
       
       if data is not None:
          dbAdapter.upsert('log', data)
-
+         count += 1
+         debug('received a msg, total: %d', count)
          task = assign_rule(dbAdapter, data)
          if task is not None:
             result = task.go()
