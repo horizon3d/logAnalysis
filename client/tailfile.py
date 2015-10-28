@@ -155,6 +155,8 @@ class tailfile(object):
                      else:
                         self.__oneLog = text
                   else:
+                     if self.__oneLog is None:
+                        self.__oneLog = ''
                      self.__oneLog += text
          else:
             if retry:
