@@ -2,7 +2,6 @@
 # -*- coding:utf-8 -*-
 
 import re
-import thread
 import time
 from helper import *
 from connection import connection
@@ -53,8 +52,10 @@ class client(object):
    def running(self):
       return self.__run
 
-   def start(self, fArray):
-      self.__map_file(fArray)
+   def start(self, filename):
+      #self.__map_file(fArray)
+      tfile = tailfile(filename)
+      self.__map.append(tfile)
       self.__run = True
       for t in self.__map:
          #thread.start_new_thread(thread_entry, (self.__run, self.__conn, t))
