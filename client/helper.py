@@ -11,7 +11,7 @@ def debug(fmt, *args):
 
 def get_command(log):
    cmd = None
-   pattern = re.compile(r'>[, /:]*([\w]+)[\s:/,]', re.I)
+   pattern = re.compile(r'>[, /:]*([\$\w]+)[\s:/\.,]', re.I)
    match = pattern.search(log)
    if match:
       cmd = match.group(1).upper()

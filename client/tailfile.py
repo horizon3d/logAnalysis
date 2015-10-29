@@ -13,7 +13,7 @@ class tailfile(object):
       self.__sid = 0             # sid
       self.__oneLog = ''         # the last log read
       self.__cache_log = []
-      self.__cache_idx = -1
+      self.__cache_idx = 0
       self.__total = 0 # file line count
       self.__reg_usr_sid = r'[-]+User: ([0-9a-zA-Z]+)[ ]+SID: ([0-9]+)[-]+'
       self.__reg_ts      = r'(20\d{2}) ([a-zA-Z]+) (\d+), ([a-zA-Z]+), (\d+):(\d+):(\d+)'
