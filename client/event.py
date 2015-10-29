@@ -1,9 +1,13 @@
 #! /usr/bin/python
 # -*- coding:utf-8 -*-
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/' + '..'))
 
 import time
 import re
-from helper import *
+from util.util import get_command
+from util.util import (debug, LogError, LogEvent)
 
 month = { 'January':'01', 'February':'02', 'March':'03', 'April':'04', 
           'May':'05', 'June':'06', 'July':'07', 'August':'08',
@@ -148,7 +152,7 @@ class detr(event):
          #debug('tn: %s', match.group(1))
       else:
          debug('Warning: no valid tn in detr context')
-         debug('log: \n%s', log)
+         #debug('log: \n%s', log)
 
    def __append_passenger(self, log):
       pattern = re.compile(r'PASSENGER:(.*)', re.I)
@@ -165,7 +169,7 @@ class detr(event):
       match = re.findall(pattern, log, re.I)
       if not len(match):
          debug('Warning: no valid ticket in detr context')
-         debug('log: \n%s', log)
+         #debug('log: \n%s', log)
       else:
          for obj in match:
             ticket = {}

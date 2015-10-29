@@ -1,16 +1,21 @@
 #! /usr/bin/python
 # -*- coding:utf-8 -*-
-
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/' + '..'))
 import socket
 import thread
-from util import *
-from connection import connection
+from util.util import (debug, LogError, LogEvent, trig)
+from util.connection import connection
 from db import adapter
+from taskFactory import createTask
 from pysequoiadb.error import SDBEndOfCursor
 
 def thread_entry(conn, dbAdapter):
-   debug('start new thread, from [%s]', conn.name())
+   LogEvent('start new thread, from [%s]', conn.name())
    count = 0
+   time = 0
+   cmd = ''
    while True:
       try:
          data = conn.recv()
@@ -21,14 +26,21 @@ def thread_entry(conn, dbAdapter):
       if data is not None:
          dbAdapter.upsert('log', data)
          count += 1
-         debug('received a msg, total: %d', count)
+         #debug('received a msg, cmd: %s, cmdTime: %d, No: %d', data['cmd'], data['cmdTime'], count)
+         if data['cmdTime'] is None:
+            LogError('received msg without cmdTime from user: %s, sid: %s', data['user'], data['sid'])
+
+         if time == data['cmdTime'] and cmd == data['cmd']:
+            debug('reduplicated cmd')
+         time = data['cmdTime']
+         cmd = data['cmd']
          task = assign_rule(dbAdapter, data)
          if task is not None:
             result = task.go()
             if result:
                dbAdapter.upsert('alarm', result)
 
-   debug('end thread, from [%s]', conn.name())
+   LogEvent('end thread, from [%s]', conn.name())
 
 def assign_rule(dbAdapter, data):
 
