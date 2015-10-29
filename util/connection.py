@@ -3,7 +3,7 @@
 
 import socket
 import json
-from util import (debug, LogError)
+from util import (console, LogError, LogEvent)
 
 class connection(object):
    def __init__(self, sock = None):
@@ -26,12 +26,12 @@ class connection(object):
          self.__sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
          self.__sock.connect(addr)
       except Exception, e:
-         debug('Failed to connect to %s:%d', host, port)
-         debug('detail: %s', e)
+         LogError('Failed to connect to %s:%d', host, port)
+         raise
 
    def send(self, data):
       if not data:
-         debug('try to send 0 byte(s)')
+         LogEvent('try to send 0 byte(s)')
          return
 
       jdata   = json.dumps(data)

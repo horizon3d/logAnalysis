@@ -7,7 +7,7 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/' + '..'))
 import re
 import time
 import socket
-from util.util import (debug, LogError, LogEvent)
+from util.util import (console, LogError, LogEvent)
 from util.connection import connection
 from tailfile import tailfile
 from event import text_to_json
@@ -25,7 +25,7 @@ def thread_entry(running, conn, tfile):
             try:
                conn.send(event.data())
                count += 1
-               debug('send a msg, total: %d', count)
+               console('send a msg, total: %d', count)
             except socket.error, e:
                LogError('send msg to server failed')
                break

@@ -5,7 +5,7 @@ import sys
 sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/' + '..'))
 import socket
 import thread
-from util.util import (debug, LogError, LogEvent, trig)
+from util.util import (console, LogError, LogEvent, trig)
 from util.connection import connection
 from db import adapter
 from taskFactory import createTask
@@ -20,18 +20,16 @@ def thread_entry(conn, dbAdapter):
       try:
          data = conn.recv()
       except socket.error, e:
-         #debug('remote session pipe closed, %r', e)
          break
       
       if data is not None:
          dbAdapter.upsert('log', data)
          count += 1
-         #debug('received a msg, cmd: %s, cmdTime: %d, No: %d', data['cmd'], data['cmdTime'], count)
          if data['cmdTime'] is None:
             LogError('received msg without cmdTime from user: %s, sid: %s', data['user'], data['sid'])
-
+         console('received a msg, cmd: %s, cmdTime: %d, No: %d', data['cmd'], data['cmdTime'], count)
          if time == data['cmdTime'] and cmd == data['cmd']:
-            debug('reduplicated cmd')
+            console('reduplicated cmd')
          time = data['cmdTime']
          cmd = data['cmd']
          task = assign_rule(dbAdapter, data)
@@ -45,7 +43,7 @@ def thread_entry(conn, dbAdapter):
 def assign_rule(dbAdapter, data):
 
    if dbAdapter is None:
-      debug('Error: db connector is not initialized')
+      LogError('db connector is not initialized')
       abort()
       return
 
@@ -61,7 +59,7 @@ def assign_rule(dbAdapter, data):
    try:
       record = cr.next()
    except SDBEndOfCursor, e:
-      debug('cannot find any rule in user table')
+      LogError('cannot find any rule in user table')
       return
 
    if record is not None:
@@ -116,7 +114,7 @@ class server(object):
          self.__sock.bind(addr)
          self.__sock.listen(maxconn)
       except socket.error, e:
-         debug('error occurs on socket when listen, errno: %r', e)
+         LogError('error occurs on socket when listen, errno: %r', e)
 
       self.__run = True
       addr = ('none', 0)
@@ -125,8 +123,8 @@ class server(object):
          try:
             remote, addr = self.__sock.accept()
          except socket.error,e:
-            debug('Failed to accept remote connection, error: %s', e)
-         debug('received a connection from %s:%d', addr[0], addr[1])
+            LogEvent('Failed to accept remote connection, error: %s', e)
+         console('received a connection from %s:%d', addr[0], addr[1])
          conn = connection(remote)
          thread.start_new_thread(thread_entry, (conn, self.__dbAdapter))
 
