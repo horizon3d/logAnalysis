@@ -1,15 +1,20 @@
 #! /usr/bin/python
 # -*- coding:utf-8 -*-
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/' + '..'))
 
 import re
 import time
-from helper import *
-from connection import connection
+import socket
+from util.util import (debug, LogError, LogEvent)
+from util.connection import connection
 from tailfile import tailfile
 from event import text_to_json
 
 def thread_entry(running, conn, tfile):
-   debug('start new thread, begin to parse: [%s]', tfile.filename)
+   LogEvent('start new thread, begin to parse: [%s]', tfile.filename)
+   count = 0
    while running:
       log = tfile.next_log()
       if log:
@@ -19,12 +24,14 @@ def thread_entry(running, conn, tfile):
             event.append('sid', tfile.sid)
             try:
                conn.send(event.data())
+               count += 1
+               debug('send a msg, total: %d', count)
             except socket.error, e:
-               debug('send msg to server failed')
+               LogError('send msg to server failed')
                break
       else:
          time.sleep(2)
-   debug('end thread, end parsing [%s]', tfile.filename)
+   LogEvent('end thread, end parsing [%s]', tfile.filename)
 
 class client(object):
    def __init__(self, host, port):

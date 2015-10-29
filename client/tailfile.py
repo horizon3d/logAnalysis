@@ -1,9 +1,14 @@
 #! /usr/bin/python
+# -*- coding:utf-8 -*-
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/' + '..'))
+
 import codecs
 import time
 import re
 import linecache
-from helper import debug
+from util.util import (debug, LogError, LogEvent)
 
 class tailfile(object):
    def __init__(self, filename):

@@ -1,10 +1,13 @@
 #! /usr/bin/python
 # -*- coding:utf-8 -*-
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/' + '..'))
 
 import re
 from task import (baseTask, makeResult)
 from error import (analyError, dbError)
-from util import *
+from util.util import (debug, LogError, LogEvent)
 from pysequoiadb.error import SDBEndOfCursor
 
 funcMap = {

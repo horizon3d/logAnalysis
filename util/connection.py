@@ -3,7 +3,7 @@
 
 import socket
 import json
-from util import *
+from util import (debug, LogError)
 
 class connection(object):
    def __init__(self, sock = None):
@@ -35,7 +35,7 @@ class connection(object):
          return
 
       jdata   = json.dumps(data)
-      length = len(jdata) + 4
+      length = len(jdata) + 8
 
       toSend = ('%8x' % length) + jdata
       sent = 0
@@ -49,15 +49,13 @@ class connection(object):
       if not data:
          raise socket.error('session closed')
       size = int(data, 16)
-      datasize = size - 8
-      recvlen = datasize
-      rdata = ''
-      while recvlen > 0:
-         data = self.__sock.recv(recvlen)
-         rdata += data
-         recvlen -= len(data)
-
-      return json.loads(rdata)
+      need = size - 8
+      data = ''
+      while need > 0:
+         rdata = self.__sock.recv(need)
+         data += rdata
+         need -= len(rdata)
+      return json.loads(data)
 
    def close(self):
       if self.__sock is None:

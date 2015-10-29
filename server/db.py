@@ -1,7 +1,9 @@
 #! /usr/bin/python
 # -*- coding:utf-8 -*-
-
-from util import *
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/' + '..'))
+from util.util import (debug, LogError, LogEvent)
 from pysequoiadb import client
 from pysequoiadb.error import SDBBaseError
 
