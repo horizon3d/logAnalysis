@@ -8,7 +8,7 @@ import codecs
 import time
 import re
 import linecache
-from util.util import (debug, LogError, LogEvent)
+from util.util import (LogError, LogEvent)
 
 class tailfile(object):
    def __init__(self, filename):
@@ -55,7 +55,7 @@ class tailfile(object):
          lines = fd.readlines()
          total = len(lines)
       except Exception, e:
-         debug('Failed to count file line: %s', self.__filename)
+         LogError('Failed to count file line: %s', self.__filename)
       finally:
          fd.close()
 

@@ -7,7 +7,7 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/' + '..'))
 import time
 import re
 from util.util import get_command
-from util.util import (debug, LogError, LogEvent)
+from util.util import (console, LogError, LogEvent)
 
 month = { 'January':'01', 'February':'02', 'March':'03', 'April':'04', 
           'May':'05', 'June':'06', 'July':'07', 'August':'08',
@@ -39,7 +39,6 @@ class event(object):
             ymd = ymd.replace(k,v)
          cmd_time = time.mktime(time.strptime((ymd + otime[2]), '%Y %m %d %H:%M:%S'))
 
-      #debug('cmd time is: %s', str(cmd_time))
       self.append('cmdTime', cmd_time)
 
    def __append_return(self, log):
@@ -49,7 +48,6 @@ class event(object):
       if match:
          rtn = match.group(1)
 
-      #debug('return: %s', rtn)
       self.append('cmdReturn', rtn)
 
    def __append_input(self, log):
@@ -72,7 +70,6 @@ class event(object):
       if cmd == '':
          cmd = self.__ctx.get('cmd')
 
-      #debug('input： %s', cmd)
       self.append('cmdInput', cmd)
 
    def __append_flag(self, log):
@@ -94,7 +91,7 @@ class event(object):
 
    def append(self, k, v):
       if self.__ctx.get(k) is not None:
-         debug('key[%s] exist, value: %s, it will be replaced by new value: %s', k, self.__ctx[k], v)
+         console('key[%s] exist, value: %s, it will be replaced by new value: %s', k, self.__ctx[k], v)
 
       self.__ctx[k] = v
 
@@ -123,10 +120,8 @@ class tsu(event):
       match = pattern.findall(log)
       if match:
          tid = match[0][1]
-         #debug('ticket id is: %s', tid)
          self.append('index', tid)
          state = match[0][0]
-         #debug('state is: %s', state)
          self.append('state', state)
 
    def __deep_parse(self, log):
@@ -149,27 +144,17 @@ class detr(event):
       match = pattern.search(log)
       if match:
          self.append('tn', match.group(1))
-         #debug('tn: %s', match.group(1))
       else:
-         debug('Warning: no valid tn in detr context')
-         #debug('log: \n%s', log)
-
-   def __append_passenger(self, log):
-      pattern = re.compile(r'PASSENGER:(.*)', re.I)
-      match = pattern.search(log)
-      if match:
-         self.append('passenger', match.group(1))
-         #debug('passenger: %s', match.group(1))
-      else:
-         debug('find no match passenger in detr context')
+         LogError('no valid tn in detr context')
+         LogError('log: \n%s', log)
 
    def __append_ticket(self, log):
       tickets = []
       pattern = r':(\d{1})\w+ ([\w]+)[ ]+([\d]+)[ ]+([a-zA-Z]) (\d{2}[\w]{3} \d{4}) OK ([\s\w/-]+)RL:([\w ]+)'
       match = re.findall(pattern, log, re.I)
       if not len(match):
-         debug('Warning: no valid ticket in detr context')
-         #debug('log: \n%s', log)
+         LogError('Warning: no valid ticket in detr context')
+         LogError('log: \n%s', log)
       else:
          for obj in match:
             ticket = {}
@@ -193,13 +178,12 @@ class detr(event):
             if pnr != '':
                ticket['pnr'] = pnr
             ticket['date'] = '' + match.group(1) + match.group(2)
-            #debug('ticket: %s', str(ticket))
+            LogEvent('ticket: %s', str(ticket))
             tickets.append(ticket)
       self.append('ticket', tickets)
 
    def __deep_parse(self, log):
       self.__append_tn(log)
-      #self.__append_passenger(log)
       self.__append_ticket(log)
 
    def to_json(self, log):
@@ -219,7 +203,6 @@ class rt(event):
       match = pattern.search(log)
       if match:
          self.append('pnr', match.group(1))
-         #debug('pnr: %s', match.group(1))
 
       pattern = re.compile(r'SSR TKNE ([\w]+) [\w\d]+ [\w\d]+ (\d+) ([A-Z])(\d{2}\w{3}) (\d+)/(\d)/', re.I)
       obj = pattern.findall(log)
@@ -233,7 +216,7 @@ class rt(event):
          tkne['date']  = item[3]
          tkne['tn']    = item[4]
          tkne['idx']   = item[5]
-         #debug('SSR TKNE: %s', str(tkne))
+         LogEvent('SSR TKNE: %s', str(tkne))
          tknes.append(tkne)
 
       self.append('ssrtkne', tknes)

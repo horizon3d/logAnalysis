@@ -7,7 +7,7 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/' + '..'))
 import re
 from task import (baseTask, makeResult)
 from error import (analyError, dbError)
-from util.util import (debug, LogError, LogEvent)
+from util.util import (console, LogError, LogEvent)
 from pysequoiadb.error import SDBEndOfCursor
 
 funcMap = {
@@ -105,10 +105,12 @@ class tsuTask(baseTask):
 
       if ticket:
          if ticket['pnr'] is None or ticket['pnr'] == '':
-            #debug('failed to get pnr in detr content')
+            LogError('failed to get pnr in detr content')
+            LogError('log: %s', str(detr))
             return
       else:
-         #debug('cannot find any valid ticket in detr')
+         LogError('cannot find any valid ticket in detr')
+         LogError('log: %s', str(detr))
          return
 
       cr = self.dbAdapter.query('log', {'user':self.get('user'), 'pnr':ticket.get('pnr'), 'cmd':'RT', 'cmdTime':{'$lt':self.get('cmdTime')} }, {}, {'cmdTime':-1}, {} )
@@ -149,7 +151,7 @@ class tsuTask(baseTask):
             elif 'USED' in state:
                raise analyError('ticket is used!')
             else:
-               debug('cannot find \"OPEN FOR USE\" from ticket :%s', str(ticket))
+               LogError('cannot find \"OPEN FOR USE\" from ticket :%s', str(ticket))
          else:
             raise analyError('no match ticket in detr', detr)
       else:
@@ -233,8 +235,6 @@ class tsuTask(baseTask):
       result = {}
       for stageName in self.stage_dict:
          stage = self.rule['stage'][stageName]
-         #debug('>>> current stage: %s', stageName)
-
          steps = stage['function']
          try:
             for step in steps:
@@ -243,7 +243,7 @@ class tsuTask(baseTask):
                   # result contains all info of error
                   break
          except analyError,e:
-            #debug('catch an exception: %s', r.detail)
+            LogError('catch an exception: %s', e.detail)
             break
 
       return result

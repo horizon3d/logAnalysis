@@ -17,7 +17,7 @@ class ulog(object):
 
 ___ulog = ulog()
 
-def debug(fmt, *args):
+def console(fmt, *args):
    """print log when debug
    """
    detail = fmt % (args)

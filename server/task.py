@@ -3,7 +3,7 @@
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/' + '..'))
-from util.util import (debug, LogError, LogEvent)
+from util.util import (console, LogError, LogEvent)
 
 class baseTask(object):
 
@@ -27,7 +27,7 @@ class baseTask(object):
 
    def append(self, key, value):
       if self.__store.get(key) is not None:
-         debug('key[%s] exist, value: %s, it will be replaced by new value: %s', key, self.__store[key], value)
+         console('key[%s] exist, value: %s, it will be replaced by new value: %s', key, self.__store[key], value)
 
       self.__store[key] = value
 
@@ -43,7 +43,7 @@ class baseTask(object):
          self.stage_dict.append(key)
 
    def go(self):
-      debug('run in base task, do nothing')
+      console('run in base task, do nothing')
 
 def makeResult(task, result):
    result['cmd'] = task.get('cmd')

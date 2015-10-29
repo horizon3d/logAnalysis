@@ -3,7 +3,7 @@
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/' + '..'))
-from util.util import (debug, LogError, LogEvent)
+from util.util import (LogError, LogEvent)
 from pysequoiadb import client
 from pysequoiadb.error import SDBBaseError
 
@@ -24,46 +24,40 @@ class adapter(object):
          self.__cc = client(host, port, user, password)
          self.__cs = self.__cc[csname]
       except SDBBaseError, e:
-         debug('Error: %s', e.detail)
-         debug('exit')
+         LogError('Error: %s, program exit', e.detail)
          exit(1)
 
    def upsert(self, clname, record):
 
       if self.__cls.get(clname) is None:
          self.__cls[clname] = self.__cs[clname]
-         debug('access to %s', self.__cls.get(clname))
+         LogEvent('access to %s', self.__cls.get(clname))
 
       try:
          cl = self.__cls.get(clname)
          cl.upsert({'$set':record}, condition = {'cmdTime':record['cmdTime'], 'user':record['user'], 'sid':record['sid'], 'cmd':record['cmd']})
       except SDBBaseError, e:
-         debug('Error: Failed to insert record to collection: %s, event: %s', clname, str(record))
-         debug('%s', e.detail)
+         LogError('Error: Failed to insert record to collection: %s, detail: %s, event: %s', clname, e.detail, str(record))
          return
-
-      #debug('insert a record into collection: %s', clname)
-      #debug('record: %s', str(record))
-      #debug('\r\n\r\n')
 
    def query(self, clname, cond = {}, selector = {}, sort = {}, hint = {}):
 
       if self.__cls.get(clname) is None:
          self.__cls[clname] = self.__cs[clname]
-         debug('access to %s', self.__cls.get(clname))
+         LogEvent('access to %s', self.__cls.get(clname))
 
       cl = self.__cls.get(clname)
       if cl is None:
-         debug('%s.%s not exist', self.__cs.get_collection_space_name(), clname)
+         LogError('%s.%s not exist', self.__cs.get_collection_space_name(), clname)
       return cl.query(condition = cond, selector = selector, order_by = sort, hint = hint)
 
    def insert(self, clname, record):
 
       if self.__cls.get(clname) is None:
          self.__cls[clname] = self.__cs[clname]
-         debug('access to %s', self.__cls.get(clname))
+         LogEvent('access to %s', self.__cls.get(clname))
 
       cl = self.__cls.get(clname)
       if cl is None:
-         debug('%s.%s not exist', self.__cs.get_collection_space_name(), clname)
+         LogError('%s.%s not exist', self.__cs.get_collection_space_name(), clname)
       return cl.insert(record)

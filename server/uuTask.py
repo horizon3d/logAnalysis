@@ -4,7 +4,7 @@ import os
 import sys
 sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/' + '..'))
 import re
-from util.util import (debug, LogError, LogEvent)
+from util.util import (console, LogError, LogEvent)
 from task import (baseTask, makeResult)
 
 def checkULinkExist(task, result):
