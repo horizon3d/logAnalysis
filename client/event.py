@@ -229,7 +229,7 @@ class rt(event):
          tkne['date']  = item[3]
          tkne['tn']    = item[4]
          tkne['idx']   = item[5]
-         debug('SSR TKNE: %s', str(tkne))
+         #debug('SSR TKNE: %s', str(tkne))
          tknes.append(tkne)
 
       self.append('ssrtkne', tknes)

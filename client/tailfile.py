@@ -50,7 +50,7 @@ class tailfile(object):
          lines = fd.readlines()
          total = len(lines)
       except Exception, e:
-         debug('Failed to count file line: %s', filename)
+         debug('Failed to count file line: %s', self.__filename)
       finally:
          fd.close()
 
@@ -110,15 +110,6 @@ class tailfile(object):
    def __is_line_valid(self):
       pass
 
-   def __read_user_sid(self):
-      try:#self.__fd.readline()
-         text = self.__convert(self.__next_line())
-         self.__user, self.__sid = self.__get_user_sid(text)
-      except Exception, e:
-         debug('Failed to read file: %s', self.__filename)
-         pass
-      self.__inc_line();
-
    def __read_cache(self):
       log = None
       count = len(self.__cache_log)
@@ -166,21 +157,3 @@ class tailfile(object):
                break
 
       return log
-
-   def __next_line(self):
-      text = linecache.getline(self.filename, self.__rline + 1)
-      debug('text: %s', text)
-      if text == '':
-         text = None
-
-      if text is not None:
-         utext = self.__convert(text)
-         self.__inc_line()
-         return utext
-      else:
-         debug('reach file end')
-         return None
-
-      
-
-   
