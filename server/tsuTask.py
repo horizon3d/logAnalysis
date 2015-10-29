@@ -164,30 +164,7 @@ class tsuTask(baseTask):
                break
          if ticket['time'] < self.get('cmdTime'):
             raise analyError('ticket is expired!')
-   """
-   def __check_rt(self):
-      cr = self.dbAdapter.query('log', { 'user':self.get('user'), 'pnr':self.__detr_pnr
-                                           'cmd':{'$regex':'rt', '$options':'I'},
-                                           'cmdTime':{'$lt':self.get('cmdTime')}
-                                         }
-                                 )
-      if cr is not None:
-         rt = cr.next()
-         legal_pattern = re.compile('NO PNR'|'THIS PNR WAS ENTIRELY CANCELLED')
-         obj = legal_pattern.search(rt['message'])
-         if obj:
-            return {'ok':1}
-
-         ssrs = rt['ssr']
-         for ssr in ssrs:
-            if self.__detr['tn'] == ssr['tn'] and
-               self.__detr['comp'] == ssr['comp'] and self.__detr['plane'] == ssr['plane'] and
-               self.__detr['magic'] == ssr['magic'] and self.__detr['date'] == ssr['date'] and
-               self.__detr['idx'] == ssr['idx'] :
-               raise analyError('ticket is still valid', rt)
-      else:
-         raise analyError('cannot find rt log before tsu', self.data)
-   """
+   
    def check_rt_exist(self):
       rt = self.at('rt')
       if rt is not None:

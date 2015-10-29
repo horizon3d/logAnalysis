@@ -109,6 +109,7 @@ class server(object):
       self.__run = True
       addr = ('none', 0)
       while self.__run:
+         remote = None
          try:
             remote, addr = self.__sock.accept()
          except socket.error,e:

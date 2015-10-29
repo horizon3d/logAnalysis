@@ -83,7 +83,7 @@ class event(object):
       if self.__ctx.get('cmd'):
          return
 
-      pattern = re.compile(r'>[\s]*(\w+) ')
+      pattern = re.compile(r'>[\s]*([\$\w]+) ')
       match = pattern.search(log)
       if match:
          self.append('cmd', match.group(1).upper())
@@ -147,7 +147,8 @@ class detr(event):
          self.append('tn', match.group(1))
          #debug('tn: %s', match.group(1))
       else:
-         debug('find no match tn in detr context')
+         debug('Warning: no valid tn in detr context')
+         debug('log: \n%s', log)
 
    def __append_passenger(self, log):
       pattern = re.compile(r'PASSENGER:(.*)', re.I)
@@ -163,7 +164,8 @@ class detr(event):
       pattern = r':(\d{1})\w+ ([\w]+)[ ]+([\d]+)[ ]+([a-zA-Z]) (\d{2}[\w]{3} \d{4}) OK ([\s\w/-]+)RL:([\w ]+)'
       match = re.findall(pattern, log, re.I)
       if not len(match):
-         debug('find no match ticket in detr context')
+         debug('Warning: no valid ticket in detr context')
+         debug('log: \n%s', log)
       else:
          for obj in match:
             ticket = {}
