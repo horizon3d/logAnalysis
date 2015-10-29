@@ -37,7 +37,7 @@ class connection(object):
       jdata   = json.dumps(data)
       length = len(jdata) + 4
 
-      toSend = ('%4x' % length) + jdata
+      toSend = ('%8x' % length) + jdata
       sent = 0
       while sent < length:
          sendlen = self.__sock.send(toSend[sent:])
@@ -45,14 +45,19 @@ class connection(object):
 
    def recv(self):
       size = 0
-      while True:
-         data = self.__sock.recv(4)
-         if not data:
-            raise socket.error('session closed')
-         else:
-            size = int(data, 16)
-            data = self.__sock.recv(size - 4)
-            return json.loads(data)
+      data = self.__sock.recv(8)
+      if not data:
+         raise socket.error('session closed')
+      size = int(data, 16)
+      datasize = size - 8
+      recvlen = datasize
+      rdata = ''
+      while recvlen > 0:
+         data = self.__sock.recv(recvlen)
+         rdata += data
+         recvlen -= len(data)
+
+      return json.loads(rdata)
 
    def close(self):
       if self.__sock is None:
