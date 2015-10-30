@@ -28,7 +28,7 @@ def LogError(fmt, *args):
    ctx = 'Error:\r\n' + detail
    fd = None
    try:
-      fd = codecs.open(___ulog.name, 'rw+', 'gbk')
+      fd = codecs.open(___ulog.name, 'a', 'gbk')
       fd.write(ctx + '\n')
    except Exception, e:
       pass
@@ -41,7 +41,7 @@ def LogEvent(fmt, *args):
    ctx = 'Event:\r\n' + detail
    fd = None
    try:
-      fd = codecs.open(___ulog.name, 'rw+', 'gbk')
+      fd = codecs.open(___ulog.name, 'a', 'gbk')
       fd.write(ctx + '\n')
    except Exception, e:
       pass
