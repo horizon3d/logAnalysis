@@ -32,11 +32,14 @@ def thread_entry(conn, dbAdapter):
             console('reduplicated cmd')
          time = data['cmdTime']
          cmd = data['cmd']
-         task = assign_rule(dbAdapter, data)
-         if task is not None:
-            result = task.go()
-            if result:
-               dbAdapter.upsert('alarm', result)
+         try:
+            task = assign_rule(dbAdapter, data)
+            if task is not None:
+               result = task.go()
+               if result:
+                  dbAdapter.upsert('alarm', result)
+         except Exception, e:
+            LogError('catch an unhandled exception, e: %r', e)
 
    LogEvent('end thread, from [%s]', conn.name())
 

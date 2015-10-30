@@ -6,7 +6,7 @@ import codecs
 
 class ulog(object):
    def __init__(self):
-      self.__name = time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(time.time()))
+      self.__name = time.strftime("%Y-%m-%d_%H:%M:%S.log",time.localtime(time.time()))
 
    def __del__(self):
       pass
