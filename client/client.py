@@ -13,7 +13,7 @@ from tailfile import tailfile
 from event import text_to_json
 
 def thread_entry(running, conn, tfile):
-   LogEvent('start new thread, begin to parse: [%s]', tfile.filename)
+   LogEvent('begin to parse: [%s]', tfile.filename)
    count = 0
    while running:
       log = tfile.next_log()
@@ -31,7 +31,7 @@ def thread_entry(running, conn, tfile):
                break
       else:
          time.sleep(2)
-   LogEvent('end thread, end parsing [%s]', tfile.filename)
+   LogEvent('end parsing [%s]', tfile.filename)
 
 class client(object):
    def __init__(self, host, port):
@@ -65,7 +65,6 @@ class client(object):
       self.__map.append(tfile)
       self.__run = True
       for t in self.__map:
-         #thread.start_new_thread(thread_entry, (self.__run, self.__conn, t))
          thread_entry(self.__run, self.__conn, t)
 
    def stop(self):
