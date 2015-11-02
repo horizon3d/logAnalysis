@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 import os
 import sys
-sys.path.append(os.path.abspath(os.path.dirname('.') + os.sep + '..'))
+sys.path.append(os.path.abspath(os.path.abspath('.') + os.sep + '..'))
 
 import codecs
 import time
