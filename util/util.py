@@ -4,7 +4,7 @@ import time
 import re
 import codecs
 
-shortCmd = ['rt']
+shortCmd = {'2':['rt', 'pg'], '3':['rtc', 'rtu' ]}
 
 class ulog(object):
    def __init__(self):
@@ -54,15 +54,11 @@ def LogEvent(fmt, *args):
 
 def get_command(log):
    cmd = None
+   upper = None
    pattern = re.compile(r'>[, /:]*([\$\w]+)[\s:/\.,]', re.I)
    match = pattern.search(log)
    if match:
-      for scmd in shortCmd:
-         if match.group(1).startwith(scmd)
-            cmd = scmd.upper()
-
-      if cmd:
-         cmd = match.group(1).upper()
+      cmd = match.group(1).upper()
 
    return cmd
 
