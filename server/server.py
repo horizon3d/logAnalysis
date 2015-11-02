@@ -27,9 +27,10 @@ def thread_entry(conn, dbAdapter):
          count += 1
          if data['cmdTime'] is None:
             LogError('received msg with invalid cmdTime from user: %s, sid: %s', data['user'], data['sid'])
-         console('received a msg, cmd: %s, cmdTime: %r, No: %d', data['cmd'], data['cmdTime'], count)
+         #console('received a msg, cmd: %s, cmdTime: %r, No: %d', data['cmd'], data['cmdTime'], count)
          if time == data['cmdTime'] and cmd == data['cmd']:
-            console('reduplicated cmd')
+            console('received a reduplicated msg, cmd: %s, cmdTime: %r', data['cmd'], data['cmdTime'])
+            #console('reduplicated cmd')
          time = data['cmdTime']
          cmd = data['cmd']
          try:

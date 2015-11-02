@@ -27,6 +27,7 @@ def console(fmt, *args):
 
 def LogError(fmt, *args):
    detail = fmt % (args)
+   console(detail)
    ctx = 'Error:\r\n' + detail
    fd = None
    try:
