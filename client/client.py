@@ -25,7 +25,7 @@ def thread_entry(running, conn, tfile):
             try:
                conn.send(event.data())
                count += 1
-               #console('send a msg, total: %d', count)
+               console('send a msg to server, total: %d, log: \r\n%s', count, event.data()['message'])
             except socket.error, e:
                LogError('send msg to server failed')
                break
