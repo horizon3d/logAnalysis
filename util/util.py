@@ -4,6 +4,8 @@ import time
 import re
 import codecs
 
+shortCmd = ['rt']
+
 class ulog(object):
    def __init__(self):
       self.__name = time.strftime("%Y-%m-%d_%H:%M:%S.log",time.localtime(time.time()))
@@ -54,7 +56,12 @@ def get_command(log):
    pattern = re.compile(r'>[, /:]*([\$\w]+)[\s:/\.,]', re.I)
    match = pattern.search(log)
    if match:
-      cmd = match.group(1).upper()
+      for scmd in shortCmd:
+         if match.group(1).startwith(scmd)
+            cmd = scmd.upper()
+
+      if cmd:
+         cmd = match.group(1).upper()
 
    return cmd
 
