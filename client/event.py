@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 import os
 import sys
-sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/' + '..'))
+sys.path.append(os.path.abspath(os.path.dirname('.') + os.sep + '..'))
 
 import time
 import re
@@ -150,6 +150,7 @@ class detr(event):
 
    def __append_ticket(self, log):
       tickets = []
+
       pattern = r':(\d{1})\w+ ([\w]+)[ ]+([\d]+)[ ]+([a-zA-Z]) (\d{2}[\w]{3} \d{4}) OK ([\s\w/-]+)RL:([\w ]+)'
       match = re.findall(pattern, log, re.I)
       if not len(match):
