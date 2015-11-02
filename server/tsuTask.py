@@ -92,28 +92,8 @@ class tsuTask(baseTask):
 
       self.append('detr', detr)
 
-      index = 0
-      ticket = {}
-      if self.get('index').isdigit():
-         index = int(self.get('index'))
-         for t in detr['ticket']:
-            if index == t.get('idx'):
-               ticket = t
-               break
-      else:
-         return
-
-      if ticket:
-         if ticket['pnr'] is None or ticket['pnr'] == '':
-            LogError('failed to get pnr in detr content')
-            LogError('log: %s', str(detr))
-            return
-      else:
-         LogError('cannot find any valid ticket in detr')
-         LogError('log: %s', str(detr))
-         return
-
-      cr = self.dbAdapter.query('log', {'user':self.get('user'), 'pnr':ticket.get('pnr'), 'cmd':'RT', 'cmdTime':{'$lt':self.get('cmdTime')} }, {}, {'cmdTime':-1}, {} )
+      #cr = self.dbAdapter.query('log', {'user':self.get('user'), 'pnr':ticket.get('pnr'), 'cmd':'RT', 'cmdTime':{'$lt':self.get('cmdTime')} }, {}, {'cmdTime':-1}, {} )
+      cr = self.dbAdapter.query('log', {'user':self.get('user'), 'cmd':'RT', 'cmdTime':{'$lt':self.get('cmdTime'), '$gt':detr['cmdTime']} }, {}, {}, {} )
       rt = None
       try:
          rt = cr.next()
@@ -151,7 +131,7 @@ class tsuTask(baseTask):
             elif 'USED' in state:
                raise analyError('ticket is used!')
             else:
-               LogError('cannot find \"OPEN FOR USE\" from ticket :%s', str(ticket))
+               analyError('cannot do tsu for ticket state:\"OPEN FOR USE\"')
          else:
             raise analyError('no match ticket in detr', detr)
       else:
@@ -167,6 +147,8 @@ class tsuTask(baseTask):
             if index == t.get('idx'):
                ticket = t
                break
+         if ticket['time'] is None:
+            raise analyError('date:[%s] is invalid' % ticket['date'])
          if ticket['time'] < self.get('cmdTime'):
             raise analyError('ticket is expired!')
    
