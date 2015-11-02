@@ -208,7 +208,7 @@ class tsuTask(baseTask):
       """
       tsuRule = {
          'ruleType':'CMDFLOW',
-         'tragger':{
+         'trigger':{
             'cmdReturn':'ACCEPTED',
             'cmd':'TSU',
             'traggerType':'cmd'

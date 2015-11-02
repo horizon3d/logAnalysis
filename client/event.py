@@ -150,8 +150,8 @@ class detr(event):
 
    def __append_ticket(self, log):
       tickets = []
-
-      pattern = r':(\d{1})\w+ ([\w]+)[ ]+([\d]+)[ ]+([a-zA-Z]) (\d{2}[\w]{3} \d{4}) OK ([\s\w/-]+)RL:([\w ]+)'
+      #pattern = r':(\d{1})\w+ ([\w]+)[ ]+(\d+|\w+)[ ]+([a-zA-Z]) (\d{2}[\w]{3} \d{4}) OK ([\s\w/-]+)RL:([\w ]+)'
+      pattern = r':(\d{1})\w+ ([\w]+)[ ]+(\d+|\w+)[ ]+ ([a-zA-Z]) ([\w\s/-]+ (RL:[/\w ]+))'
       match = re.findall(pattern, log, re.I)
       if not len(match):
          LogError('Warning: no valid ticket in detr context')
@@ -165,20 +165,25 @@ class detr(event):
             ticket['magic'] = obj[3]
 
             pattern = re.compile(r'(\d{2})([A-Z]{3}) (\d{4})')
-            match = pattern.search(obj[4])
-            mon = shortMon[match.group(2)]
-            day = match.group(1)
-            dtime = match.group(3)
-            year = time.strftime('%Y', time.gmtime())
-            ts = time.mktime(time.strptime(year+ ' ' + mon + ' ' + day + ' ' + dtime[0:2] + ':' + dtime[2:4] + ':00', '%Y %m %d %H:%M:%S'))
+            date = pattern.search(obj[4])
+            if date:
+               mon = shortMon[date.group(2)]
+               day = date.group(1)
+               dtime = date.group(3)
+               year = time.strftime('%Y', time.gmtime())
+               ts = time.mktime(time.strptime(year+ ' ' + mon + ' ' + day + ' ' + dtime[0:2] + ':' + dtime[2:4] + ':00', '%Y %m %d %H:%M:%S'))
+               ticket['time'] = ts
+               ticket['date'] = '' + date.group(1) + date.group(2)
+            else:
+               ticket['date'] = 'OPEN'
 
-            ticket['time'] = ts
-            ticket['state'] = obj[5]
-            ticket['pnr'] = ''
-            pnr = obj[6].strip()
-            if pnr != '':
-               ticket['pnr'] = pnr
-            ticket['date'] = '' + match.group(1) + match.group(2)
+            ticket['state'] = obj[4]
+            str_pnr = ''
+            pattern = re.compile(r'RL:(\w+)')
+            rl = pattern.search(obj[5])
+            if rl:
+               str_pnr = rl.group(1)
+            ticket['pnr'] = str_pnr
             LogEvent('ticket: %s', str(ticket))
             tickets.append(ticket)
       self.append('ticket', tickets)
