@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 import os
 import sys
-sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/' + '..'))
+sys.path.append(os.path.abspath(os.path.abspath('.') + os.sep + '..'))
 
 import re
 from task import (baseTask, makeResult)
@@ -208,7 +208,7 @@ class tsuTask(baseTask):
       """
       tsuRule = {
          'ruleType':'CMDFLOW',
-         'tragger':{
+         'trigger':{
             'cmdReturn':'ACCEPTED',
             'cmd':'TSU',
             'traggerType':'cmd'
