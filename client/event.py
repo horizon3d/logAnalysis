@@ -145,8 +145,9 @@ class detr(event):
       if match:
          self.append('tn', match.group(1))
       else:
-         LogError('no valid tn in detr context')
-         LogError('log: \n%s', log)
+         #LogError('Warning: no valid tn in detr context')
+         #LogError('log: \n%s', log)
+         pass
 
    def __append_ticket(self, log):
       tickets = []
@@ -154,8 +155,9 @@ class detr(event):
       pattern = r':(\d{1})\w+ ([\w]+)[ ]+(\d+|\w+)[ ]+ ([a-zA-Z]) ([\w\s/-]+ (RL:[/\w ]+))'
       match = re.findall(pattern, log, re.I)
       if not len(match):
-         LogError('Warning: no valid ticket in detr context')
-         LogError('log: \n%s', log)
+         #LogError('Warning: no valid ticket in detr context')
+         #LogError('log: \n%s', log)
+         pass
       else:
          for obj in match:
             ticket = {}

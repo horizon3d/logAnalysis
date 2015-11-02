@@ -12,7 +12,7 @@ from taskFactory import createTask
 from pysequoiadb.error import SDBEndOfCursor
 
 def thread_entry(conn, dbAdapter):
-   LogEvent('start new thread, from [%s]', conn.name())
+   console('start new thread, from [%s]', conn.name())
    count = 0
    time = 0
    cmd = ''
@@ -26,10 +26,10 @@ def thread_entry(conn, dbAdapter):
          dbAdapter.upsert('log', data)
          count += 1
          if data['cmdTime'] is None:
-            LogError('received msg with invalid cmdTime from user: %s, sid: %s', data['user'], data['sid'])
-         #console('received a msg, cmd: %s, cmdTime: %r, No: %d', data['cmd'], data['cmdTime'], count)
+            LogEvent('received msg with invalid cmdTime from user: %s, sid: %s', data['user'], data['sid'])
+         console('received a msg, cmd: %s, cmdTime: %r, No: %d', data['cmd'], data['cmdTime'], count)
          if time == data['cmdTime'] and cmd == data['cmd']:
-            console('received a reduplicated msg, cmd: %s, cmdTime: %r', data['cmd'], data['cmdTime'])
+            LogEvent('received a reduplicated msg, cmd: %s, cmdTime: %r', data['cmd'], data['cmdTime'])
             #console('reduplicated cmd')
          time = data['cmdTime']
          cmd = data['cmd']
@@ -42,7 +42,7 @@ def thread_entry(conn, dbAdapter):
          except Exception, e:
             LogError('catch an unhandled exception, e: %r', e)
 
-   LogEvent('end thread, from [%s]', conn.name())
+   console('end thread, from [%s]', conn.name())
 
 def assign_rule(dbAdapter, data):
 
