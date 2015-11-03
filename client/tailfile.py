@@ -152,6 +152,8 @@ class tailfile(object):
                         self.__oneLog = text
                   else:
                      self.__oneLog += text
+            if log:
+               break
          else:
             if retry:
                retry = False
