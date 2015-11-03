@@ -5,6 +5,7 @@ import sys
 sys.path.append(os.path.abspath(os.path.abspath('.') + os.sep + '..'))
 import socket
 import thread
+import time
 from util.util import (console, LogError, LogEvent, trig)
 from util.connection import connection
 from db import adapter
@@ -128,9 +129,14 @@ class server(object):
             remote, addr = self.__sock.accept()
          except socket.error,e:
             LogEvent('Failed to accept remote connection, error: %s', e)
-         console('received a connection from %s:%d', addr[0], addr[1])
-         conn = connection(remote)
-         thread.start_new_thread(thread_entry, (conn, self.__dbAdapter))
+
+         if remote is not None:
+            conn = connection(remote)
+            console('received a connection from %s:%d', addr[0], addr[1])
+            thread.start_new_thread(thread_entry, (conn, self.__dbAdapter))
+         else:
+            LogError('Failed to accept remote connection, please check port number')
+            time.sleep(2)
 
    def stop(self):
       self.__run = False
