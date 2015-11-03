@@ -8,6 +8,4 @@ def createTask(cmd, dbAdapter, rule, data):
    if cmd == 'TSU':
       if 'ACCEPTED' in data['cmdReturn']:
          task = tsuTask(dbAdapter, rule, data)
-   #elif cmd == 'UU':
-      #task = uuTask(dbAdapter, rule, data)
    return task
