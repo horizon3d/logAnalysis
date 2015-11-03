@@ -193,6 +193,7 @@ class tsuTask(baseTask):
       if rt is not None:
          pass
       else:
+         LogEvent('')
          raise analyError(False, err)
 
       LogEvent('rt exist, ok')

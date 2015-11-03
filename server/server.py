@@ -26,7 +26,7 @@ def thread_entry(conn, dbAdapter):
       if data is not None:
          dbAdapter.upsert('log', data)
          count += 1
-         LogEvent('received msg: \n%s', str(data))
+         LogEvent('received msg: \n%s, NO: %d', str(data), count)
          if data['cmdTime'] is None:
             LogEvent('received msg with invalid cmdTime from user: %s, sid: %s', data['user'], data['sid'])
          console('received a msg, cmd: %s, cmdTime: %r, No: %d', data['cmd'], data['cmdTime'], count)
@@ -89,7 +89,7 @@ def assign_rule(dbAdapter, data):
                rules.append(rule)
             except SDBEndOfCursor:
                break
-         LogEvent('rules: %s', str(rules))   
+         #LogEvent('rules: %s', str(rules))   
          for rule in rules:
             if trig(rule, data['cmd']):
                task = createTask(data['cmd'], dbAdapter, rule, data)
