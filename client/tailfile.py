@@ -23,7 +23,7 @@ class tailfile(object):
       self.__reg_usr_sid = r'[-]+User: ([0-9a-zA-Z]+)[ ]+SID: ([0-9]+)[-]+'
       self.__reg_ts      = r'(20\d{2}) ([a-zA-Z]+) (\d+), ([a-zA-Z]+), (\d+):(\d+):(\d+)'
 
-      self.__parse_cache()
+      #self.__parse_cache()
 
    def __del__(self):
       linecache.clearcache()
@@ -124,9 +124,9 @@ class tailfile(object):
 
    def next_log(self):
 
-      if len(self.__cache_log) > 0:
-         log = self.__read_cache()
-         return log
+      #if len(self.__cache_log) > 0:
+      #   log = self.__read_cache()
+      #   return log
 
       retry = True
       log = None
@@ -137,8 +137,8 @@ class tailfile(object):
                text = self.__convert(line)
                self.__inc_line()
                if text:
-                  if self.__match_usr_sid(utext):
-                     self.__user, self.__sid = self.__get_user_sid(utext)
+                  if self.__match_usr_sid(text):
+                     self.__user, self.__sid = self.__get_user_sid(text)
                   elif self.__match_date(text):
                      if self.__oneLog:
                         log = self.__oneLog
