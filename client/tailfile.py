@@ -63,25 +63,19 @@ class tailfile(object):
 
    def __parse_cache(self):
       self.__total, lines = self.__cached()
-      usr_sid_gotten = False
       first = True
       log = ''
       for line in lines:
          utext = self.__convert(line)
-         if not usr_sid_gotten:
-            if self.__match_usr_sid(utext):
-               self.__user, self.__sid = self.__get_user_sid(utext)
-               usr_sid_gotten = True
+         if self.__match_usr_sid(utext):
+            self.__user, self.__sid = self.__get_user_sid(utext)
+         elif self.__match_date(utext):
+            if first:
+               first = False
             else:
-               continue
-         else:
-            if self.__match_date(utext):
-               if first:
-                  first = False
-               else:
-                  self.__cache_log.append(log)
-                  log = ''
-            log += utext
+               self.__cache_log.append(log)
+               log = ''
+         log += utext
 
       if log != '':
          self.__oneLog = log
@@ -143,7 +137,9 @@ class tailfile(object):
                text = self.__convert(line)
                self.__inc_line()
                if text:
-                  if self.__match_date(text):
+                  if self.__match_usr_sid(utext):
+                     self.__user, self.__sid = self.__get_user_sid(utext)
+                  elif self.__match_date(text):
                      if self.__oneLog:
                         log = self.__oneLog
                         self.__oneLog = text
