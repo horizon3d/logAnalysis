@@ -23,52 +23,58 @@ def checkValid(task, result):
    try:
       task.check_forbbiden()
    except analyError, e:
-      makeResult(task, result)
-      result['errmsg'] = e.detail
+      if not e.ok:
+         makeResult(task, result)
+         result['errmsg'] = e.detail
       raise
 
 def checkDETRExist(task, result):
    try:
       task.check_detr_exist()
    except analyError, e:
-      makeResult(task, result)
-      result['errmsg'] = e.detail
+      if not e.ok:
+         makeResult(task, result)
+         result['errmsg'] = e.detail
       raise
 
 def checkTicketState(task, result):
    try:
       task.check_detr_state()
    except analyError, e:
-      makeResult(task, result)
-      result['errmsg'] = e.detail
-      result['relatedlog'] = [task.at('detr')]
+      if not e.ok:
+         makeResult(task, result)
+         result['errmsg'] = e.detail
+         result['relatedlog'] = [task.at('detr')]
       raise
 
 def checkTicketDate(task, result):
    try:
       task.check_detr_date()
    except analyError, e:
-      makeResult(task, result)
-      result['errmsg'] = e.detail
-      result['relatedlog'] = [task.at('detr')]
+      if not e.ok:
+         makeResult(task, result)
+         result['errmsg'] = e.detail
+         result['relatedlog'] = [task.at('detr')]
       raise
 
 def checkRTExist(task, result):
    try:
       task.check_rt_exist()
    except analyError, e:
-      makeResult(task, result)
-      result['errmsg'] = e.detail
-      result['relatedlog'] = [task.at('detr')]
+      if not e.ok:
+         makeResult(task, result)
+         result['errmsg'] = e.detail
+         result['relatedlog'] = [task.at('detr')]
       raise
 
 def checkRTMatch(task, result):
    try:
       task.check_rt_match()
    except analyError, e:
-      makeResult(task, result)
-      result['errmsg'] = e.detail
-      result['relatedlog'] = [task.at('detr'), task.at('rt')]
+      if not e.ok:
+         makeResult(task, result)
+         result['errmsg'] = e.detail
+         result['relatedlog'] = [task.at('detr'), task.at('rt')]
       raise
 
 class tsuTask(baseTask):
@@ -99,22 +105,40 @@ class tsuTask(baseTask):
          rt = cr.next()
       except SDBEndOfCursor:
          return
+
       self.append('rt', rt)
 
    def check_forbbiden(self):
+      err = 'ticket contains forbbiden argument'
+      if len(self.illegal) > self.cur:
+         err = self.illegal[self.cur]
+
       if not self.get('index').isdigit():
-         raise analyError('hit forbbiden element', self.data)
+         raise analyError(False, err, self.data)
 
       if re.match(r'(\d{1}/[OFECVR]/)|NM', self.get('state'), re.I):
-         raise analyError('hit forbbiden element', self.data)
+         raise analyError(False, err, self.data)
+
+      LogEvent('check forbbiden flag, ok')
 
    def check_detr_exist(self):
+      err = 'detr option was not done before'
+      if len(self.illegal) > self.cur:
+         err = self.illegal[self.cur]
+
       if self.at('detr') is not None:
          pass
       else:
-         raise analyError('detr option is not done before!')
+         raise analyError(False, err)
+
+      LogEvent('detr exist, ok')
 
    def check_detr_state(self):
+
+      err = 'detr context invalid'
+      if len(self.illegal) > self.cur:
+         err = self.illegal[self.cur]
+
       detr = self.at('detr')
       tickets = detr['ticket']
       if len(tickets) > 0:
@@ -129,15 +153,20 @@ class tsuTask(baseTask):
             if 'OPEN FOR USE' in state:
                pass
             elif 'USED' in state:
-               raise analyError('ticket is used!')
+               raise analyError(False, 'ticket is used!') # can do tsu
             else:
-               analyError('cannot do tsu for ticket state:\"OPEN FOR USE\"')
+               analyError(False, 'ticket state is not \"OPEN FOR USE\"')
          else:
-            raise analyError('no match ticket in detr', detr)
+            raise analyError(False, 'no match ticket in detr', detr) # can do tsu
       else:
-         raise analyError('no ticket in detr', detr)
+         raise analyError(False, 'no match ticket in detr', detr)
+      LogEvent('detr context, ok')
 
    def check_detr_date(self):
+      err = 'detr ticket date invalid'
+      if len(self.illegal) > self.cur:
+         err = self.illegal[self.cur]
+
       detr = self.at('detr')
       tickets = detr['ticket']
       if len(tickets) > 0:
@@ -148,18 +177,33 @@ class tsuTask(baseTask):
                ticket = t
                break
          if ticket['time'] is None:
-            raise analyError('date:[%s] is invalid' % ticket['date'])
+            raise analyError(False, 'date:[%s] is invalid' % ticket['date'])
          if ticket['time'] < self.get('cmdTime'):
-            raise analyError('ticket is expired!')
+            LogEvent('ticket is expired, tsu ok')
+            raise analyError(True, 'ticket is expired!')
+
+      LogEvent('ticket date ok')
    
    def check_rt_exist(self):
+      err = 'rt option was not done before'
+      if len(self.illegal) > self.cur:
+         err = self.illegal[self.cur]
+
       rt = self.at('rt')
       if rt is not None:
          pass
       else:
-         raise analyError('rt option is not done before!')
+         LogEvent('')
+         raise analyError(False, err)
+
+      LogEvent('rt exist, ok')
 
    def check_rt_match(self):
+
+      err = 'tsu ticket in rt context'
+      if len(self.illegal) > self.cur:
+         err = self.illegal[self.cur]
+
       detr = self.at('detr')
       tickets = detr['ticket']
       ticket = {}
@@ -178,11 +222,10 @@ class tsuTask(baseTask):
                ticket['comp'] == ssr['comp'] and ticket['plane'] == ssr['plane'] and
                ticket['magic'] == ssr['magic'] and ticket['date'] == ssr['date'] and
                ticket['idx'] == int(ssr['idx']) ):
-               raise analyError('ticket is still valid', rt)
+               raise analyError(False, err, rt)
+               break
             else:
                pass
-      else:
-         pass
 
    def go(self):
       self.__prepare()
@@ -215,17 +258,20 @@ class tsuTask(baseTask):
       """
 
       result = {}
+      self.cur = 0
       for stageName in self.stage_dict:
          stage = self.rule['stage'][stageName]
          steps = stage['function']
          try:
             for step in steps:
                res = eval(funcMap[step['entry']])(self, result)
+               self.cur += 1
                if res == 'illegal':
                   # result contains all info of error
                   break
          except analyError,e:
-            LogError('catch an exception: %s', e.detail)
+            if not e.ok:
+               LogError('catch an exception: %s', e.detail)
             break
 
       return result

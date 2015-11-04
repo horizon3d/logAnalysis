@@ -2,8 +2,9 @@
 # -*- coding:utf-8 -*-
 
 class analyError(Exception):
-   def __init__(self, err, ev = {}):
+   def __init__(self, ok, err, ev = {}):
       self.__type = 'analysis error'
+      self.__ok = ok
       self.__event = ev
       self.__error = err
 
@@ -22,6 +23,10 @@ class analyError(Exception):
    @property
    def detail(self):
       return self.__error
+
+   @property
+   def ok(self):
+      return self.__ok
 
 class dbError(Exception):
    def __init__(self, code, err):

@@ -26,6 +26,7 @@ def thread_entry(conn, dbAdapter):
       if data is not None:
          dbAdapter.upsert('log', data)
          count += 1
+         LogEvent('received msg: \n%s, NO: %d', str(data), count)
          if data['cmdTime'] is None:
             LogEvent('received msg with invalid cmdTime from user: %s, sid: %s', data['user'], data['sid'])
          console('received a msg, cmd: %s, cmdTime: %r, No: %d', data['cmd'], data['cmdTime'], count)
@@ -88,7 +89,7 @@ def assign_rule(dbAdapter, data):
                rules.append(rule)
             except SDBEndOfCursor:
                break
-
+         #LogEvent('rules: %s', str(rules))   
          for rule in rules:
             if trig(rule, data['cmd']):
                task = createTask(data['cmd'], dbAdapter, rule, data)
@@ -128,7 +129,8 @@ class server(object):
          try:
             remote, addr = self.__sock.accept()
          except socket.error,e:
-            LogEvent('Failed to accept remote connection, error: %s', e)
+            LogError('Failed to accept remote connection, error: %s', e)
+            return
 
          if remote is not None:
             conn = connection(remote)
@@ -136,7 +138,7 @@ class server(object):
             thread.start_new_thread(thread_entry, (conn, self.__dbAdapter))
          else:
             LogError('Failed to accept remote connection, please check port number')
-            time.sleep(2)
+            return
 
    def stop(self):
       self.__run = False

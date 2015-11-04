@@ -13,6 +13,7 @@ class baseTask(object):
       self.__data = data
       self.stage_dict = []
       self.__store = {}
+      self.illegal = []
 
    def __del__(self):
       pass
@@ -41,6 +42,10 @@ class baseTask(object):
       stage = self.rule['stage']
       for key in stage:
          self.stage_dict.append(key)
+         entrys = stage.get(key)['function']
+         for e in entrys:
+            self.illegal.append(e.get('return')['illegal'])
+      #console('illegal string: %s', str(self.illegal))
 
    def go(self):
       console('run in base task, do nothing')
